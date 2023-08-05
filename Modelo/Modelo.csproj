@@ -43,12 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriaProducto.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="CondicionFiscal.cs" />
     <Compile Include="ItemCompra.cs" />
-    <Compile Include="ItemCompraCambio.cs" />
-    <Compile Include="ItemCompraUso.cs" />
     <Compile Include="ItemVenta.cs" />
     <Compile Include="OrdenCompra.cs" />
     <Compile Include="Producto.cs" />
