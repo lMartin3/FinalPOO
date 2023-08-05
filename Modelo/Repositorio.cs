@@ -9,7 +9,7 @@ namespace Modelo
 {
     public abstract class Repositorio<T>
     {
-        private List<T> elementos;
+        protected List<T> elementos;
         public ReadOnlyCollection<T> ElementosAlmacenados => elementos.AsReadOnly();
         public virtual void AnadirElemento(T nuevoElemento)
         {
