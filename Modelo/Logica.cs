@@ -8,9 +8,9 @@ namespace Modelo
 {
     public class Logica
     {
-        RepoClientes clientes;
-        RepoProductos productos;
-        RepoProveedores proveedores;
+        public RepoClientes clientes;
+        public RepoProductos productos;
+        public RepoProveedores proveedores;
         public Logica()
         {
             //Esto esta re mal creo no se estoy probando ostra cosa
@@ -18,6 +18,11 @@ namespace Modelo
         }
 
         private void Inicio()
+        {
+            DummyRepositoriesFill();
+        }
+
+        private void DummyRepositoriesFill()
         {
             //Clientes dummies
             Cliente cliente1 = new Cliente(45555515, CondicionFiscal.MONOTRIBUTISTA, "Juan Carlo Esposito", "Suipacha 2002");
@@ -27,10 +32,13 @@ namespace Modelo
             clientes.AnadirElemento(cliente2);
             clientes.AnadirElemento(cliente3);
             //Categorias Producto
-
+            CategoriaProducto categoriaLacteos = new CategoriaProducto(0, "Lacteo", "Productos que dió la vaca.");
+            CategoriaProducto categoriaCarnes = new CategoriaProducto(0, "Carne", "Productos que le sacamos a la vaca.");
             //Productos dummies
-            Producto producto1 = new Producto(0, "Coca Cola 3L", "Una coca de tres listros", 1200, 20, );
-            clientes.AnadirElemento(cliente1);
+            Producto producto1 = new Producto(0, "Coca Cola 3L", "Una coca de tres litros", 1200, 20, categoriaLacteos);
+            Producto producto2 = new Producto(0, "Milanesa", "1.5KG de milanesa lista para freir", 2000, 20, categoriaCarnes);
+            productos.AnadirElemento(producto1);
+            productos.AnadirElemento(producto2);
         }
     }
 }
