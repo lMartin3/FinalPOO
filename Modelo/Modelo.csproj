@@ -47,10 +47,7 @@
     <Compile Include="RepoProductos.cs" />
     <Compile Include="RepoClientes.cs" />
     <Compile Include="CategoriaProducto.cs" />
-<<<<<<< HEAD
     <Compile Include="Logica.cs" />
-=======
->>>>>>> efe3e793cdd48c53c4cc162ead93374c88878bbb
     <Compile Include="Cliente.cs" />
     <Compile Include="CondicionFiscal.cs" />
     <Compile Include="ItemCompra.cs" />
