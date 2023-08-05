@@ -42,13 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RepoProveedores.cs" />
+    <Compile Include="Repositorio.cs" />
+    <Compile Include="RepoProductos.cs" />
+    <Compile Include="RepoClientes.cs" />
     <Compile Include="CategoriaProducto.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Logica.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="CondicionFiscal.cs" />
     <Compile Include="ItemCompra.cs" />
-    <Compile Include="ItemCompraCambio.cs" />
-    <Compile Include="ItemCompraUso.cs" />
     <Compile Include="ItemVenta.cs" />
     <Compile Include="OrdenCompra.cs" />
     <Compile Include="Producto.cs" />
