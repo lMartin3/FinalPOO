@@ -2,13 +2,13 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Modelo.Producto">
     <Position X="5.75" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAEAABAAAAAAAAAAACAAAAAAAIAAEA=</HashCode>
       <FileName>Producto.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_categoriaProducto" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Modelo.ItemVenta">
     <Position X="3" Y="3.25" Width="1.5" />
@@ -60,36 +60,15 @@
       <Field Name="_items" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Modelo.CategoriaProducto">
-    <Position X="5.75" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>CategoriaProducto.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Modelo.ItemCompra">
-    <Position X="10.5" Y="3.5" Width="1.5" />
+    <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIAAAAAAAIA=</HashCode>
       <FileName>ItemCompra.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Modelo.ItemCompraCambio">
-    <Position X="8.25" Y="3.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>ItemCompraCambio.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_producto" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="Modelo.ItemCompraUso">
-    <Position X="12.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>ItemCompraUso.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Enum Name="Modelo.CondicionFiscal">
     <Position X="5.75" Y="1.5" Width="2.75" />

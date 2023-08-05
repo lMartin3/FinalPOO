@@ -9,5 +9,6 @@ namespace Modelo
     {
         private int _cantidad;
         private float _precioUnitario;
+        private Producto _producto;
     }
 }
