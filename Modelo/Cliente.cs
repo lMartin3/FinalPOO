@@ -7,7 +7,7 @@ namespace Modelo
 {
     public class Cliente
     {
-        private long _dni; //DNI o CUIT
+        private long _dni; //DNI o CUIT 
         private CondicionFiscal _condicionFiscal;
         private string _nombre;
         private string _direccion;
