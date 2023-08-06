@@ -7,8 +7,15 @@ namespace Modelo
 {
     public abstract class ItemCompra
     {
-        private int _cantidad;
-        private float _precioUnitario;
-        private Producto _producto;
+        public Producto Producto { get; private set; }
+        public int Cantidad { get; private set; }
+        public float PrecioUnitario { get; private set; }
+        public ItemCompra(Producto producto, int cantidad, float precioUnitario)
+        {
+            Producto = producto;
+            Cantidad = cantidad;
+            PrecioUnitario = precioUnitario;
+        }
+
     }
 }

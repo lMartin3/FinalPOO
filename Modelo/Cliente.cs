@@ -7,17 +7,18 @@ namespace Modelo
 {
     public class Cliente
     {
-        private long _dni; //DNI o CUIT 
-        private CondicionFiscal _condicionFiscal;
-        private string _nombre;
-        private string _direccion;
-
+        public long Dni { get; private set; } //DNI o CUIT 
+        public CondicionFiscal CondicionFiscal { get; private set; }
+        public string Nombre { get; private set; }
+        public string Direccion { get; private set; }
         public Cliente(long dni, CondicionFiscal condicionFiscal, string nombre, string direccion)
         {
-            _dni = dni;
-            _condicionFiscal = condicionFiscal;
-            _nombre = nombre;
-            _direccion = direccion;
+            Dni = dni;
+            CondicionFiscal = condicionFiscal;
+            Nombre = nombre;
+            Direccion = direccion;
         }
+
+
     }
 }

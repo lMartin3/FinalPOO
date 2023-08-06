@@ -7,21 +7,22 @@ namespace Modelo
 {
     public class Producto
     {
-        private int _id;
-        private string _nombre;
-        private string _descripcion;
-        private float _precio;
-        private int _stock;
-        private CategoriaProducto _categoriaProducto;
-
+        public int Id { get; private set; }
+        public string Nombre { get; private set; }
+        public string Descripcion { get; private set; }
+        public float Precio { get; private set; }
+        public int Stock { get; private set; }
+        public CategoriaProducto CategoriaProducto { get; private set; }
         public Producto(int id, string nombre, string descripcion, float precio, int stock, CategoriaProducto categoriaProducto)
         {
-            _id = id;
-            _nombre = nombre;
-            _descripcion = descripcion;
-            _precio = precio;
-            _stock = stock;
-            _categoriaProducto = categoriaProducto;
+            Id = id;
+            Nombre = nombre;
+            Descripcion = descripcion;
+            Precio = precio;
+            Stock = stock;
+            CategoriaProducto = categoriaProducto;
         }
+
+
     }
 }
