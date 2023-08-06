@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dato\Proveedor.cs" />
     <Compile Include="Dato\Venta.cs" />
+    <Compile Include="Util\CondicionFiscalUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
