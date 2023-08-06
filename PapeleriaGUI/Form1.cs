@@ -14,7 +14,7 @@ namespace PapeleriaGUI
 {
     public partial class Form1 : Form
     {
-        Logica logica;
+        Papeleria logica;
         Venta currentVenta = new Venta();
         public Form1()
         {
@@ -23,15 +23,15 @@ namespace PapeleriaGUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            logica = new Logica();
+            logica = new Papeleria();
             PopularComboBoxes();
             RefrescarGridItems();
         }
         private void PopularComboBoxes()
         {
-            itemVentaProductoComboBox.DataSource = logica.productos.ElementosAlmacenados.ToList();
+            itemVentaProductoComboBox.DataSource = logica.Productos.ElementosAlmacenados.ToList();
             itemVentaProductoComboBox.DisplayMember = "Nombre";
-            clienteComboBox.DataSource = logica.clientes.ElementosAlmacenados.ToList();
+            clienteComboBox.DataSource = logica.Clientes.ElementosAlmacenados.ToList();
             clienteComboBox.DisplayMember = "Nombre";
 
         }
