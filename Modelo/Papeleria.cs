@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    public class Logica
+    public class Papeleria
     {
-        public RepoClientes clientes = new RepoClientes();
-        public RepoProductos productos = new RepoProductos();
-        public RepoProveedores proveedores = new RepoProveedores();
-        public RepoVentas ventas = new RepoVentas();
-        public Logica()
+        private RepoClientes clientes = new RepoClientes();
+        private RepoProductos productos = new RepoProductos();
+        private RepoProveedores proveedores = new RepoProveedores();
+        private RepoVentas ventas = new RepoVentas();
+
+        public RepoClientes Clientes { get => clientes; private set => clientes = value; }
+        public RepoProductos Productos { get => productos; private set => productos = value; }
+        public RepoProveedores Proveedores { get => proveedores; private set => proveedores = value; }
+        public RepoVentas Ventas { get => ventas; private set => ventas = value; }
+
+        public Papeleria()
         {
             //Esto esta re mal creo no se estoy probando ostra cosa
             Inicio();
@@ -25,7 +31,7 @@ namespace Modelo
 
         public bool IntentarRegistrarVenta(Venta venta)
         {
-            return ventas.IntentarAnadirElemento(venta);
+            return Ventas.AgregarElemento(venta);
         }
 
         private void DummyRepositoriesFill()
@@ -34,17 +40,20 @@ namespace Modelo
             Cliente cliente1 = new Cliente(45555515, CondicionFiscal.MONOTRIBUTISTA, "Juan Carlo Esposito", "Suipacha 2002");
             Cliente cliente2 = new Cliente(45555516, CondicionFiscal.RESPONSABLE_INSCRIPTO, "Tarlos Tabón", "Floripia 16");
             Cliente cliente3 = new Cliente(45555517, CondicionFiscal.CONSUMIDOR_FINAL, "Damian Pepino", "Mendoza 2335");
-            clientes.IntentarAnadirElemento(cliente1);
-            clientes.IntentarAnadirElemento(cliente2);
-            clientes.IntentarAnadirElemento(cliente3);
+            Clientes.AgregarElemento(cliente1);
+            Clientes.AgregarElemento(cliente2);
+            Clientes.AgregarElemento(cliente3);
             //Categorias Producto
             CategoriaProducto categoriaLacteos = new CategoriaProducto(0, "Lacteo", "Productos que dió la vaca.");
             CategoriaProducto categoriaCarnes = new CategoriaProducto(0, "Carne", "Productos que le sacamos a la vaca.");
             //Productos dummies
             Producto producto1 = new Producto(0, "Coca Cola 3L", "Una coca de tres litros", 1200, 20, categoriaLacteos);
             Producto producto2 = new Producto(0, "Milanesa", "1.5KG de milanesa lista para freir", 2000, 20, categoriaCarnes);
-            productos.IntentarAnadirElemento(producto1);
-            productos.IntentarAnadirElemento(producto2);
+            Productos.AgregarElemento(producto1);
+            Productos.AgregarElemento(producto2);
         }
+
+
+
     }
 }

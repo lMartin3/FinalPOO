@@ -42,22 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RepoVentas.cs" />
-    <Compile Include="RepoProveedores.cs" />
-    <Compile Include="Repositorio.cs" />
-    <Compile Include="RepoProductos.cs" />
-    <Compile Include="RepoClientes.cs" />
-    <Compile Include="CategoriaProducto.cs" />
-    <Compile Include="Logica.cs" />
-    <Compile Include="Cliente.cs" />
-    <Compile Include="CondicionFiscal.cs" />
-    <Compile Include="ItemCompra.cs" />
-    <Compile Include="ItemVenta.cs" />
-    <Compile Include="OrdenCompra.cs" />
-    <Compile Include="Producto.cs" />
+    <Compile Include="Repositorios\RepoVentas.cs" />
+    <Compile Include="Repositorios\RepoProveedores.cs" />
+    <Compile Include="Repositorios\Repositorio.cs" />
+    <Compile Include="Repositorios\RepoProductos.cs" />
+    <Compile Include="Repositorios\RepoClientes.cs" />
+    <Compile Include="Dato\CategoriaProducto.cs" />
+    <Compile Include="Papeleria.cs" />
+    <Compile Include="Dato\Cliente.cs" />
+    <Compile Include="Dato\CondicionFiscal.cs" />
+    <Compile Include="Dato\ItemCompra.cs" />
+    <Compile Include="Dato\ItemVenta.cs" />
+    <Compile Include="Dato\OrdenCompra.cs" />
+    <Compile Include="Dato\Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proveedor.cs" />
-    <Compile Include="Venta.cs" />
+    <Compile Include="Dato\Proveedor.cs" />
+    <Compile Include="Dato\Venta.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
