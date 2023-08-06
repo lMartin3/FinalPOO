@@ -27,5 +27,11 @@ namespace PapeleriaGUI
         {
 
         }
+
+        private void btnAgregarCliente_Click(object sender, EventArgs e)
+        {
+            FormCreacionCliente formCreacionCliente = new FormCreacionCliente();
+            formCreacionCliente.ShowDialog();
+        }
     }
 }

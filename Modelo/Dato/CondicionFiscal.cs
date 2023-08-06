@@ -11,4 +11,5 @@ namespace Modelo
         MONOTRIBUTISTA,
         RESPONSABLE_INSCRIPTO
     }
+
 }

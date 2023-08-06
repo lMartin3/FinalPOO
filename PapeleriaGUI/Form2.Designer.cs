@@ -165,6 +165,7 @@
             this.btnAgregarCliente.TabIndex = 4;
             this.btnAgregarCliente.Text = "Agregar Cliente";
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
             // gridClientes
             // 
