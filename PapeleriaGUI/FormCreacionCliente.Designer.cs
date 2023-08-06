@@ -103,6 +103,7 @@
             // 
             // cbCondicion
             // 
+            this.cbCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCondicion.FormattingEnabled = true;
             this.cbCondicion.Items.AddRange(new object[] {
             "CONSUMIDOR FINAL",
@@ -131,6 +132,7 @@
             this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 
@@ -140,6 +142,7 @@
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FormCreacionCliente
             // 
