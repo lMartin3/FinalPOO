@@ -281,7 +281,7 @@
             // gridProductos
             // 
             this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProductos.Location = new System.Drawing.Point(6, 6);
+            this.gridProductos.Location = new System.Drawing.Point(3, 6);
             this.gridProductos.Name = "gridProductos";
             this.gridProductos.Size = new System.Drawing.Size(693, 539);
             this.gridProductos.TabIndex = 6;

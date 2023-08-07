@@ -28,6 +28,7 @@ namespace PapeleriaGUI
             gridOrdenes.DataSource = papeleria.Ordenes.ElementosAlmacenados;
             gridProveedores.DataSource = papeleria.Proveedores.ElementosAlmacenados;
             gridProductos.DataSource = papeleria.Productos.ElementosAlmacenados;
+            gridCategorias.DataSource = papeleria.Categorias.ElementosAlmacenados;
         }
 
         private void btnAgregarVenta_Click(object sender, EventArgs e)
