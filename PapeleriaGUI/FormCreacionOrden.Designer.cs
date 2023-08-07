@@ -35,7 +35,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.cbProductoItem = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCantidadItem = new System.Windows.Forms.TextBox();
             this.txtPrecioItem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,9 +44,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnEliminarItem = new System.Windows.Forms.Button();
+            this.nCantidadItem = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).BeginInit();
             this.gbItems.SuspendLayout();
             this.gbOrden.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nCantidadItem)).BeginInit();
             this.SuspendLayout();
             // 
             // gridItems
@@ -60,12 +61,12 @@
             // 
             // gbItems
             // 
+            this.gbItems.Controls.Add(this.nCantidadItem);
             this.gbItems.Controls.Add(this.btnEliminarItem);
             this.gbItems.Controls.Add(this.btnAgregarItem);
             this.gbItems.Controls.Add(this.label3);
             this.gbItems.Controls.Add(this.label2);
             this.gbItems.Controls.Add(this.txtPrecioItem);
-            this.gbItems.Controls.Add(this.txtCantidadItem);
             this.gbItems.Controls.Add(this.label1);
             this.gbItems.Controls.Add(this.cbProductoItem);
             this.gbItems.Location = new System.Drawing.Point(752, 12);
@@ -129,14 +130,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Producto";
             // 
-            // txtCantidadItem
-            // 
-            this.txtCantidadItem.Location = new System.Drawing.Point(29, 92);
-            this.txtCantidadItem.Name = "txtCantidadItem";
-            this.txtCantidadItem.Size = new System.Drawing.Size(257, 20);
-            this.txtCantidadItem.TabIndex = 2;
-            this.txtCantidadItem.TextChanged += new System.EventHandler(this.txtCantidadItem_TextChanged);
-            // 
             // txtPrecioItem
             // 
             this.txtPrecioItem.Location = new System.Drawing.Point(29, 144);
@@ -179,6 +172,7 @@
             this.txtNroOrden.Name = "txtNroOrden";
             this.txtNroOrden.Size = new System.Drawing.Size(257, 20);
             this.txtNroOrden.TabIndex = 2;
+            this.txtNroOrden.TextChanged += new System.EventHandler(this.txtNroOrden_TextChanged);
             // 
             // cbProveedorOrden
             // 
@@ -188,6 +182,7 @@
             this.cbProveedorOrden.Name = "cbProveedorOrden";
             this.cbProveedorOrden.Size = new System.Drawing.Size(257, 21);
             this.cbProveedorOrden.TabIndex = 7;
+            this.cbProveedorOrden.SelectedIndexChanged += new System.EventHandler(this.cbProveedorOrden_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -215,6 +210,15 @@
             this.btnEliminarItem.TabIndex = 7;
             this.btnEliminarItem.Text = "Eliminar Item seleccionado";
             this.btnEliminarItem.UseVisualStyleBackColor = true;
+            this.btnEliminarItem.Click += new System.EventHandler(this.btnEliminarItem_Click);
+            // 
+            // nCantidadItem
+            // 
+            this.nCantidadItem.Location = new System.Drawing.Point(32, 92);
+            this.nCantidadItem.Name = "nCantidadItem";
+            this.nCantidadItem.Size = new System.Drawing.Size(254, 20);
+            this.nCantidadItem.TabIndex = 8;
+            this.nCantidadItem.ValueChanged += new System.EventHandler(this.nCantidadItem_ValueChanged);
             // 
             // FormCreacionOrden
             // 
@@ -231,6 +235,7 @@
             this.gbItems.PerformLayout();
             this.gbOrden.ResumeLayout(false);
             this.gbOrden.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nCantidadItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,7 +250,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbProductoItem;
         private System.Windows.Forms.TextBox txtPrecioItem;
-        private System.Windows.Forms.TextBox txtCantidadItem;
         private System.Windows.Forms.Button btnAgregarItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -254,5 +258,6 @@
         private System.Windows.Forms.ComboBox cbProveedorOrden;
         private System.Windows.Forms.TextBox txtNroOrden;
         private System.Windows.Forms.Button btnEliminarItem;
+        private System.Windows.Forms.NumericUpDown nCantidadItem;
     }
 }
