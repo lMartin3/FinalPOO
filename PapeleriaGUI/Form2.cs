@@ -18,12 +18,21 @@ namespace PapeleriaGUI
         {
             this.papeleria = papeleria;
             InitializeComponent();
+            ActualizarGrids();
+        }
+
+        private void ActualizarGrids()
+        {
+            gridVentas.DataSource = papeleria.Ventas.ElementosAlmacenados;
+            gridClientes.DataSource = papeleria.Clientes.ElementosAlmacenados;
+            gridOrdenes.DataSource = papeleria.Ordenes.ElementosAlmacenados;
         }
 
         private void btnAgregarVenta_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.ShowDialog();
+            ActualizarGrids();
         }
 
         private void btnEliminarVenta_Click(object sender, EventArgs e)
@@ -35,6 +44,14 @@ namespace PapeleriaGUI
         {
             FormCreacionCliente formCreacionCliente = new FormCreacionCliente(papeleria);
             formCreacionCliente.ShowDialog();
+            ActualizarGrids();
+        }
+
+        private void btnAgregarOrden_Click(object sender, EventArgs e)
+        {
+            FormCreacionOrden formCreacionOrden = new FormCreacionOrden(papeleria);
+            formCreacionOrden.ShowDialog();
+            ActualizarGrids();
         }
     }
 }
