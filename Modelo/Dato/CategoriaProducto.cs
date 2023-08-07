@@ -7,10 +7,6 @@ namespace Modelo
 {
     public class CategoriaProducto
     {
-        private int _id;
-        private string _nombre;
-        private string _descripcion;
-
         public CategoriaProducto(int id, string nombre, string descripcion)
         {
             Id = id;
@@ -18,9 +14,9 @@ namespace Modelo
             Descripcion = descripcion;
         }
 
-        public int Id { get => _id; set => _id = value; }
-        public string Nombre { get => _nombre; set => _nombre = value; }
-        public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
 
         public override string ToString()
         {

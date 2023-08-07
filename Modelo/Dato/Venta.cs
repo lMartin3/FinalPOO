@@ -8,11 +8,11 @@ namespace Modelo
 {
     public class Venta
     {
-        private int _id;
-        private DateTime _fecha;
-        private Cliente _cliente;
-        private List<ItemVenta> _items;
-        public ReadOnlyCollection<ItemVenta> itemsReadonly => _items.AsReadOnly();
+        private int Id { get; set; }
+        private DateTime Fecha { get; set; }
+        private Cliente Cliente { get; set; }
+        private List<ItemVenta> Items { get; set; }
+        public ReadOnlyCollection<ItemVenta> itemsReadonly => Items.AsReadOnly();
 
         //(TODO) no se si sigue los estandares
         public Venta(int id = 0, 
@@ -20,20 +20,20 @@ namespace Modelo
             Cliente cliente = null, 
             List<ItemVenta> items = null)
         {
-            _id = id;
-            _fecha = fecha;
-            _cliente = cliente;
+            Id = id;
+            Fecha = fecha;
+            Cliente = cliente;
             if (items == null)
             {
                 items = new List<ItemVenta>();
             }
-            _items = items;
+            Items = items;
         }
 
         public float CalcularPrecioTotal()
         {
             float precio = 0;
-            foreach(ItemVenta item in _items)
+            foreach(ItemVenta item in Items)
             {
                 precio += item.PrecioUnitario * item.Cantidad;
             }
@@ -58,21 +58,21 @@ namespace Modelo
             {
                 return false;
             }
-            _items.Add(itemAAgregar);
+            Items.Add(itemAAgregar);
             return true;
         }
         public bool EliminarItem(ItemVenta item)
         {
-            return _items.Remove(item);
+            return Items.Remove(item);
         }
         public void LimpiarItems()
         {
-            _items.Clear();
+            Items.Clear();
         }
 
         public int ObtenerStockUtilizadoDeProducto(Producto producto)
         {
-            return _items.Where(itm => itm.Producto == producto)
+            return Items.Where(itm => itm.Producto == producto)
                 .Sum(itm => itm.Cantidad);
         }
     }

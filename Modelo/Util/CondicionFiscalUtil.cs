@@ -15,10 +15,7 @@ namespace Modelo.Util
             CondicionFiscal.RESPONSABLE_INSCRIPTO
         };
 
-        public static ReadOnlyCollection<CondicionFiscal> ListaCondiciones
-        {
-            get => listaCondiciones.AsReadOnly();
-        }
+        public static ReadOnlyCollection<CondicionFiscal> ListaCondiciones => listaCondiciones.AsReadOnly();
 
         private static readonly Dictionary<String, CondicionFiscal> condiciones = new Dictionary<String, CondicionFiscal>() {
             { "CONSUMIDOR FINAL", CondicionFiscal.CONSUMIDOR_FINAL },

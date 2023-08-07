@@ -7,15 +7,11 @@ namespace Modelo
 {
     public class Proveedor
     {
-        private string _cuit;
-        private CondicionFiscal _condicionFiscal;
-        private string _razonSocial;
-        private string _direccion;
 
-        public string Cuit { get => _cuit; set => _cuit = value; }
-        public CondicionFiscal CondicionFiscal { get => _condicionFiscal; set => _condicionFiscal = value; }
-        public string RazonSocial { get => _razonSocial; set => _razonSocial = value; }
-        public string Direccion { get => _direccion; set => _direccion = value; }
+        public string Cuit { get; set; }
+        public CondicionFiscal CondicionFiscal { get; set; }
+        public string RazonSocial { get; set; }
+        public string Direccion { get; set; }
 
         public Proveedor(string cuit, CondicionFiscal condicionFiscal, string razonSocial, string direccion)
         {
@@ -29,9 +25,10 @@ namespace Modelo
         {
         }
 
-        public override string ToString() {
-        return RazonSocial;
-    }
+        public override string ToString()
+        {
+            return RazonSocial;
+        }
     }
 
 }
