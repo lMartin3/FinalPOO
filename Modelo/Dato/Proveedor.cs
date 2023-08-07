@@ -17,7 +17,19 @@ namespace Modelo
         public string RazonSocial { get => _razonSocial; set => _razonSocial = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
 
-    public override string ToString() {
+        public Proveedor(string cuit, CondicionFiscal condicionFiscal, string razonSocial, string direccion)
+        {
+            Cuit = cuit;
+            CondicionFiscal = condicionFiscal;
+            RazonSocial = razonSocial;
+            Direccion = direccion;
+        }
+
+        public Proveedor()
+        {
+        }
+
+        public override string ToString() {
         return RazonSocial;
     }
     }

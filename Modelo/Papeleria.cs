@@ -54,7 +54,10 @@ namespace Modelo
             Productos.AgregarElemento(producto1);
             Productos.AgregarElemento(producto2);
 
-            Proveedor proveedor1 = new Proveedor();
+            Proveedor proveedor1 = new Proveedor("20112223337", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Los Pollos Hermanos S.R.L.", "El Paso 512");
+            Proveedor proveedor2 = new Proveedor("20445556668", CondicionFiscal.MONOTRIBUTISTA, "Heisenberg S.A.", "Nuevo México 602");
+            Proveedores.AgregarElemento(proveedor1);
+            Proveedores.AgregarElemento(proveedor2);
         }
 
 

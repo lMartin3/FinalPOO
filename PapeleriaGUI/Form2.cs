@@ -53,5 +53,13 @@ namespace PapeleriaGUI
             formCreacionOrden.ShowDialog();
             ActualizarGrids();
         }
+
+        private void btnEliminarOrden_Click(object sender, EventArgs e)
+        {
+            if (gridOrdenes.CurrentRow == null) return;
+            OrdenCompra orden = gridOrdenes.CurrentRow.DataBoundItem as OrdenCompra;
+            papeleria.Ordenes.EliminarElemento(orden);
+            ActualizarGrids();
+        }
     }
 }

@@ -21,9 +21,9 @@ namespace PapeleriaGUI
         {
             this.papeleria = papeleria;
             InitializeComponent();
-            items.Add(new ItemCompra());
             gridItems.DataSource = items;
             btnAgregarItem.Enabled = false;
+            btnCrearOrden.Enabled = false;
             foreach(Producto producto in papeleria.Productos.ElementosAlmacenados)
             {
                 cbProductoItem.Items.Add(producto.Nombre);
@@ -49,7 +49,8 @@ namespace PapeleriaGUI
         {
             bool habilitar =
                 esNumeroPositivo(txtNroOrden.Text) &&
-                cbProveedorOrden.Text.Length > 0;
+                cbProveedorOrden.Text.Length > 0 &&
+                items.Count > 0;
 
             btnCrearOrden.Enabled = habilitar;
         }
@@ -76,10 +77,6 @@ namespace PapeleriaGUI
             return res > 0;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -101,6 +98,7 @@ namespace PapeleriaGUI
 
             items.Add(itemCompra);
             LimpiarCamposItem();
+            ActualizarBotonCompra();
         }
 
         private void cbProductoItem_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,6 +134,26 @@ namespace PapeleriaGUI
         private void cbProveedorOrden_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActualizarBotonCompra();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OrdenCompra ordenCompra = new OrdenCompra();
+            int nroOrden;
+            int.TryParse(txtNroOrden.Text, out nroOrden);
+            Proveedor proveedor = (Proveedor)cbProveedorOrden.SelectedItem;
+
+            ordenCompra.NroOrden = nroOrden;
+            ordenCompra.Proveedor = proveedor;
+            ordenCompra.Items = items;
+
+            bool resultado = papeleria.Ordenes.AgregarElemento(ordenCompra);
+            if(!resultado)
+            {
+                MessageBox.Show("Error al cargar la orden de compra!");
+                return;
+            }
+
+            Close();
         }
     }
 }

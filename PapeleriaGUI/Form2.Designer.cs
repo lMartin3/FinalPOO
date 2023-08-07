@@ -170,6 +170,7 @@
             this.btnEliminarOrden.TabIndex = 5;
             this.btnEliminarOrden.Text = "Elimar Orden";
             this.btnEliminarOrden.UseVisualStyleBackColor = true;
+            this.btnEliminarOrden.Click += new System.EventHandler(this.btnEliminarOrden_Click);
             // 
             // btnAgregarOrden
             // 
