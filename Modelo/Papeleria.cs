@@ -12,11 +12,13 @@ namespace Modelo
         private RepoProductos productos = new RepoProductos();
         private RepoProveedores proveedores = new RepoProveedores();
         private RepoVentas ventas = new RepoVentas();
+        private RepoOrdenes ordenes = new RepoOrdenes();
 
         public RepoClientes Clientes { get => clientes; private set => clientes = value; }
         public RepoProductos Productos { get => productos; private set => productos = value; }
         public RepoProveedores Proveedores { get => proveedores; private set => proveedores = value; }
         public RepoVentas Ventas { get => ventas; private set => ventas = value; }
+        public RepoOrdenes Ordenes { get => ordenes; private set => ordenes = value; }
 
         public Papeleria()
         {

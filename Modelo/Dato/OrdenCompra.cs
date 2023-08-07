@@ -7,8 +7,12 @@ namespace Modelo
 {
     public class OrdenCompra
     {
-        private int _id;
+        private int _nroOrden;
         private Proveedor _proveedor;
         private List<ItemCompra> _items;
+
+        public int NroOrden { get => _nroOrden; set => _nroOrden = value; }
+        public Proveedor Proveedor { get => _proveedor; set => _proveedor = value; }
+        public List<ItemCompra> Items { get => _items; set => _items = value; }
     }
 }
