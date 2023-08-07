@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Modelo
 {
-    public abstract class ItemCompra
+    public class ItemCompra
     {
         public Producto Producto { get; private set; }
         public int Cantidad { get; private set; }
@@ -16,6 +16,8 @@ namespace Modelo
             Cantidad = cantidad;
             PrecioUnitario = precioUnitario;
         }
+
+        public ItemCompra() { }
 
     }
 }
