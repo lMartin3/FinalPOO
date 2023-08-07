@@ -11,5 +11,10 @@ namespace Modelo
         {
             return true;
         }
+
+
+        public Producto BuscarPorNombre(string nombre) {
+            return elementos.Where(e=>e.Nombre == nombre).FirstOrDefault();
+        }
     }
 }

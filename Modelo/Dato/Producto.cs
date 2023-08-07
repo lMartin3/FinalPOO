@@ -23,6 +23,11 @@ namespace Modelo
             CategoriaProducto = categoriaProducto;
         }
 
+        public override string ToString() {
+            return Nombre;
+        }
+
+
 
     }
 }

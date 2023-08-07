@@ -11,5 +11,15 @@ namespace Modelo
         private CondicionFiscal _condicionFiscal;
         private string _razonSocial;
         private string _direccion;
+
+        public long Cuit { get => _cuit; set => _cuit = value; }
+        public CondicionFiscal CondicionFiscal { get => _condicionFiscal; set => _condicionFiscal = value; }
+        public string RazonSocial { get => _razonSocial; set => _razonSocial = value; }
+        public string Direccion { get => _direccion; set => _direccion = value; }
+
+    public override string ToString() {
+        return RazonSocial;
     }
+    }
+
 }
