@@ -22,6 +22,11 @@ namespace Modelo
             Direccion = direccion;
         }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
 
     }
 }

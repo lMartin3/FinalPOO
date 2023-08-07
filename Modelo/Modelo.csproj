@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dato\ItemProducto.cs" />
+    <Compile Include="Dato\ListaDeItemsProductoOrden.cs" />
+    <Compile Include="Dato\ListaDeItemsProductoVenta.cs" />
     <Compile Include="Dato\ListaDeItemsProducto.cs" />
     <Compile Include="Repositorios\RepoCategorias.cs" />
     <Compile Include="Repositorios\ResultadoRepositorio.cs" />

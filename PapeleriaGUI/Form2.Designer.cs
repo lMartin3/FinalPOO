@@ -118,6 +118,7 @@
             // 
             // gridVentas
             // 
+            this.gridVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridVentas.Location = new System.Drawing.Point(6, 6);
             this.gridVentas.Name = "gridVentas";
@@ -159,6 +160,7 @@
             // 
             // gridClientes
             // 
+            this.gridClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridClientes.Location = new System.Drawing.Point(6, 6);
             this.gridClientes.Name = "gridClientes";
@@ -200,6 +202,7 @@
             // 
             // gridOrdenes
             // 
+            this.gridOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridOrdenes.Location = new System.Drawing.Point(6, 6);
             this.gridOrdenes.Name = "gridOrdenes";
@@ -241,6 +244,7 @@
             // 
             // gridProveedores
             // 
+            this.gridProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProveedores.Location = new System.Drawing.Point(6, 6);
             this.gridProveedores.Name = "gridProveedores";
@@ -281,6 +285,7 @@
             // 
             // gridProductos
             // 
+            this.gridProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProductos.Location = new System.Drawing.Point(6, 6);
             this.gridProductos.Name = "gridProductos";
@@ -320,6 +325,7 @@
             // 
             // gridCategorias
             // 
+            this.gridCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCategorias.Location = new System.Drawing.Point(6, 6);
             this.gridCategorias.Name = "gridCategorias";
@@ -334,6 +340,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Form2";
             this.Text = "Papelería";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.tabControl.ResumeLayout(false);
             this.tabVentas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridVentas)).EndInit();

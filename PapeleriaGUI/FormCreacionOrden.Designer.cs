@@ -53,6 +53,7 @@
             // 
             // gridItems
             // 
+            this.gridItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridItems.Location = new System.Drawing.Point(12, 12);
             this.gridItems.Name = "gridItems";
@@ -230,6 +231,7 @@
             this.Controls.Add(this.gridItems);
             this.Name = "FormCreacionOrden";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.FormCreacionOrden_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
             this.gbItems.ResumeLayout(false);
             this.gbItems.PerformLayout();

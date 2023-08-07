@@ -12,7 +12,7 @@ namespace Modelo
         public int Codigo { get; set; }
         public DateTime Fecha { get; set; }
         public Cliente Cliente { get; set; }
-        public ListaDeItemsProducto ListaItems { get; set; }
+        public ListaDeItemsProducto listaItems;
 
         //(TODO) no se si sigue los estandares
         public Venta(int id = 0, 
@@ -23,7 +23,7 @@ namespace Modelo
             Codigo = id;
             Fecha = fecha;
             Cliente = cliente;
-            ListaItems = items;
+            listaItems = items;
         }
 
         public float Total
@@ -31,7 +31,7 @@ namespace Modelo
             get
             {
                 float totalItems = 0;
-                foreach (ItemProducto item in ListaItems.itemsReadonly)
+                foreach (ItemProducto item in listaItems.itemsReadonly)
                 {
                     totalItems += item.PrecioUnitario;
                 }

@@ -162,6 +162,7 @@
             this.Controls.Add(this.txtCuit);
             this.Name = "FormCreacionProveedor";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.FormCreacionProveedor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

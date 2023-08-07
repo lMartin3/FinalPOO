@@ -40,7 +40,10 @@ namespace PapeleriaGUI
 
         private void btnEliminarVenta_Click(object sender, EventArgs e)
         {
-
+            if (gridVentas.CurrentRow == null) return;
+            Venta venta = gridOrdenes.CurrentRow.DataBoundItem as Venta;
+            papeleria.Ventas.EliminarElemento(venta);
+            ActualizarGrids();
         }
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
@@ -93,6 +96,11 @@ namespace PapeleriaGUI
         }
 
         private void tabVentas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }

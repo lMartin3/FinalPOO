@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Modelo.Dato
 {
-    public class ListaDeItemsProducto
+    public abstract class  ListaDeItemsProducto
     {
-        public List<ItemProducto> items = new List<ItemProducto>();
+        private List<ItemProducto> items = new List<ItemProducto>();
         public ReadOnlyCollection<ItemProducto> itemsReadonly => items.AsReadOnly();
 
         public ListaDeItemsProducto(List<ItemProducto> items = null)
@@ -26,22 +26,13 @@ namespace Modelo.Dato
             return itemsReadonly.Where(itm => itm.Producto == producto)
                 .Sum(itm => itm.Cantidad);
         }
-
-        public bool AddItemVenta(ItemProducto itemAAgregar)
+        protected virtual bool EvaluarItem(ItemProducto itemAEvaluar)
         {
-            Producto productoDelItem = itemAAgregar.Producto;
-            if (productoDelItem == null)
-            {
-                return false;
-            }
-
-            //(TODO)no se si sigue las convenciones nada de esto
-            int stockUsadoEnVenta = ObtenerStockUtilizadoDeProducto(productoDelItem);
-
-            if (itemAAgregar.PrecioUnitario < 0 ||
-               itemAAgregar.Cantidad <= 0 ||
-               itemAAgregar.Cantidad + stockUsadoEnVenta > itemAAgregar.Producto.Stock
-               )
+            return true;
+        }
+        public bool AddItem(ItemProducto itemAAgregar)
+        {
+            if (!EvaluarItem(itemAAgregar))
             {
                 return false;
             }

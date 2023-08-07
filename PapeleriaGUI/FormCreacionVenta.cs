@@ -16,7 +16,7 @@ namespace PapeleriaGUI
     public partial class FormCreacionVenta : Form
     {
         private Papeleria papeleria;
-        private ListaDeItemsProducto listaItems = new ListaDeItemsProducto();
+        private ListaDeItemsProductoVenta listaItems = new ListaDeItemsProductoVenta();
         private Regex regexNum = new Regex("^[0-9]{1,}$");
         public FormCreacionVenta(Papeleria papeleria)
         {
@@ -93,7 +93,7 @@ namespace PapeleriaGUI
             itemVenta.Cantidad = cantidad;
             itemVenta.PrecioUnitario = producto.Precio;
 
-            if (!listaItems.AddItemVenta(itemVenta))
+            if (!listaItems.AddItem(itemVenta))
             {
                 MessageBox.Show("No se pudo registrar el item!");
             }
@@ -145,12 +145,12 @@ namespace PapeleriaGUI
 
             venta.Codigo = codVenta;
             venta.Cliente = cliente;
-            venta.ListaItems = listaItems;
-
+            venta.listaItems = listaItems;
+            venta.Fecha = ventaDateTimePicker.Value;
             bool resultado = papeleria.Ventas.AgregarElemento(venta);
             if(!resultado)
             {
-                MessageBox.Show("Error al cargar la venta!");
+                MessageBox.Show("Error al registrar la venta!");
                 return;
             }
 
@@ -166,7 +166,6 @@ namespace PapeleriaGUI
                 return;
             }
             nCantidadItem.Maximum = int.MaxValue;
-
         }
 
         private void FormCreacionVenta_Load(object sender, EventArgs e)

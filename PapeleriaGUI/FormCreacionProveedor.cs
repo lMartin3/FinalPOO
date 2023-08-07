@@ -80,5 +80,10 @@ namespace PapeleriaGUI
         {
             Close();
         }
+
+        private void FormCreacionProveedor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

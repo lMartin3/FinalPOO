@@ -16,13 +16,13 @@ namespace PapeleriaGUI
     public partial class FormCreacionOrden : Form
     {
         private Papeleria papeleria;
-        private List<ItemProducto> items = new List<ItemProducto>();
+        private ListaDeItemsProductoOrden listaItems = new ListaDeItemsProductoOrden();
         private Regex regexNum = new Regex("^[0-9]{1,}$");
         public FormCreacionOrden(Papeleria papeleria)
         {
             this.papeleria = papeleria;
             InitializeComponent();
-            gridItems.DataSource = items;
+            ActualizarGrid();
             btnAgregarItem.Enabled = false;
             btnCrearOrden.Enabled = false;
             foreach(Producto producto in papeleria.Productos.ElementosAlmacenados)
@@ -51,7 +51,7 @@ namespace PapeleriaGUI
             bool habilitar =
                 ValidacionUtil.EsNumeroPositivo(txtNroOrden.Text) &&
                 cbProveedorOrden.Text.Length > 0 &&
-                items.Count > 0;
+                listaItems.itemsReadonly.Count > 0;
 
             btnCrearOrden.Enabled = habilitar;
         }
@@ -67,7 +67,7 @@ namespace PapeleriaGUI
         private void ActualizarGrid()
         {
             gridItems.DataSource = null;
-            gridItems.DataSource = items;
+            gridItems.DataSource = listaItems;
         }
 
 
@@ -89,7 +89,7 @@ namespace PapeleriaGUI
             itemCompra.Cantidad = cantidad;
             itemCompra.PrecioUnitario = precioUnitario;
 
-            items.Add(itemCompra);
+            listaItems.AddItem(itemCompra);
             LimpiarCamposItem();
             ActualizarBotonCompra();
         }
@@ -115,7 +115,7 @@ namespace PapeleriaGUI
             if (gridItems.CurrentRow == null) return;
             int fila = gridItems.CurrentRow.Index;
             if (fila < 0) return;
-            items.RemoveAt(fila);
+            listaItems.RemoverItemEn(fila);
             ActualizarGrid(); 
         }
 
@@ -137,7 +137,7 @@ namespace PapeleriaGUI
 
             ordenCompra.NroOrden = nroOrden.ToString();
             ordenCompra.Proveedor = proveedor;
-            ordenCompra.listaItems = new ListaDeItemsProducto(items);
+            ordenCompra.listaItems = listaItems;
 
             bool resultado = papeleria.Ordenes.AgregarElemento(ordenCompra);
             if(!resultado)
@@ -147,6 +147,11 @@ namespace PapeleriaGUI
             }
 
             Close();
+        }
+
+        private void FormCreacionOrden_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

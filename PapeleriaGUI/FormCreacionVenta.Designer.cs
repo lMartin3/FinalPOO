@@ -37,14 +37,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbProductoItem = new System.Windows.Forms.ComboBox();
             this.gbOrden = new System.Windows.Forms.GroupBox();
+            this.ventaDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbClienteVenta = new System.Windows.Forms.ComboBox();
             this.txtCodigoVenta = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCrearRegistro = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ventaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).BeginInit();
             this.gbItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nCantidadItem)).BeginInit();
@@ -53,6 +53,7 @@
             // 
             // gridItems
             // 
+            this.gridItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridItems.Location = new System.Drawing.Point(12, 12);
             this.gridItems.Name = "gridItems";
@@ -147,6 +148,23 @@
             this.gbOrden.TabStop = false;
             this.gbOrden.Text = "Venta";
             // 
+            // ventaDateTimePicker
+            // 
+            this.ventaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ventaDateTimePicker.Location = new System.Drawing.Point(32, 144);
+            this.ventaDateTimePicker.Name = "ventaDateTimePicker";
+            this.ventaDateTimePicker.Size = new System.Drawing.Size(254, 20);
+            this.ventaDateTimePicker.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Fecha Venta";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -202,23 +220,6 @@
             this.btnCrearRegistro.Text = "Confirmar Registro de Venta";
             this.btnCrearRegistro.UseVisualStyleBackColor = true;
             this.btnCrearRegistro.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Fecha Venta";
-            // 
-            // ventaDateTimePicker
-            // 
-            this.ventaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ventaDateTimePicker.Location = new System.Drawing.Point(32, 144);
-            this.ventaDateTimePicker.Name = "ventaDateTimePicker";
-            this.ventaDateTimePicker.Size = new System.Drawing.Size(254, 20);
-            this.ventaDateTimePicker.TabIndex = 19;
             // 
             // FormCreacionVenta
             // 
