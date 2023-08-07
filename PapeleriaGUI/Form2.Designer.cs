@@ -49,6 +49,10 @@
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.gridProductos = new System.Windows.Forms.DataGridView();
+            this.tabCategorias = new System.Windows.Forms.TabPage();
+            this.btnEliminarCategoria = new System.Windows.Forms.Button();
+            this.btnAgregarCategoria = new System.Windows.Forms.Button();
+            this.gridCategorias = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.tabVentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVentas)).BeginInit();
@@ -60,6 +64,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridProveedores)).BeginInit();
             this.tabProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
+            this.tabCategorias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCategorias)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -69,6 +75,7 @@
             this.tabControl.Controls.Add(this.tabOrdenesDeCompra);
             this.tabControl.Controls.Add(this.tabProveedores);
             this.tabControl.Controls.Add(this.tabProductos);
+            this.tabControl.Controls.Add(this.tabCategorias);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -279,6 +286,45 @@
             this.gridProductos.Size = new System.Drawing.Size(693, 539);
             this.gridProductos.TabIndex = 6;
             // 
+            // tabCategorias
+            // 
+            this.tabCategorias.Controls.Add(this.btnEliminarCategoria);
+            this.tabCategorias.Controls.Add(this.btnAgregarCategoria);
+            this.tabCategorias.Controls.Add(this.gridCategorias);
+            this.tabCategorias.Location = new System.Drawing.Point(4, 22);
+            this.tabCategorias.Name = "tabCategorias";
+            this.tabCategorias.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCategorias.Size = new System.Drawing.Size(991, 551);
+            this.tabCategorias.TabIndex = 5;
+            this.tabCategorias.Text = "Categorías de Producto";
+            this.tabCategorias.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarCategoria
+            // 
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(728, 70);
+            this.btnEliminarCategoria.Name = "btnEliminarCategoria";
+            this.btnEliminarCategoria.Size = new System.Drawing.Size(244, 24);
+            this.btnEliminarCategoria.TabIndex = 11;
+            this.btnEliminarCategoria.Text = "Eliminar Categoría seleccionada";
+            this.btnEliminarCategoria.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarCategoria
+            // 
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(728, 28);
+            this.btnAgregarCategoria.Name = "btnAgregarCategoria";
+            this.btnAgregarCategoria.Size = new System.Drawing.Size(244, 24);
+            this.btnAgregarCategoria.TabIndex = 10;
+            this.btnAgregarCategoria.Text = "Agregar nueva Categoría";
+            this.btnAgregarCategoria.UseVisualStyleBackColor = true;
+            // 
+            // gridCategorias
+            // 
+            this.gridCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCategorias.Location = new System.Drawing.Point(6, 6);
+            this.gridCategorias.Name = "gridCategorias";
+            this.gridCategorias.Size = new System.Drawing.Size(693, 539);
+            this.gridCategorias.TabIndex = 9;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,7 +332,7 @@
             this.ClientSize = new System.Drawing.Size(1023, 601);
             this.Controls.Add(this.tabControl);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Papelería";
             this.tabControl.ResumeLayout(false);
             this.tabVentas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridVentas)).EndInit();
@@ -298,6 +344,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridProveedores)).EndInit();
             this.tabProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
+            this.tabCategorias.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridCategorias)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,5 +373,9 @@
         private System.Windows.Forms.Button btnEliminarProducto;
         private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.DataGridView gridProductos;
+        private System.Windows.Forms.TabPage tabCategorias;
+        private System.Windows.Forms.Button btnEliminarCategoria;
+        private System.Windows.Forms.Button btnAgregarCategoria;
+        private System.Windows.Forms.DataGridView gridCategorias;
     }
 }
