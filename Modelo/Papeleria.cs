@@ -28,7 +28,7 @@ namespace Modelo
 
         private void Inicio()
         {
-            DummyRepositoriesFill();
+            LlenarMockData();
         }
 
         public bool IntentarRegistrarVenta(Venta venta)
@@ -36,7 +36,7 @@ namespace Modelo
             return Ventas.AgregarElemento(venta);
         }
 
-        private void DummyRepositoriesFill()
+        private void LlenarMockData()
         {
             //Clientes dummies
             Cliente cliente1 = new Cliente("45555515", CondicionFiscal.MONOTRIBUTISTA, "Juan Carlo Esposito", "Suipacha 2002");
@@ -53,6 +53,8 @@ namespace Modelo
             Producto producto2 = new Producto(0, "Milanesa", "1.5KG de milanesa lista para freir", 2000, 20, categoriaCarnes);
             Productos.AgregarElemento(producto1);
             Productos.AgregarElemento(producto2);
+
+            Proveedor proveedor1 = new Proveedor();
         }
 
 
