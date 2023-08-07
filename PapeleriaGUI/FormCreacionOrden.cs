@@ -38,7 +38,7 @@ namespace PapeleriaGUI
         private void ActualizarBotonItem()
         {
             bool habilitar =
-                esNumeroPositivo(txtPrecioItem.Text) &&
+                ValidacionUtil.EsNumeroPositivo(txtPrecioItem.Text) &&
                 nCantidadItem.Value > 0 &&
                 cbProductoItem.Text.Length > 0;
 
@@ -48,7 +48,7 @@ namespace PapeleriaGUI
         private void ActualizarBotonCompra()
         {
             bool habilitar =
-                esNumeroPositivo(txtNroOrden.Text) &&
+                ValidacionUtil.EsNumeroPositivo(txtNroOrden.Text) &&
                 cbProveedorOrden.Text.Length > 0 &&
                 items.Count > 0;
 
@@ -67,14 +67,6 @@ namespace PapeleriaGUI
         {
             gridItems.DataSource = null;
             gridItems.DataSource = items;
-
-        }
-
-        private bool esNumeroPositivo(string input)
-        {
-            int res = -1;
-            int.TryParse(input, out res);
-            return res > 0;
         }
 
 

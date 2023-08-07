@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabVentas = new System.Windows.Forms.TabPage();
             this.btnEliminarVenta = new System.Windows.Forms.Button();
             this.btnAgregarVenta = new System.Windows.Forms.Button();
@@ -45,7 +45,11 @@
             this.btnEliminarProveedor = new System.Windows.Forms.Button();
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.gridProveedores = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
+            this.tabProductos = new System.Windows.Forms.TabPage();
+            this.btnEliminarProducto = new System.Windows.Forms.Button();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.gridProductos = new System.Windows.Forms.DataGridView();
+            this.tabControl.SuspendLayout();
             this.tabVentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVentas)).BeginInit();
             this.tabClientes.SuspendLayout();
@@ -54,19 +58,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridOrdenes)).BeginInit();
             this.tabProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProveedores)).BeginInit();
+            this.tabProductos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.tabVentas);
-            this.tabControl1.Controls.Add(this.tabClientes);
-            this.tabControl1.Controls.Add(this.tabOrdenesDeCompra);
-            this.tabControl1.Controls.Add(this.tabProveedores);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(999, 577);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl.Controls.Add(this.tabVentas);
+            this.tabControl.Controls.Add(this.tabClientes);
+            this.tabControl.Controls.Add(this.tabOrdenesDeCompra);
+            this.tabControl.Controls.Add(this.tabProveedores);
+            this.tabControl.Controls.Add(this.tabProductos);
+            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(999, 577);
+            this.tabControl.TabIndex = 0;
             // 
             // tabVentas
             // 
@@ -128,8 +135,9 @@
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(244, 24);
             this.btnEliminarCliente.TabIndex = 5;
-            this.btnEliminarCliente.Text = "Eliminar Cliente";
+            this.btnEliminarCliente.Text = "Eliminar Cliente seleccionado";
             this.btnEliminarCliente.UseVisualStyleBackColor = true;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
             // btnAgregarCliente
             // 
@@ -137,7 +145,7 @@
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(244, 24);
             this.btnAgregarCliente.TabIndex = 4;
-            this.btnAgregarCliente.Text = "Agregar Cliente";
+            this.btnAgregarCliente.Text = "Agregar nuevo Cliente";
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
@@ -168,7 +176,7 @@
             this.btnEliminarOrden.Name = "btnEliminarOrden";
             this.btnEliminarOrden.Size = new System.Drawing.Size(244, 24);
             this.btnEliminarOrden.TabIndex = 5;
-            this.btnEliminarOrden.Text = "Elimar Orden";
+            this.btnEliminarOrden.Text = "Eliminar Orden de Compra seleccionada";
             this.btnEliminarOrden.UseVisualStyleBackColor = true;
             this.btnEliminarOrden.Click += new System.EventHandler(this.btnEliminarOrden_Click);
             // 
@@ -178,7 +186,7 @@
             this.btnAgregarOrden.Name = "btnAgregarOrden";
             this.btnAgregarOrden.Size = new System.Drawing.Size(244, 24);
             this.btnAgregarOrden.TabIndex = 4;
-            this.btnAgregarOrden.Text = "Agregar Orden";
+            this.btnAgregarOrden.Text = "Agregar nueva Orden de Compra";
             this.btnAgregarOrden.UseVisualStyleBackColor = true;
             this.btnAgregarOrden.Click += new System.EventHandler(this.btnAgregarOrden_Click);
             // 
@@ -209,8 +217,9 @@
             this.btnEliminarProveedor.Name = "btnEliminarProveedor";
             this.btnEliminarProveedor.Size = new System.Drawing.Size(244, 24);
             this.btnEliminarProveedor.TabIndex = 5;
-            this.btnEliminarProveedor.Text = "Eliminar Proveedor";
+            this.btnEliminarProveedor.Text = "Eliminar Proveedor seleccionado";
             this.btnEliminarProveedor.UseVisualStyleBackColor = true;
+            this.btnEliminarProveedor.Click += new System.EventHandler(this.btnEliminarProveedor_Click);
             // 
             // btnAgregarProveedor
             // 
@@ -218,8 +227,9 @@
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
             this.btnAgregarProveedor.Size = new System.Drawing.Size(244, 24);
             this.btnAgregarProveedor.TabIndex = 4;
-            this.btnAgregarProveedor.Text = "Agregar Proveedor";
+            this.btnAgregarProveedor.Text = "Agregar nuevo Proveedor";
             this.btnAgregarProveedor.UseVisualStyleBackColor = true;
+            this.btnAgregarProveedor.Click += new System.EventHandler(this.btnAgregarProveedor_Click);
             // 
             // gridProveedores
             // 
@@ -229,15 +239,55 @@
             this.gridProveedores.Size = new System.Drawing.Size(693, 539);
             this.gridProveedores.TabIndex = 3;
             // 
+            // tabProductos
+            // 
+            this.tabProductos.Controls.Add(this.btnEliminarProducto);
+            this.tabProductos.Controls.Add(this.btnAgregarProducto);
+            this.tabProductos.Controls.Add(this.gridProductos);
+            this.tabProductos.Location = new System.Drawing.Point(4, 22);
+            this.tabProductos.Name = "tabProductos";
+            this.tabProductos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProductos.Size = new System.Drawing.Size(991, 551);
+            this.tabProductos.TabIndex = 4;
+            this.tabProductos.Text = "Productos";
+            this.tabProductos.UseVisualStyleBackColor = true;
+            this.tabProductos.Click += new System.EventHandler(this.tabProductos_Click);
+            // 
+            // btnEliminarProducto
+            // 
+            this.btnEliminarProducto.Location = new System.Drawing.Point(728, 70);
+            this.btnEliminarProducto.Name = "btnEliminarProducto";
+            this.btnEliminarProducto.Size = new System.Drawing.Size(244, 24);
+            this.btnEliminarProducto.TabIndex = 8;
+            this.btnEliminarProducto.Text = "Eliminar Producto seleccionado";
+            this.btnEliminarProducto.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.Location = new System.Drawing.Point(728, 28);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(244, 24);
+            this.btnAgregarProducto.TabIndex = 7;
+            this.btnAgregarProducto.Text = "Agregar nuevo Producto";
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            // 
+            // gridProductos
+            // 
+            this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProductos.Location = new System.Drawing.Point(6, 6);
+            this.gridProductos.Name = "gridProductos";
+            this.gridProductos.Size = new System.Drawing.Size(693, 539);
+            this.gridProductos.TabIndex = 6;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 601);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.tabControl1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tabVentas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridVentas)).EndInit();
             this.tabClientes.ResumeLayout(false);
@@ -246,13 +296,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridOrdenes)).EndInit();
             this.tabProveedores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridProveedores)).EndInit();
+            this.tabProductos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabVentas;
         private System.Windows.Forms.DataGridView gridVentas;
         private System.Windows.Forms.TabPage tabClientes;
@@ -269,5 +321,9 @@
         private System.Windows.Forms.Button btnEliminarProveedor;
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.DataGridView gridProveedores;
+        private System.Windows.Forms.TabPage tabProductos;
+        private System.Windows.Forms.Button btnEliminarProducto;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.DataGridView gridProductos;
     }
 }

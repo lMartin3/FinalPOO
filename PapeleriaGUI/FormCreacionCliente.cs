@@ -18,7 +18,6 @@ namespace PapeleriaGUI
     {
 
         private Papeleria papeleria;
-        private Regex dniCuitRegex = new Regex("^([0-9]{8}|[0-9]{11})$");
         public FormCreacionCliente(Papeleria papeleria)
         {
             this.papeleria = papeleria; 
@@ -35,18 +34,12 @@ namespace PapeleriaGUI
         private void EvaluarCondiciones()
         {
             bool camposOK = 
-                txtDni.Text.Length > 0 &&
-                DniOCuitValido() &&
+                ValidacionUtil.EsDniOCuitValido(txtDni.Text) &&
                 txtNombre.Text.Length > 0 &&
                 cbCondicion.Text.Length > 0 &&
                 CondicionFiscalUtil.CondicionPorString(cbCondicion.Text).HasValue &&
                 txtDireccion.Text.Length > 0;
             btnAgregar.Enabled = camposOK;
-        }
-
-        private Boolean DniOCuitValido()
-        {
-            return dniCuitRegex.IsMatch(txtDni.Text);
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)

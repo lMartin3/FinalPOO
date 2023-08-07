@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ValidacionUtil.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +59,12 @@
     </Compile>
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreacionProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreacionProveedor.Designer.cs">
+      <DependentUpon>FormCreacionProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCreacionOrden.cs">
       <SubType>Form</SubType>
@@ -84,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreacionOrden.resx">
       <DependentUpon>FormCreacionOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreacionProveedor.resx">
+      <DependentUpon>FormCreacionProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
