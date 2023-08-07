@@ -47,13 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ValidacionUtil.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormCreacionVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormCreacionVenta.Designer.cs">
+      <DependentUpon>FormCreacionVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidacionUtil.cs" />
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,14 +80,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreacionCliente.resx">
       <DependentUpon>FormCreacionCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreacionVenta.resx">
+      <DependentUpon>FormCreacionVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreacionOrden.resx">
       <DependentUpon>FormCreacionOrden.cs</DependentUpon>

@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dato\ItemProducto.cs" />
+    <Compile Include="Dato\ListaDeItemsProducto.cs" />
     <Compile Include="Repositorios\RepoCategorias.cs" />
     <Compile Include="Repositorios\ResultadoRepositorio.cs" />
     <Compile Include="Repositorios\RepoOrdenes.cs" />
@@ -54,8 +56,6 @@
     <Compile Include="Papeleria.cs" />
     <Compile Include="Dato\Cliente.cs" />
     <Compile Include="Dato\CondicionFiscal.cs" />
-    <Compile Include="Dato\ItemCompra.cs" />
-    <Compile Include="Dato\ItemVenta.cs" />
     <Compile Include="Dato\OrdenCompra.cs" />
     <Compile Include="Dato\Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

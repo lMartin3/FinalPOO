@@ -94,6 +94,7 @@
             this.tabVentas.TabIndex = 0;
             this.tabVentas.Text = "Ventas";
             this.tabVentas.UseVisualStyleBackColor = true;
+            this.tabVentas.Click += new System.EventHandler(this.tabVentas_Click);
             // 
             // btnEliminarVenta
             // 

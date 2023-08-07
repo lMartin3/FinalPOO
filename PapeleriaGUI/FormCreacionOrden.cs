@@ -1,4 +1,5 @@
 ﻿using Modelo;
+using Modelo.Dato;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace PapeleriaGUI
     public partial class FormCreacionOrden : Form
     {
         private Papeleria papeleria;
-        private List<ItemCompra> items = new List<ItemCompra>();
+        private List<ItemProducto> items = new List<ItemProducto>();
         private Regex regexNum = new Regex("^[0-9]{1,}$");
         public FormCreacionOrden(Papeleria papeleria)
         {
@@ -77,7 +78,7 @@ namespace PapeleriaGUI
 
         private void btnAgregarItem_Click(object sender, EventArgs e)
         {
-            ItemCompra itemCompra = new ItemCompra();
+            ItemProducto itemCompra = new ItemProducto();
             Producto producto = papeleria.Productos.BuscarPorNombre(cbProductoItem.Text);
             
             itemCompra.Producto = producto;
@@ -134,9 +135,9 @@ namespace PapeleriaGUI
             int.TryParse(txtNroOrden.Text, out nroOrden);
             Proveedor proveedor = (Proveedor)cbProveedorOrden.SelectedItem;
 
-            ordenCompra.NroOrden = nroOrden;
+            ordenCompra.NroOrden = nroOrden.ToString();
             ordenCompra.Proveedor = proveedor;
-            ordenCompra.Items = items;
+            ordenCompra.listaItems = new ListaDeItemsProducto(items);
 
             bool resultado = papeleria.Ordenes.AgregarElemento(ordenCompra);
             if(!resultado)

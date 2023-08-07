@@ -11,6 +11,7 @@ namespace PapeleriaGUI
     {
         private static Regex dniRegex = new Regex("^[0-9]{8}$");
         private static Regex cuitRegex = new Regex("^[0-9]{11}$");
+        private static Regex numeroRegex = new Regex("^[0-9]{1,}$");
 
         public static bool EsNumeroPositivo(string input)
         {
@@ -22,6 +23,10 @@ namespace PapeleriaGUI
         public static bool EsDniValido(string input)
         {
             return dniRegex.IsMatch(input);
+        }
+        public static bool EsNumero(string input)
+        {
+            return numeroRegex.IsMatch(input);
         }
 
         public static bool EsCuitValido(string input)
