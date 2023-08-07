@@ -161,7 +161,8 @@
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtDni);
             this.Name = "FormCreacionCliente";
-            this.Text = "Form3";
+            this.Text = "Agregar cliente";
+            this.Load += new System.EventHandler(this.FormCreacionCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

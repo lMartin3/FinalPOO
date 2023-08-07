@@ -21,11 +21,7 @@ namespace PapeleriaGUI
         private Regex dniCuitRegex = new Regex("^([0-9]{8}|[0-9]{11})$");
         public FormCreacionCliente(Papeleria papeleria)
         {
-            this.papeleria = papeleria;
-        }
-
-        public FormCreacionCliente()
-        {
+            this.papeleria = papeleria; 
             InitializeComponent();
             btnAgregar.Enabled = false;
             cbCondicion.Items.Clear();
@@ -80,11 +76,23 @@ namespace PapeleriaGUI
             cliente.CondicionFiscal = CondicionFiscalUtil.CondicionPorString(cbCondicion.Text).Value;
             cliente.Direccion = txtDireccion.Text;
 
+            bool exito = papeleria.Clientes.AgregarElemento(cliente);
+            if(!exito)
+            {
+                MessageBox.Show("Error al registrar el cliente!");
+                return;
+            }
+            Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
+        }
+
+        private void FormCreacionCliente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

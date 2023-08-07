@@ -20,7 +20,7 @@ namespace Modelo
         
         public virtual bool AgregarElemento(T nuevoElemento)
         {
-            if (!VerificarElemento(nuevoElemento))
+            if (!PuedeAgregarElemento(nuevoElemento))
             {
                 return false;
             }
@@ -40,6 +40,6 @@ namespace Modelo
         /// </summary>
         /// <param name="elementoAVerificar">Nuevo elemento que se desea almacenar</param>
         /// <returns><see cref="bool">bool</see>: si el elemento cumple los requisitos para ser agregado</returns>
-        protected abstract bool VerificarElemento(T elementoAVerificar);
+        protected abstract bool PuedeAgregarElemento(T elementoAVerificar);
     }
 }

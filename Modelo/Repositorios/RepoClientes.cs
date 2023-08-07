@@ -7,9 +7,9 @@ namespace Modelo
 {
     public class RepoClientes : Repositorio<Cliente>
     {
-        protected override bool VerificarElemento(Cliente elementoAVerificar)
+        protected override bool PuedeAgregarElemento(Cliente elementoAVerificar)
         {
-            return true;
+            return elementos.Where(c => c.Dni==elementoAVerificar.Dni).Count() == 0;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Modelo
 {
     public class RepoProductos : Repositorio<Producto>
     {
-        protected override bool VerificarElemento(Producto elementoAVerificar)
+        protected override bool PuedeAgregarElemento(Producto elementoAVerificar)
         {
             return true;
         }

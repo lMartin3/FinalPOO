@@ -7,7 +7,7 @@ namespace Modelo
 {
     public class RepoVentas : Repositorio<Venta>
     {
-        protected override bool VerificarElemento(Venta elementoAVerificar)
+        protected override bool PuedeAgregarElemento(Venta elementoAVerificar)
         {
             return true;
         }

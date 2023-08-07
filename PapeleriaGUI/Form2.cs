@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace PapeleriaGUI
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private Papeleria papeleria; 
+        public Form2(Papeleria papeleria)
         {
+            this.papeleria = papeleria;
             InitializeComponent();
         }
 
@@ -30,7 +33,7 @@ namespace PapeleriaGUI
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
-            FormCreacionCliente formCreacionCliente = new FormCreacionCliente();
+            FormCreacionCliente formCreacionCliente = new FormCreacionCliente(papeleria);
             formCreacionCliente.ShowDialog();
         }
     }
