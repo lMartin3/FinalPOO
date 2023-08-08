@@ -64,6 +64,7 @@
     <Compile Include="Dato\Proveedor.cs" />
     <Compile Include="Dato\Venta.cs" />
     <Compile Include="Util\CondicionFiscalUtil.cs" />
+    <Compile Include="Util\ValidacionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
