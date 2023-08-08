@@ -1,5 +1,6 @@
 ﻿using Modelo;
 using Modelo.Dato;
+using Modelo.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

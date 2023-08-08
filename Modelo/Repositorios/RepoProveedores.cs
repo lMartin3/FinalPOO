@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,11 @@ namespace Modelo
 {
     public class RepoProveedores : Repositorio<Proveedor>
     {
-        private static Regex cuitRegex = new Regex("^[0-9]{11}$");
 
         protected override bool PuedeAgregarElemento(Proveedor elementoAVerificar)
         {
-            return cuitRegex.IsMatch(elementoAVerificar.Cuit)
+            
+            return ValidacionUtil.EsCuitValido(elementoAVerificar.Cuit)
                 && elementoAVerificar.RazonSocial != ""
                 && elementoAVerificar.Direccion != ""
                 && elementoAVerificar.CondicionFiscal!=CondicionFiscal.CONSUMIDOR_FINAL;

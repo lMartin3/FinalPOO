@@ -5,9 +5,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace PapeleriaGUI
+namespace Modelo.Util
 {
-    internal class ValidacionUtil
+    public class ValidacionUtil
     {
         private static Regex dniRegex = new Regex("^[0-9]{8}$");
         private static Regex cuitRegex = new Regex("^[0-9]{11}$");

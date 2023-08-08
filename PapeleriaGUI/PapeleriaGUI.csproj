@@ -59,7 +59,6 @@
     <Compile Include="FormCreacionVenta.Designer.cs">
       <DependentUpon>FormCreacionVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="ValidacionUtil.cs" />
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
