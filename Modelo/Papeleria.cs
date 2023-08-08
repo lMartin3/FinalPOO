@@ -24,13 +24,18 @@ namespace Modelo
 
         public Papeleria()
         {
-            //Esto esta re mal creo no se estoy probando ostra cosa
             Inicio();
         }
 
         private void Inicio()
         {
             LlenarMockData();
+            ventas.ElementoAgregadoEvent += ModificarStocksPorVenta;
+        }
+
+        public void ModificarStocksPorVenta(Venta venta)
+        {
+            //foreach(ItemProducto item in venta.listaItems)
         }
 
         public bool IntentarRegistrarVenta(Venta venta)

@@ -15,6 +15,9 @@ namespace Modelo
     /// <typeparam name="T">Tipo de objeto a almacenar</typeparam>
     public abstract class Repositorio<T>
     {
+        public delegate void ElementoAgregadoEventHandler(T elemento);
+        public event ElementoAgregadoEventHandler ElementoAgregadoEvent;
+
         protected List<T> elementos = new List<T>();
         public ReadOnlyCollection<T> ElementosAlmacenados => elementos.AsReadOnly();
         
@@ -25,6 +28,7 @@ namespace Modelo
                 return false;
             }
             elementos.Add(nuevoElemento);
+            ElementoAgregadoEvent?.Invoke(nuevoElemento);
             return true;
         }
 
