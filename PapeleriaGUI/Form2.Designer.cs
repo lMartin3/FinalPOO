@@ -46,12 +46,8 @@
             this.btnAgregarProveedor = new System.Windows.Forms.Button();
             this.gridProveedores = new System.Windows.Forms.DataGridView();
             this.tabProductos = new System.Windows.Forms.TabPage();
-            this.btnEliminarProducto = new System.Windows.Forms.Button();
-            this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.gridProductos = new System.Windows.Forms.DataGridView();
             this.tabCategorias = new System.Windows.Forms.TabPage();
-            this.btnEliminarCategoria = new System.Windows.Forms.Button();
-            this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.gridCategorias = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.tabVentas.SuspendLayout();
@@ -253,8 +249,6 @@
             // 
             // tabProductos
             // 
-            this.tabProductos.Controls.Add(this.btnEliminarProducto);
-            this.tabProductos.Controls.Add(this.btnAgregarProducto);
             this.tabProductos.Controls.Add(this.gridProductos);
             this.tabProductos.Location = new System.Drawing.Point(4, 22);
             this.tabProductos.Name = "tabProductos";
@@ -265,37 +259,17 @@
             this.tabProductos.UseVisualStyleBackColor = true;
             this.tabProductos.Click += new System.EventHandler(this.tabProductos_Click);
             // 
-            // btnEliminarProducto
-            // 
-            this.btnEliminarProducto.Location = new System.Drawing.Point(728, 70);
-            this.btnEliminarProducto.Name = "btnEliminarProducto";
-            this.btnEliminarProducto.Size = new System.Drawing.Size(244, 24);
-            this.btnEliminarProducto.TabIndex = 8;
-            this.btnEliminarProducto.Text = "Eliminar Producto seleccionado";
-            this.btnEliminarProducto.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarProducto
-            // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(728, 28);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(244, 24);
-            this.btnAgregarProducto.TabIndex = 7;
-            this.btnAgregarProducto.Text = "Agregar nuevo Producto";
-            this.btnAgregarProducto.UseVisualStyleBackColor = true;
-            // 
             // gridProductos
             // 
             this.gridProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProductos.Location = new System.Drawing.Point(6, 6);
             this.gridProductos.Name = "gridProductos";
-            this.gridProductos.Size = new System.Drawing.Size(693, 539);
+            this.gridProductos.Size = new System.Drawing.Size(979, 539);
             this.gridProductos.TabIndex = 6;
             // 
             // tabCategorias
             // 
-            this.tabCategorias.Controls.Add(this.btnEliminarCategoria);
-            this.tabCategorias.Controls.Add(this.btnAgregarCategoria);
             this.tabCategorias.Controls.Add(this.gridCategorias);
             this.tabCategorias.Location = new System.Drawing.Point(4, 22);
             this.tabCategorias.Name = "tabCategorias";
@@ -305,31 +279,13 @@
             this.tabCategorias.Text = "Categorías de Producto";
             this.tabCategorias.UseVisualStyleBackColor = true;
             // 
-            // btnEliminarCategoria
-            // 
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(728, 70);
-            this.btnEliminarCategoria.Name = "btnEliminarCategoria";
-            this.btnEliminarCategoria.Size = new System.Drawing.Size(244, 24);
-            this.btnEliminarCategoria.TabIndex = 11;
-            this.btnEliminarCategoria.Text = "Eliminar Categoría seleccionada";
-            this.btnEliminarCategoria.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarCategoria
-            // 
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(728, 28);
-            this.btnAgregarCategoria.Name = "btnAgregarCategoria";
-            this.btnAgregarCategoria.Size = new System.Drawing.Size(244, 24);
-            this.btnAgregarCategoria.TabIndex = 10;
-            this.btnAgregarCategoria.Text = "Agregar nueva Categoría";
-            this.btnAgregarCategoria.UseVisualStyleBackColor = true;
-            // 
             // gridCategorias
             // 
             this.gridCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCategorias.Location = new System.Drawing.Point(6, 6);
             this.gridCategorias.Name = "gridCategorias";
-            this.gridCategorias.Size = new System.Drawing.Size(693, 539);
+            this.gridCategorias.Size = new System.Drawing.Size(979, 539);
             this.gridCategorias.TabIndex = 9;
             // 
             // Form2
@@ -378,12 +334,8 @@
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.DataGridView gridProveedores;
         private System.Windows.Forms.TabPage tabProductos;
-        private System.Windows.Forms.Button btnEliminarProducto;
-        private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.DataGridView gridProductos;
         private System.Windows.Forms.TabPage tabCategorias;
-        private System.Windows.Forms.Button btnEliminarCategoria;
-        private System.Windows.Forms.Button btnAgregarCategoria;
         private System.Windows.Forms.DataGridView gridCategorias;
     }
 }
