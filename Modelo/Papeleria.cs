@@ -35,7 +35,12 @@ namespace Modelo
 
         public void ModificarStocksPorVenta(Venta venta)
         {
-            //foreach(ItemProducto item in venta.listaItems)
+            foreach (ItemProducto item in venta.Items)
+            {
+                float stockVendido = item.Cantidad;
+                Producto productoVendido = item.Producto;
+                productoVendido.SubstraerStock(item.Cantidad);
+            }
         }
 
         public bool IntentarRegistrarVenta(Venta venta)

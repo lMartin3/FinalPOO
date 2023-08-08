@@ -11,7 +11,7 @@ namespace Modelo
         {
             bool evaluacion =
                 elementoAVerificar.Cliente!=null&&
-                elementoAVerificar.listaItems.itemsReadonly.Count>0&&
+                elementoAVerificar.Items.Count>0&&
                 elementoAVerificar.Total>=0&&
                 elementos.Where(c => c.Codigo == elementoAVerificar.Codigo).Count() == 0;
             return evaluacion;

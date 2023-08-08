@@ -11,7 +11,7 @@ namespace Modelo
         public string Nombre { get; private set; }
         public string Descripcion { get; private set; }
         public float Precio { get; private set; }
-        public int Stock { get; private set; }
+        public int Stock { get; set; }
         public CategoriaProducto CategoriaProducto { get; private set; }
         public Producto(int id, string nombre, string descripcion, float precio, int stock, CategoriaProducto categoriaProducto)
         {
@@ -25,6 +25,12 @@ namespace Modelo
 
         public override string ToString() {
             return Nombre;
+        }
+
+        public void SubstraerStock(int stockASubstraer)
+        {
+            if (Stock < stockASubstraer) return;
+            Stock -= stockASubstraer;
         }
     }
 }
