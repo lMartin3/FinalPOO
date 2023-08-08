@@ -1,74 +1,159 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Modelo.Producto">
-    <Position X="5.75" Y="3.25" Width="1.5" />
+    <Position X="5.75" Y="9.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAIAAAgAARgAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Producto.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAEIAAAgAARgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dato\Producto.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="CategoriaProducto" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Modelo.ItemVenta">
-    <Position X="3" Y="3.25" Width="1.5" />
+  <Class Name="Modelo.ItemProducto">
+    <Position X="5.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ItemVenta.cs</FileName>
+      <HashCode>AAAQAAEAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dato\ItemProducto.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Producto" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Modelo.Proveedor">
-    <Position X="13" Y="1.25" Width="1.5" />
+    <Position X="11.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAUAAAAA=</HashCode>
-      <FileName>Proveedor.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Modelo.Cliente">
-    <Position X="0.5" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAABCAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Cliente.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Modelo.OrdenCompra">
-    <Position X="10.5" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAABAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>OrdenCompra.cs</FileName>
+      <HashCode>AIAAQAAAAAAAAAAEBCAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dato\Proveedor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_proveedor" />
+      <Property Name="CondicionFiscal" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="_items" />
-    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Modelo.ItemCompra">
-    <Position X="10.5" Y="3.25" Width="1.5" />
+  <Class Name="Modelo.Cliente">
+    <Position X="9.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ItemCompra.cs</FileName>
+      <HashCode>AAEAAAAAAAAAAAAEBCAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dato\Cliente.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CondicionFiscal" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Modelo.OrdenCompra">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEACAAAAAAAAACBAAAAQAAAAAABAAAAAAA=</HashCode>
+      <FileName>Dato\OrdenCompra.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_listaItems" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Modelo.CategoriaProducto">
+    <Position X="8.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAgAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dato\CategoriaProducto.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Modelo.CategoriaProducto" Collapsed="true">
-    <Position X="5.75" Y="6.5" Width="1.5" />
+  <Class Name="Modelo.Dato.ListaDeItemsProducto">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>CategoriaProducto.cs</FileName>
+      <HashCode>AAAACAAAAAAAAAgAIAgAAAAAgAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Dato\ListaDeItemsProducto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Modelo.Venta">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAEAAACAAAAAAEAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dato\Venta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="listaItems" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Modelo.RepoCategorias" Collapsed="true">
+    <Position X="1.5" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorios\RepoCategorias.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Repositorio&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAEAgAAAAA=</HashCode>
+      <FileName>Repositorios\Repositorio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.RepoClientes" Collapsed="true">
+    <Position X="1.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAAAAAABA=</HashCode>
+      <FileName>Repositorios\RepoClientes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.RepoOrdenes" Collapsed="true">
+    <Position X="1.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorios\RepoOrdenes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.RepoProductos" Collapsed="true">
+    <Position X="1.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Repositorios\RepoProductos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.RepoProveedores" Collapsed="true">
+    <Position X="1.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Repositorios\RepoProveedores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.RepoVentas" Collapsed="true">
+    <Position X="1.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorios\RepoVentas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Dato.ListaDeItemsProductoOrden" Collapsed="true">
+    <Position X="7.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dato\ListaDeItemsProductoOrden.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Modelo.Dato.ListaDeItemsProductoVenta" Collapsed="true">
+    <Position X="7.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dato\ListaDeItemsProductoVenta.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Modelo.CondicionFiscal">
-    <Position X="5.75" Y="1.5" Width="2.75" />
+    <Position X="9.75" Y="4.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAgAAAAAAAEAAAAAAAAA=</HashCode>
-      <FileName>CondicionFiscal.cs</FileName>
+      <FileName>Dato\CondicionFiscal.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
