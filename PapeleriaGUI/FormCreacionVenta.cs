@@ -177,5 +177,10 @@ namespace PapeleriaGUI
         {
 
         }
+
+        private void gridItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
