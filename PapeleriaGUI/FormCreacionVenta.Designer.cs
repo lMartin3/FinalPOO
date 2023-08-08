@@ -59,6 +59,7 @@
             this.gridItems.Name = "gridItems";
             this.gridItems.Size = new System.Drawing.Size(719, 495);
             this.gridItems.TabIndex = 0;
+            this.gridItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridItems_CellContentClick);
             // 
             // gbItems
             // 

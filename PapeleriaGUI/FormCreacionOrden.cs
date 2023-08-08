@@ -17,7 +17,6 @@ namespace PapeleriaGUI
     {
         private Papeleria papeleria;
         private ListaDeItemsProductoOrden listaItems = new ListaDeItemsProductoOrden();
-        private Regex regexNum = new Regex("^[0-9]{1,}$");
         public FormCreacionOrden(Papeleria papeleria)
         {
             this.papeleria = papeleria;
@@ -25,6 +24,7 @@ namespace PapeleriaGUI
             ActualizarGrid();
             btnAgregarItem.Enabled = false;
             btnCrearOrden.Enabled = false;
+            nCantidadItem.Maximum = decimal.MaxValue;
             foreach(Producto producto in papeleria.Productos.ElementosAlmacenados)
             {
                 cbProductoItem.Items.Add(producto.Nombre);
