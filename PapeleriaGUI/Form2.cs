@@ -39,6 +39,11 @@ namespace PapeleriaGUI
             gridCategorias.DataSource = papeleria.Categorias.ElementosAlmacenados;
         }
 
+        private void ActualizarBotones()
+        {
+
+        }
+
         private void btnAgregarVenta_Click(object sender, EventArgs e)
         {
             FormCreacionVenta form1 = new FormCreacionVenta(papeleria);
@@ -49,7 +54,7 @@ namespace PapeleriaGUI
         private void btnEliminarVenta_Click(object sender, EventArgs e)
         {
             if (gridVentas.CurrentRow == null) return;
-            Venta venta = gridOrdenes.CurrentRow.DataBoundItem as Venta;
+            Venta venta = papeleria.Ventas.ElementosAlmacenados.ElementAt(gridVentas.CurrentRow.Index);
             papeleria.Ventas.EliminarElemento(venta);
             ActualizarGrids();
         }
@@ -63,7 +68,7 @@ namespace PapeleriaGUI
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
             if (gridClientes.CurrentRow == null) return;
-            Cliente cliente = gridClientes.CurrentRow.DataBoundItem as Cliente;
+            Cliente cliente = papeleria.Clientes.ElementosAlmacenados.ElementAt(gridClientes.CurrentRow.Index);
             papeleria.Clientes.EliminarElemento(cliente);
             ActualizarGrids();
         }
@@ -78,7 +83,7 @@ namespace PapeleriaGUI
         private void btnEliminarOrden_Click(object sender, EventArgs e)
         {
             if (gridOrdenes.CurrentRow == null) return;
-            OrdenCompra orden = gridOrdenes.CurrentRow.DataBoundItem as OrdenCompra;
+            OrdenCompra orden = papeleria.Ordenes.ElementosAlmacenados.ElementAt(gridOrdenes.CurrentRow.Index);
             papeleria.Ordenes.EliminarElemento(orden);
             ActualizarGrids();
         }
@@ -93,7 +98,7 @@ namespace PapeleriaGUI
         private void btnEliminarProveedor_Click(object sender, EventArgs e)
         {
             if (gridProveedores.CurrentRow == null) return;
-            Proveedor proveedor = gridProveedores.CurrentRow.DataBoundItem as Proveedor;
+            Proveedor proveedor = papeleria.Proveedores.ElementosAlmacenados.ElementAt(gridProveedores.CurrentRow.Index);
             papeleria.Proveedores.EliminarElemento(proveedor);
             ActualizarGrids();
         }
@@ -109,6 +114,19 @@ namespace PapeleriaGUI
         }
 
         private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDetallesOrden_Click(object sender, EventArgs e)
+        {
+            if (gridOrdenes.CurrentRow == null) return;
+            OrdenCompra orden = papeleria.Ordenes.ElementosAlmacenados.ElementAt(gridOrdenes.CurrentRow.Index);
+            FormDetalles formDetalles = new FormDetalles("Detalles de Orden de Compra", orden.Items);
+            formDetalles.ShowDialog();
+        }
+
+        private void gridOrdenes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
