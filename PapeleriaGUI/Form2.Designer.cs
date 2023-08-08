@@ -38,6 +38,7 @@
             this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.gridClientes = new System.Windows.Forms.DataGridView();
             this.tabOrdenesDeCompra = new System.Windows.Forms.TabPage();
+            this.btnDetallesOrden = new System.Windows.Forms.Button();
             this.btnEliminarOrden = new System.Windows.Forms.Button();
             this.btnAgregarOrden = new System.Windows.Forms.Button();
             this.gridOrdenes = new System.Windows.Forms.DataGridView();
@@ -165,6 +166,7 @@
             // 
             // tabOrdenesDeCompra
             // 
+            this.tabOrdenesDeCompra.Controls.Add(this.btnDetallesOrden);
             this.tabOrdenesDeCompra.Controls.Add(this.btnEliminarOrden);
             this.tabOrdenesDeCompra.Controls.Add(this.btnAgregarOrden);
             this.tabOrdenesDeCompra.Controls.Add(this.gridOrdenes);
@@ -175,6 +177,16 @@
             this.tabOrdenesDeCompra.TabIndex = 2;
             this.tabOrdenesDeCompra.Text = "Órdenes de compra";
             this.tabOrdenesDeCompra.UseVisualStyleBackColor = true;
+            // 
+            // btnDetallesOrden
+            // 
+            this.btnDetallesOrden.Location = new System.Drawing.Point(728, 114);
+            this.btnDetallesOrden.Name = "btnDetallesOrden";
+            this.btnDetallesOrden.Size = new System.Drawing.Size(244, 24);
+            this.btnDetallesOrden.TabIndex = 6;
+            this.btnDetallesOrden.Text = "Ver detalles de la Orden";
+            this.btnDetallesOrden.UseVisualStyleBackColor = true;
+            this.btnDetallesOrden.Click += new System.EventHandler(this.btnDetallesOrden_Click);
             // 
             // btnEliminarOrden
             // 
@@ -204,6 +216,7 @@
             this.gridOrdenes.Name = "gridOrdenes";
             this.gridOrdenes.Size = new System.Drawing.Size(693, 539);
             this.gridOrdenes.TabIndex = 3;
+            this.gridOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridOrdenes_CellContentClick);
             // 
             // tabProveedores
             // 
@@ -337,5 +350,6 @@
         private System.Windows.Forms.DataGridView gridProductos;
         private System.Windows.Forms.TabPage tabCategorias;
         private System.Windows.Forms.DataGridView gridCategorias;
+        private System.Windows.Forms.Button btnDetallesOrden;
     }
 }
