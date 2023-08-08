@@ -10,31 +10,34 @@ namespace Modelo
     {
         public string NroOrden { get; private set; }
         public Proveedor Proveedor { get; private set; }
-        public ListaDeItemsProducto ListaItems { get; private set; }
+        private ListaDeItemsProducto _listaItems; 
 
 
         public OrdenCompra(string nroOrden, Proveedor proveedor, ListaDeItemsProducto listaItems)
         {
             NroOrden = nroOrden;
             Proveedor = proveedor;
-            ListaItems = listaItems;
+            _listaItems = listaItems;
         }
 
         public int CantidadItems
         {
-            get => ListaItems.itemsReadonly.Count;
+            get => _listaItems.itemsReadonly.Count;
         }
 
         public float Total
         {
             get {
                 float totalItems = 0;
-                foreach(ItemProducto item in ListaItems.itemsReadonly)
+                foreach(ItemProducto item in _listaItems.itemsReadonly)
                 {
                     totalItems += item.PrecioUnitario;
                 }
                 return totalItems;
             }
         }
-    }
+
+        public IReadOnlyCollection<ItemProducto> Items => _listaItems.itemsReadonly;
+    } 
+    
 }

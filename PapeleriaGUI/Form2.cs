@@ -25,7 +25,15 @@ namespace PapeleriaGUI
         {
             gridVentas.DataSource = papeleria.Ventas.ElementosAlmacenados;
             gridClientes.DataSource = papeleria.Clientes.ElementosAlmacenados;
-            gridOrdenes.DataSource = papeleria.Ordenes.ElementosAlmacenados;
+            gridOrdenes.DataSource = papeleria.Ordenes.ElementosAlmacenados
+                .Select(orden =>
+                new {
+                    NroOrden = orden.NroOrden,
+                    Proveedor = orden.Proveedor,
+                    Items = String.Join(", ", orden.Items.Select(item=> item.Producto.Nombre).ToList()),
+                    Nroitems = orden.Items.Count,
+                    Total = orden.Items.Select(item=>item.Subtotal).Sum()
+                }).ToList();
             gridProveedores.DataSource = papeleria.Proveedores.ElementosAlmacenados;
             gridProductos.DataSource = papeleria.Productos.ElementosAlmacenados;
             gridCategorias.DataSource = papeleria.Categorias.ElementosAlmacenados;
