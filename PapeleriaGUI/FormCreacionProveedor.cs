@@ -61,11 +61,12 @@ namespace PapeleriaGUI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Proveedor proveedor = new Proveedor();
-            proveedor.Cuit = txtCuit.Text;
-            proveedor.CondicionFiscal = CondicionFiscalUtil.CondicionPorString(cbCondicion.Text).Value;
-            proveedor.RazonSocial = txtRazon.Text;
-            proveedor.Direccion = txtDireccion.Text;
+            Proveedor proveedor = new Proveedor(
+                txtCuit.Text,
+                CondicionFiscalUtil.CondicionPorString(cbCondicion.Text).Value,
+                txtRazon.Text,
+                txtDireccion.Text
+            );
 
             bool resultado = papeleria.Proveedores.AgregarElemento(proveedor);
             if(!resultado)

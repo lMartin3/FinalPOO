@@ -84,14 +84,17 @@ namespace PapeleriaGUI
 
         private void btnAgregarItem_Click(object sender, EventArgs e)
         {
-            ItemProducto itemVenta = new ItemProducto();
             Producto producto = (Producto)cbProductoItem.SelectedItem;
             
-            itemVenta.Producto = producto;
             int cantidad = (int) nCantidadItem.Value;
 
-            itemVenta.Cantidad = cantidad;
-            itemVenta.PrecioUnitario = producto.Precio;
+            ItemProducto itemVenta = new ItemProducto(
+                
+            producto,
+            cantidad,
+            producto.Precio
+                
+                );
 
             if (!listaItems.AddItem(itemVenta))
             {

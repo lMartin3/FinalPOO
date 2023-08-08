@@ -8,10 +8,10 @@ namespace Modelo
     public class Proveedor
     {
 
-        public string Cuit { get; set; }
-        public CondicionFiscal CondicionFiscal { get; set; }
-        public string RazonSocial { get; set; }
-        public string Direccion { get; set; }
+        public string Cuit { get; private set; }
+        public CondicionFiscal CondicionFiscal { get; private set; }
+        public string RazonSocial { get; private set; }
+        public string Direccion { get; private set; }
 
         public Proveedor(string cuit, CondicionFiscal condicionFiscal, string razonSocial, string direccion)
         {
@@ -21,9 +21,6 @@ namespace Modelo
             Direccion = direccion;
         }
 
-        public Proveedor()
-        {
-        }
 
         public override string ToString()
         {

@@ -9,9 +9,9 @@ namespace Modelo
 {
     public class Venta
     {
-        public int Codigo { get; set; }
-        public DateTime Fecha { get; set; }
-        public Cliente Cliente { get; set; }
+        public int Codigo { get; private set; }
+        public DateTime Fecha { get; private set; }
+        public Cliente Cliente { get; private set; }
         public ListaDeItemsProducto listaItems;
 
         //(TODO) no se si sigue los estandares

@@ -78,16 +78,17 @@ namespace PapeleriaGUI
 
         private void btnAgregarItem_Click(object sender, EventArgs e)
         {
-            ItemProducto itemCompra = new ItemProducto();
             Producto producto = papeleria.Productos.BuscarPorNombre(cbProductoItem.Text);
             
-            itemCompra.Producto = producto;
             int cantidad = (int) nCantidadItem.Value;
             float precioUnitario;
             float.TryParse(txtPrecioItem.Text,out precioUnitario);
 
-            itemCompra.Cantidad = cantidad;
-            itemCompra.PrecioUnitario = precioUnitario;
+            ItemProducto itemCompra = new ItemProducto(
+                producto,
+                cantidad,
+                precioUnitario
+                );
 
             listaItems.AddItem(itemCompra);
             LimpiarCamposItem();
@@ -131,14 +132,15 @@ namespace PapeleriaGUI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            OrdenCompra ordenCompra = new OrdenCompra();
             int nroOrden;
             int.TryParse(txtNroOrden.Text, out nroOrden);
             Proveedor proveedor = (Proveedor)cbProveedorOrden.SelectedItem;
 
-            ordenCompra.NroOrden = nroOrden.ToString();
-            ordenCompra.Proveedor = proveedor;
-            ordenCompra.listaItems = listaItems;
+            OrdenCompra ordenCompra = new OrdenCompra(
+                nroOrden.ToString(),
+                proveedor,
+                listaItems
+            );
 
             bool resultado = papeleria.Ordenes.AgregarElemento(ordenCompra);
             if(!resultado)
