@@ -141,15 +141,17 @@ namespace PapeleriaGUI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Venta venta = new Venta();
             int codVenta;
             int.TryParse(txtCodigoVenta.Text, out codVenta);
             Cliente cliente = (Cliente)cbClienteVenta.SelectedItem;
 
-            venta.Codigo = codVenta;
-            venta.Cliente = cliente;
-            venta.listaItems = listaItems;
-            venta.Fecha = ventaDateTimePicker.Value;
+
+            Venta venta = new Venta(
+                codVenta,
+                ventaDateTimePicker.Value,
+                cliente,
+                listaItems
+                );
             bool resultado = papeleria.Ventas.AgregarElemento(venta);
             if(!resultado)
             {

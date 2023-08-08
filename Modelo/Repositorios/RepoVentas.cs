@@ -9,7 +9,6 @@ namespace Modelo
     {
         protected override bool PuedeAgregarElemento(Venta elementoAVerificar)
         {
-            Console.WriteLine(elementos.Where(c => c.Codigo == elementoAVerificar.Codigo).Count() == 0);
             bool evaluacion =
                 elementoAVerificar.Cliente!=null&&
                 elementoAVerificar.listaItems.itemsReadonly.Count>0&&
