@@ -51,27 +51,37 @@ namespace Modelo
         private void LlenarMockData()
         {
             //Clientes dummies
-            Cliente cliente1 = new Cliente("45555515", CondicionFiscal.MONOTRIBUTISTA, "Juan Carlo Esposito", "Suipacha 2002");
-            Cliente cliente2 = new Cliente("45555516", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Tarlos Tabón", "Floripia 16");
-            Cliente cliente3 = new Cliente("45555517", CondicionFiscal.CONSUMIDOR_FINAL, "Damian Pepino", "Mendoza 2335");
+            Cliente cliente1 = new Cliente("20221654868", CondicionFiscal.MONOTRIBUTISTA, "Juan Carlo Esposito", "Suipacha 2002");
+            Cliente cliente2 = new Cliente("30168658578", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Pappenheimer S.A.", "Floripia 16");
+            Cliente cliente3 = new Cliente("45508764", CondicionFiscal.CONSUMIDOR_FINAL, "Daniel Perino", "Mendoza 2335");
             Clientes.AgregarElemento(cliente1);
             Clientes.AgregarElemento(cliente2);
             Clientes.AgregarElemento(cliente3);
             //Categorias Producto
-            CategoriaProducto categoria1 = new CategoriaProducto(0, "Lacteo", "Productos que dió la vaca.");
-            CategoriaProducto categoria2 = new CategoriaProducto(1, "Carne", "Productos que le sacamos a la vaca.");
+            CategoriaProducto categoria1 = new CategoriaProducto(0, "Untensillos de Marcado", "Lápices, lapiceras y fibrones");
+            CategoriaProducto categoria2 = new CategoriaProducto(1, "Resmas de papel", "Resmas de papel de diferentes tamaños");
+            CategoriaProducto categoria3 = new CategoriaProducto(2, "Medición", "Productos que le sacamos a la vaca.");
             Categorias.AgregarElemento(categoria1);
             Categorias.AgregarElemento(categoria2);
+            Categorias.AgregarElemento(categoria3);
             //Productos dummies
-            Producto producto1 = new Producto(0, "Coca Cola 3L", "Una coca de tres litros", 1200, 20, categoria1);
-            Producto producto2 = new Producto(1, "Milanesa", "1.5KG de milanesa lista para freir", 2000, 20, categoria2);
+            Producto producto1 = new Producto(0, "Resma A4 500", "Resma de papel A4 500 hojas marca Libertad", 4000, 35, categoria2);
+            Producto producto2 = new Producto(1, "Pack de fibrones Sharpie", "12 fibrones de colores varios", 6000, 15, categoria1);
+            Producto producto3 = new Producto(2, "Pack de 20 lápices", "Lapices BIC B2", 6000, 20, categoria1);
+            Producto producto4 = new Producto(3, "Paquete 20 lapiceras", "10 azules y 10 negras BIC", 3000, 20, categoria1);
+            Producto producto5 = new Producto(4, "Regla metro", "Regla de 1m", 1500, 20, categoria3);
             Productos.AgregarElemento(producto1);
             Productos.AgregarElemento(producto2);
+            Productos.AgregarElemento(producto3);
+            Productos.AgregarElemento(producto4);
+            Productos.AgregarElemento(producto5);
 
-            Proveedor proveedor1 = new Proveedor("20112223337", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Los Pollos Hermanos S.R.L.", "El Paso 512");
-            Proveedor proveedor2 = new Proveedor("20445556668", CondicionFiscal.MONOTRIBUTISTA, "Heisenberg S.A.", "Nuevo México 602");
+            Proveedor proveedor1 = new Proveedor("30218686867", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Los Papeles Hermanos S.R.L.", "El Paso 512");
+            Proveedor proveedor2 = new Proveedor("30154747476", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Papenberg S.A.", "Nuevo México 602");
+            Proveedor proveedor3 = new Proveedor("30298545672", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Piedra de Sísifo S.R.L", "Turquía 1023");
             Proveedores.AgregarElemento(proveedor1);
             Proveedores.AgregarElemento(proveedor2);
+            Proveedores.AgregarElemento(proveedor3);
         }
 
 
