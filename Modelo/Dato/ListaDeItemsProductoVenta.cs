@@ -22,5 +22,6 @@ namespace Modelo.Dato
                 && itemAEvaluar.Cantidad > 0
                 && itemAEvaluar.Cantidad + stockUsadoEnVenta <= itemAEvaluar.Producto.Stock;
         }
-    }
+
+      }
 }

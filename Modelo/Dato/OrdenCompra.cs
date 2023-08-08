@@ -40,6 +40,8 @@ namespace Modelo
         }
 
         public IReadOnlyCollection<ItemProducto> Items => _listaItems.itemsReadonly;
+
+        public string ResumenItems => _listaItems.ResumenItems;
     } 
     
 }

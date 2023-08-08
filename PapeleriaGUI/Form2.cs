@@ -27,9 +27,9 @@ namespace PapeleriaGUI
                 new {
                     CodigoVenta = venta.Codigo,
                     Cliente = venta.Cliente,
-                    Items = String.Join(", ", venta.Items.Select(item => item.Producto.Nombre).ToList()),
+                    Items = venta.ResumenItems,
                     Nroitems = venta.Items.Count,
-                    Total = venta.Items.Select(item => item.Subtotal).Sum()
+                    Total = venta.Total
                 }).ToList();
             gridClientes.DataSource = papeleria.Clientes.ElementosAlmacenados;
             gridOrdenes.DataSource = papeleria.Ordenes.ElementosAlmacenados
@@ -37,9 +37,9 @@ namespace PapeleriaGUI
                 new {
                     NroOrden = orden.NroOrden,
                     Proveedor = orden.Proveedor,
-                    Items = String.Join(", ", orden.Items.Select(item=> item.Producto.Nombre).ToList()),
+                    Items = orden.ResumenItems,
                     Nroitems = orden.Items.Count,
-                    Total = orden.Items.Select(item=>item.Subtotal).Sum()
+                    Total = orden.Total
                 }).ToList();
             gridProveedores.DataSource = papeleria.Proveedores.ElementosAlmacenados;
             gridProductos.DataSource = papeleria.Productos.ElementosAlmacenados;

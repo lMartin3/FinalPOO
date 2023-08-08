@@ -41,5 +41,7 @@ namespace Modelo.Dato
             items.RemoveAt(indice);
         }
 
+        public String ResumenItems => String.Join(", ", itemsReadonly.Select(item => item.Producto.Nombre).ToList());
+
     }
 }
