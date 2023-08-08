@@ -18,5 +18,7 @@ namespace Modelo
         }
         public ItemProducto() { }
 
+        public float Subtotal => PrecioUnitario * Cantidad;
+
     }
 }

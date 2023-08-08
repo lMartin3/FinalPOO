@@ -70,7 +70,7 @@ namespace PapeleriaGUI
                     Producto = item.Producto.Nombre,
                     Cantidad = item.Cantidad,
                     PrecioUnitario = item.Producto.Precio,
-                    PrecioTotal = item.Cantidad * item.PrecioUnitario
+                    Subtotal = item.Subtotal
                 }
                 ).ToList();
             gridItems.DataSource = listaDeDatosNotables;
