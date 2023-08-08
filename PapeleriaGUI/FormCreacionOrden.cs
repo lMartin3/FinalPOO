@@ -67,7 +67,7 @@ namespace PapeleriaGUI
         private void ActualizarGrid()
         {
             gridItems.DataSource = null;
-            gridItems.DataSource = listaItems;
+            gridItems.DataSource = listaItems.itemsReadonly;
         }
 
 
@@ -92,6 +92,7 @@ namespace PapeleriaGUI
             listaItems.AddItem(itemCompra);
             LimpiarCamposItem();
             ActualizarBotonCompra();
+            ActualizarGrid();
         }
 
         private void cbProductoItem_SelectedIndexChanged(object sender, EventArgs e)
