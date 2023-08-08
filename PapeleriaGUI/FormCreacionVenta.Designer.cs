@@ -59,7 +59,6 @@
             this.gridItems.Name = "gridItems";
             this.gridItems.Size = new System.Drawing.Size(719, 495);
             this.gridItems.TabIndex = 0;
-            this.gridItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridItems_CellContentClick);
             // 
             // gbItems
             // 
@@ -232,7 +231,6 @@
             this.Controls.Add(this.gridItems);
             this.Name = "FormCreacionVenta";
             this.Text = "Form3";
-            this.Load += new System.EventHandler(this.FormCreacionVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
             this.gbItems.ResumeLayout(false);
             this.gbItems.PerformLayout();

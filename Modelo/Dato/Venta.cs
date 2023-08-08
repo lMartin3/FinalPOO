@@ -12,13 +12,12 @@ namespace Modelo
         public int Codigo { get; private set; }
         public DateTime Fecha { get; private set; }
         public Cliente Cliente { get; private set; }
-        private ListaDeItemsProducto _listaItems;
+        private ListaDeItemsProductoVenta _listaItems;
 
-        //(TODO) no se si sigue los estandares
-        public Venta(int id = 0, 
-            DateTime fecha = new DateTime(), 
-            Cliente cliente = null,
-            ListaDeItemsProducto items = null)
+        public Venta(int id, 
+            DateTime fecha, 
+            Cliente cliente,
+            ListaDeItemsProductoVenta items)
         {
             Codigo = id;
             Fecha = fecha;

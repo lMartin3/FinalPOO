@@ -33,13 +33,11 @@ namespace PapeleriaGUI
 
         private void EvaluarCondiciones()
         {
-            bool camposOK = 
-                ValidacionUtil.EsDniOCuitValido(txtDni.Text) &&
+            btnAgregar.Enabled = ValidacionUtil.EsDniOCuitValido(txtDni.Text) &&
                 txtNombre.Text.Length > 0 &&
                 cbCondicion.Text.Length > 0 &&
                 CondicionFiscalUtil.CondicionPorString(cbCondicion.Text).HasValue &&
                 txtDireccion.Text.Length > 0;
-            btnAgregar.Enabled = camposOK;
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
@@ -64,10 +62,10 @@ namespace PapeleriaGUI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.Dni = txtDni.Text;
-            cliente.CondicionFiscal = CondicionFiscalUtil.CondicionPorString(cbCondicion.Text).Value;
-            cliente.Direccion = txtDireccion.Text;
+            Cliente cliente = new Cliente(txtDni.Text,
+                    CondicionFiscalUtil.CondicionPorString(cbCondicion.Text).Value,
+                    txtNombre.Text,
+                    txtDireccion.Text);
 
             bool exito = papeleria.Clientes.AgregarElemento(cliente);
             if(!exito)
@@ -81,11 +79,6 @@ namespace PapeleriaGUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void FormCreacionCliente_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

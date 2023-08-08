@@ -30,12 +30,10 @@ namespace PapeleriaGUI
 
         private void ActualizarBotonAgregar()
         {
-            bool habilitar =
-                ValidacionUtil.EsCuitValido(txtCuit.Text) &&
-                txtRazon.Text.Length>0 &&
-                txtDireccion.Text.Length>0 &&
-                cbCondicion.Text.Length>0;
-            btnAgregar.Enabled = habilitar;
+            btnAgregar.Enabled = ValidacionUtil.EsCuitValido(txtCuit.Text) &&
+                txtRazon.Text.Length > 0 &&
+                txtDireccion.Text.Length > 0 &&
+                cbCondicion.Text.Length > 0;
 
         }
 
@@ -80,11 +78,6 @@ namespace PapeleriaGUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void FormCreacionProveedor_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

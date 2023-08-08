@@ -30,6 +30,7 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabVentas = new System.Windows.Forms.TabPage();
+            this.buttonDetallesVenta = new System.Windows.Forms.Button();
             this.btnEliminarVenta = new System.Windows.Forms.Button();
             this.btnAgregarVenta = new System.Windows.Forms.Button();
             this.gridVentas = new System.Windows.Forms.DataGridView();
@@ -81,6 +82,7 @@
             // 
             // tabVentas
             // 
+            this.tabVentas.Controls.Add(this.buttonDetallesVenta);
             this.tabVentas.Controls.Add(this.btnEliminarVenta);
             this.tabVentas.Controls.Add(this.btnAgregarVenta);
             this.tabVentas.Controls.Add(this.gridVentas);
@@ -91,7 +93,16 @@
             this.tabVentas.TabIndex = 0;
             this.tabVentas.Text = "Ventas";
             this.tabVentas.UseVisualStyleBackColor = true;
-            this.tabVentas.Click += new System.EventHandler(this.tabVentas_Click);
+            // 
+            // buttonDetallesVenta
+            // 
+            this.buttonDetallesVenta.Location = new System.Drawing.Point(728, 112);
+            this.buttonDetallesVenta.Name = "buttonDetallesVenta";
+            this.buttonDetallesVenta.Size = new System.Drawing.Size(244, 24);
+            this.buttonDetallesVenta.TabIndex = 7;
+            this.buttonDetallesVenta.Text = "Ver detalles de la Venta";
+            this.buttonDetallesVenta.UseVisualStyleBackColor = true;
+            this.buttonDetallesVenta.Click += new System.EventHandler(this.buttonDetallesVenta_Click);
             // 
             // btnEliminarVenta
             // 
@@ -216,7 +227,6 @@
             this.gridOrdenes.Name = "gridOrdenes";
             this.gridOrdenes.Size = new System.Drawing.Size(693, 539);
             this.gridOrdenes.TabIndex = 3;
-            this.gridOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridOrdenes_CellContentClick);
             // 
             // tabProveedores
             // 
@@ -270,7 +280,6 @@
             this.tabProductos.TabIndex = 4;
             this.tabProductos.Text = "Productos";
             this.tabProductos.UseVisualStyleBackColor = true;
-            this.tabProductos.Click += new System.EventHandler(this.tabProductos_Click);
             // 
             // gridProductos
             // 
@@ -309,7 +318,6 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Form2";
             this.Text = "Papelería";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.tabControl.ResumeLayout(false);
             this.tabVentas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridVentas)).EndInit();
@@ -351,5 +359,6 @@
         private System.Windows.Forms.TabPage tabCategorias;
         private System.Windows.Forms.DataGridView gridCategorias;
         private System.Windows.Forms.Button btnDetallesOrden;
+        private System.Windows.Forms.Button buttonDetallesVenta;
     }
 }

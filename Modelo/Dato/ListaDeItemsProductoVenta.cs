@@ -11,7 +11,6 @@ namespace Modelo.Dato
     {
         protected override bool EvaluarItem(ItemProducto itemAEvaluar)
         {
-            //(TODO)no se si sigue las convenciones nada de esto
             Producto productoDelItem = itemAEvaluar.Producto;
             if (productoDelItem == null)
             {
@@ -19,15 +18,9 @@ namespace Modelo.Dato
             }
             int stockUsadoEnVenta = ObtenerStockUtilizadoDeProducto(productoDelItem);
 
-            if (
-                itemAEvaluar.PrecioUnitario < 0 ||
-                itemAEvaluar.Cantidad <= 0 ||
-                itemAEvaluar.Cantidad + stockUsadoEnVenta > itemAEvaluar.Producto.Stock
-            )
-            {
-                return false;
-            }
-            return true;
+            return itemAEvaluar.PrecioUnitario >= 0
+                && itemAEvaluar.Cantidad > 0
+                && itemAEvaluar.Cantidad + stockUsadoEnVenta <= itemAEvaluar.Producto.Stock;
         }
     }
 }

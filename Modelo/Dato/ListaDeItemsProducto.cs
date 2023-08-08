@@ -26,10 +26,7 @@ namespace Modelo.Dato
             return itemsReadonly.Where(itm => itm.Producto == producto)
                 .Sum(itm => itm.Cantidad);
         }
-        protected virtual bool EvaluarItem(ItemProducto itemAEvaluar)
-        {
-            return true;
-        }
+        protected abstract bool EvaluarItem(ItemProducto itemAEvaluar);
         public bool AddItem(ItemProducto itemAAgregar)
         {
             if (!EvaluarItem(itemAAgregar))
@@ -38,11 +35,6 @@ namespace Modelo.Dato
             }
             items.Add(itemAAgregar);
             return true;
-        }
-
-        public void RemoverItem(ItemProducto itemARemover)
-        {
-            items.Remove(itemARemover);
         }
         public void RemoverItemEn(int indice)
         {

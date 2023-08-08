@@ -17,7 +17,6 @@ namespace PapeleriaGUI
     {
         private Papeleria papeleria;
         private ListaDeItemsProductoVenta listaItems = new ListaDeItemsProductoVenta();
-        private Regex regexNum = new Regex("^[0-9]{1,}$");
         public FormCreacionVenta(Papeleria papeleria)
         {
             this.papeleria = papeleria;
@@ -38,11 +37,8 @@ namespace PapeleriaGUI
 
         private void ActualizarBotonItem()
         {
-            bool habilitar =
-                nCantidadItem.Value > 0 &&
+            btnAgregarItem.Enabled = nCantidadItem.Value > 0 &&
                 cbProductoItem.SelectedItem != null;
-
-            btnAgregarItem.Enabled = habilitar;
         }
 
         private void ActualizarBotonVenta()
@@ -88,13 +84,9 @@ namespace PapeleriaGUI
             
             int cantidad = (int) nCantidadItem.Value;
 
-            ItemProducto itemVenta = new ItemProducto(
-                
-            producto,
-            cantidad,
-            producto.Precio
-                
-                );
+            ItemProducto itemVenta = new ItemProducto(producto,
+                cantidad,
+                producto.Precio);
 
             if (!listaItems.AddItem(itemVenta))
             {
@@ -146,12 +138,10 @@ namespace PapeleriaGUI
             Cliente cliente = (Cliente)cbClienteVenta.SelectedItem;
 
 
-            Venta venta = new Venta(
-                codVenta,
+            Venta venta = new Venta(codVenta,
                 ventaDateTimePicker.Value,
                 cliente,
-                listaItems
-                );
+                listaItems);
             bool resultado = papeleria.Ventas.AgregarElemento(venta);
             if(!resultado)
             {
@@ -171,16 +161,6 @@ namespace PapeleriaGUI
                 return;
             }
             nCantidadItem.Maximum = int.MaxValue;
-        }
-
-        private void FormCreacionVenta_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gridItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

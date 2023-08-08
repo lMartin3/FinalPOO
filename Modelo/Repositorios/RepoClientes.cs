@@ -13,13 +13,11 @@ namespace Modelo
         private static Regex cuitRegex = new Regex("^[0-9]{11}$");
         protected override bool PuedeAgregarElemento(Cliente elementoAVerificar)
         {
-            bool evaluacion =
-                dniRegex.IsMatch(elementoAVerificar.Dni) || 
-                cuitRegex.IsMatch(elementoAVerificar.Dni)&&
-                elementoAVerificar.Nombre != "" &&
-                elementoAVerificar.Direccion != "" &&
-                elementos.Where(c => c.Dni == elementoAVerificar.Dni).Count() == 0;
-            return evaluacion;
+            return dniRegex.IsMatch(elementoAVerificar.DniOCuit) 
+                || cuitRegex.IsMatch(elementoAVerificar.DniOCuit)
+                && elementoAVerificar.Nombre != ""
+                && elementoAVerificar.Direccion != ""
+                && elementos.Where(c => c.DniOCuit == elementoAVerificar.DniOCuit).Count() == 0;
         }
     }
 }

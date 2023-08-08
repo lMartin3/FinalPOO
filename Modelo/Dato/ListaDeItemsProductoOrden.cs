@@ -11,15 +11,9 @@ namespace Modelo.Dato
     {
         protected override bool EvaluarItem(ItemProducto itemAEvaluar)
         {
-            //(TODO)no se si sigue las convenciones
-            if (itemAEvaluar.Producto==null||
-                itemAEvaluar.PrecioUnitario < 0 ||
-                itemAEvaluar.Cantidad <= 0
-            )
-            {
-                return false;
-            }
-            return true;
+            return itemAEvaluar.Producto != null
+                && itemAEvaluar.PrecioUnitario >= 0
+                && itemAEvaluar.Cantidad > 0;
         }
     }
 }

@@ -38,12 +38,9 @@ namespace PapeleriaGUI
 
         private void ActualizarBotonItem()
         {
-            bool habilitar =
-                ValidacionUtil.EsNumeroPositivo(txtPrecioItem.Text) &&
+            btnAgregarItem.Enabled = ValidacionUtil.EsNumeroPositivo(txtPrecioItem.Text) &&
                 nCantidadItem.Value > 0 &&
                 cbProductoItem.Text.Length > 0;
-
-            btnAgregarItem.Enabled = habilitar;
         }
 
         private void ActualizarBotonCompra()
@@ -150,11 +147,6 @@ namespace PapeleriaGUI
             }
 
             Close();
-        }
-
-        private void FormCreacionOrden_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

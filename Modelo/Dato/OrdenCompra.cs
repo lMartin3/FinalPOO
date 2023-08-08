@@ -10,10 +10,12 @@ namespace Modelo
     {
         public string NroOrden { get; private set; }
         public Proveedor Proveedor { get; private set; }
-        private ListaDeItemsProducto _listaItems; 
+        private ListaDeItemsProductoOrden _listaItems; 
 
 
-        public OrdenCompra(string nroOrden, Proveedor proveedor, ListaDeItemsProducto listaItems)
+        public OrdenCompra(string nroOrden,
+            Proveedor proveedor,
+            ListaDeItemsProductoOrden listaItems)
         {
             NroOrden = nroOrden;
             Proveedor = proveedor;

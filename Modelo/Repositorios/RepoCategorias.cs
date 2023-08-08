@@ -9,7 +9,7 @@ namespace Modelo
     {
         protected override bool PuedeAgregarElemento(CategoriaProducto elementoAVerificar)
         {
-            return elementos.Where(c => c.Id==elementoAVerificar.Id).Count() == 0;
+            return elementos.Where(c => c.Id == elementoAVerificar.Id).Count() == 0;
         }
     }
 }

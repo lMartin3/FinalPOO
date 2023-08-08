@@ -20,10 +20,17 @@ namespace PapeleriaGUI
             InitializeComponent();
             ActualizarGrids();
         }
-
         private void ActualizarGrids()
         {
-            gridVentas.DataSource = papeleria.Ventas.ElementosAlmacenados;
+            gridVentas.DataSource = papeleria.Ventas.ElementosAlmacenados
+                .Select(venta =>
+                new {
+                    CodigoVenta = venta.Codigo,
+                    Cliente = venta.Cliente,
+                    Items = String.Join(", ", venta.Items.Select(item => item.Producto.Nombre).ToList()),
+                    Nroitems = venta.Items.Count,
+                    Total = venta.Items.Select(item => item.Subtotal).Sum()
+                }).ToList();
             gridClientes.DataSource = papeleria.Clientes.ElementosAlmacenados;
             gridOrdenes.DataSource = papeleria.Ordenes.ElementosAlmacenados
                 .Select(orden =>
@@ -37,11 +44,6 @@ namespace PapeleriaGUI
             gridProveedores.DataSource = papeleria.Proveedores.ElementosAlmacenados;
             gridProductos.DataSource = papeleria.Productos.ElementosAlmacenados;
             gridCategorias.DataSource = papeleria.Categorias.ElementosAlmacenados;
-        }
-
-        private void ActualizarBotones()
-        {
-
         }
 
         private void btnAgregarVenta_Click(object sender, EventArgs e)
@@ -103,32 +105,22 @@ namespace PapeleriaGUI
             ActualizarGrids();
         }
 
-        private void tabProductos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabVentas_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDetallesOrden_Click(object sender, EventArgs e)
         {
             if (gridOrdenes.CurrentRow == null) return;
             OrdenCompra orden = papeleria.Ordenes.ElementosAlmacenados.ElementAt(gridOrdenes.CurrentRow.Index);
+            if (orden == null) return;
             FormDetalles formDetalles = new FormDetalles("Detalles de Orden de Compra", orden.Items);
             formDetalles.ShowDialog();
         }
 
-        private void gridOrdenes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void buttonDetallesVenta_Click(object sender, EventArgs e)
         {
-
+            if (gridVentas.CurrentRow == null) return;
+            Venta venta = papeleria.Ventas.ElementosAlmacenados.ElementAt(gridVentas.CurrentRow.Index);
+            if (venta == null) return;
+            FormDetalles formDetalles = new FormDetalles("Detalles de Ventas", venta.Items);
+            formDetalles.ShowDialog();
         }
     }
 }

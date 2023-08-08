@@ -12,12 +12,10 @@ namespace Modelo
 
         protected override bool PuedeAgregarElemento(Proveedor elementoAVerificar)
         {
-            bool evaluacion=
-                cuitRegex.IsMatch(elementoAVerificar.Cuit) &&
-                elementoAVerificar.RazonSocial != "" &&
-                elementoAVerificar.Direccion != "" &&
-                elementoAVerificar.CondicionFiscal!=CondicionFiscal.CONSUMIDOR_FINAL;
-            return evaluacion;
+            return cuitRegex.IsMatch(elementoAVerificar.Cuit)
+                && elementoAVerificar.RazonSocial != ""
+                && elementoAVerificar.Direccion != ""
+                && elementoAVerificar.CondicionFiscal!=CondicionFiscal.CONSUMIDOR_FINAL;
         }
     }
 }

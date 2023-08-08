@@ -231,7 +231,6 @@
             this.Controls.Add(this.gridItems);
             this.Name = "FormCreacionOrden";
             this.Text = "Form3";
-            this.Load += new System.EventHandler(this.FormCreacionOrden_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
             this.gbItems.ResumeLayout(false);
             this.gbItems.PerformLayout();

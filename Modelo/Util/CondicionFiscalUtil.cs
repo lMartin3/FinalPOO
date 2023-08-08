@@ -24,10 +24,8 @@ namespace Modelo.Util
         };
 
         public static String[] CondicionesComoStrings()
-        {
-            
+        {            
                 return condiciones.Keys.ToArray();
-            
         }
 
         public static CondicionFiscal? CondicionPorString(String str)

@@ -13,7 +13,10 @@ namespace Modelo
         public string RazonSocial { get; private set; }
         public string Direccion { get; private set; }
 
-        public Proveedor(string cuit, CondicionFiscal condicionFiscal, string razonSocial, string direccion)
+        public Proveedor(string cuit,
+            CondicionFiscal condicionFiscal,
+            string razonSocial,
+            string direccion)
         {
             Cuit = cuit;
             CondicionFiscal = condicionFiscal;

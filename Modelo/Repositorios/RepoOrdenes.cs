@@ -9,7 +9,7 @@ namespace Modelo
     {
         protected override bool PuedeAgregarElemento(OrdenCompra elementoAVerificar)
         {
-            return elementos.Where(x=>x.NroOrden==elementoAVerificar.NroOrden).Count() == 0;
+            return elementos.Where(x=>x.NroOrden == elementoAVerificar.NroOrden).Count() == 0;
         }
     }
 }
