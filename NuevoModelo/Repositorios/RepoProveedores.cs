@@ -1,11 +1,7 @@
-﻿using Modelo.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using Entidades;
+using NuevoModelo.Util;
 
-namespace Modelo
+namespace NuevoModelo
 {
     public class RepoProveedores : Repositorio<Proveedor>
     {

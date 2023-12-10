@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Modelo.Util
+namespace NuevoModelo.Util
 {
     public class ValidacionUtil
     {

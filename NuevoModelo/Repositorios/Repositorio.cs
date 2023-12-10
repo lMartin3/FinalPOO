@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 
-namespace Modelo
+namespace NuevoModelo
 {
     /// <summary>
     /// Esta clase es responsable de almacenar elementos de cierto tipo

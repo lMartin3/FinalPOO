@@ -1,4 +1,4 @@
-using Modelo;
+using NuevoModelo;
 using PapeleriaGUI;
 
 namespace Vista

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Entidades;
+﻿using Entidades;
 
-namespace Modelo
+namespace NuevoModelo
 {
     public class RepoOrdenes : Repositorio<OrdenCompra>
     {

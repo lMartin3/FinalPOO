@@ -1,16 +1,6 @@
-﻿using Modelo;
-using Modelo.Util;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using Entidades;
+using NuevoModelo;
+using NuevoModelo.Util;
 
 namespace PapeleriaGUI
 {
