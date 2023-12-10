@@ -42,10 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dato\ItemProducto.cs" />
-    <Compile Include="Dato\ListaDeItemsProductoOrden.cs" />
-    <Compile Include="Dato\ListaDeItemsProductoVenta.cs" />
-    <Compile Include="Dato\ListaDeItemsProducto.cs" />
     <Compile Include="Repositorios\RepoCategorias.cs" />
     <Compile Include="Repositorios\RepoOrdenes.cs" />
     <Compile Include="Repositorios\RepoVentas.cs" />
@@ -53,20 +49,19 @@
     <Compile Include="Repositorios\Repositorio.cs" />
     <Compile Include="Repositorios\RepoProductos.cs" />
     <Compile Include="Repositorios\RepoClientes.cs" />
-    <Compile Include="Dato\CategoriaProducto.cs" />
     <Compile Include="Papeleria.cs" />
-    <Compile Include="Dato\Cliente.cs" />
-    <Compile Include="Dato\CondicionFiscal.cs" />
-    <Compile Include="Dato\OrdenCompra.cs" />
-    <Compile Include="Dato\Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dato\Proveedor.cs" />
-    <Compile Include="Dato\Venta.cs" />
     <Compile Include="Util\CondicionFiscalUtil.cs" />
     <Compile Include="Util\ValidacionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{9a874547-3056-4bb1-a95d-9ff8ba67d005}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
