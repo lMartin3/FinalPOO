@@ -163,5 +163,10 @@ namespace PapeleriaGUI
             }
             nCantidadItem.Maximum = int.MaxValue;
         }
+
+        private void FormCreacionVenta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

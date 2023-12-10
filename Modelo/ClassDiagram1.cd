@@ -44,9 +44,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Modelo.OrdenCompra">
-    <Position X="4.5" Y="0.75" Width="1.5" />
+    <Position X="4" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEACAAAAAAAAACBAAAAQAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAEACAAAAAAAAACBAAAARAAAAAABAAAAAAA=</HashCode>
       <FileName>Dato\OrdenCompra.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -66,7 +66,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAgAIAgAAAAAgAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAACAAAAAAAAAgAIAgAAAAAgAAABAAAAAAAAAAACAA=</HashCode>
       <FileName>Dato\ListaDeItemsProducto.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -76,7 +76,7 @@
   <Class Name="Modelo.Venta">
     <Position X="7.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAACAEAAACAAACAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAACAEAAACAAACAAAAARAAAAAAAAAAAAAA=</HashCode>
       <FileName>Dato\Venta.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -103,7 +103,7 @@
   <Class Name="Modelo.RepoClientes" Collapsed="true">
     <Position X="1.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAAAAAABA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repositorios\RepoClientes.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -124,7 +124,7 @@
   <Class Name="Modelo.RepoProveedores" Collapsed="true">
     <Position X="1.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repositorios\RepoProveedores.cs</FileName>
     </TypeIdentifier>
   </Class>

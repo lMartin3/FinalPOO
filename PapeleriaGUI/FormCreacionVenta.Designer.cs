@@ -55,9 +55,11 @@
             // 
             this.gridItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridItems.Location = new System.Drawing.Point(12, 12);
+            this.gridItems.Location = new System.Drawing.Point(16, 15);
+            this.gridItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridItems.Name = "gridItems";
-            this.gridItems.Size = new System.Drawing.Size(719, 495);
+            this.gridItems.RowHeadersWidth = 51;
+            this.gridItems.Size = new System.Drawing.Size(959, 609);
             this.gridItems.TabIndex = 0;
             // 
             // gbItems
@@ -68,26 +70,30 @@
             this.gbItems.Controls.Add(this.label2);
             this.gbItems.Controls.Add(this.label1);
             this.gbItems.Controls.Add(this.cbProductoItem);
-            this.gbItems.Location = new System.Drawing.Point(752, 12);
+            this.gbItems.Location = new System.Drawing.Point(1003, 15);
+            this.gbItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbItems.Name = "gbItems";
-            this.gbItems.Size = new System.Drawing.Size(308, 208);
+            this.gbItems.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbItems.Size = new System.Drawing.Size(411, 256);
             this.gbItems.TabIndex = 1;
             this.gbItems.TabStop = false;
             this.gbItems.Text = "Items";
             // 
             // nCantidadItem
             // 
-            this.nCantidadItem.Location = new System.Drawing.Point(32, 92);
+            this.nCantidadItem.Location = new System.Drawing.Point(43, 113);
+            this.nCantidadItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nCantidadItem.Name = "nCantidadItem";
-            this.nCantidadItem.Size = new System.Drawing.Size(254, 20);
+            this.nCantidadItem.Size = new System.Drawing.Size(339, 22);
             this.nCantidadItem.TabIndex = 8;
             this.nCantidadItem.ValueChanged += new System.EventHandler(this.nCantidadItem_ValueChanged);
             // 
             // btnEliminarItem
             // 
-            this.btnEliminarItem.Location = new System.Drawing.Point(29, 170);
+            this.btnEliminarItem.Location = new System.Drawing.Point(39, 209);
+            this.btnEliminarItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminarItem.Name = "btnEliminarItem";
-            this.btnEliminarItem.Size = new System.Drawing.Size(257, 23);
+            this.btnEliminarItem.Size = new System.Drawing.Size(343, 28);
             this.btnEliminarItem.TabIndex = 7;
             this.btnEliminarItem.Text = "Eliminar Item seleccionado";
             this.btnEliminarItem.UseVisualStyleBackColor = true;
@@ -95,9 +101,10 @@
             // 
             // btnAgregarItem
             // 
-            this.btnAgregarItem.Location = new System.Drawing.Point(29, 141);
+            this.btnAgregarItem.Location = new System.Drawing.Point(39, 174);
+            this.btnAgregarItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregarItem.Name = "btnAgregarItem";
-            this.btnAgregarItem.Size = new System.Drawing.Size(257, 23);
+            this.btnAgregarItem.Size = new System.Drawing.Size(343, 28);
             this.btnAgregarItem.TabIndex = 6;
             this.btnAgregarItem.Text = "Agregar item";
             this.btnAgregarItem.UseVisualStyleBackColor = true;
@@ -106,18 +113,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 76);
+            this.label2.Location = new System.Drawing.Point(39, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(61, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Cantidad";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 28);
+            this.label1.Location = new System.Drawing.Point(39, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(61, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Producto";
             // 
@@ -125,9 +134,10 @@
             // 
             this.cbProductoItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProductoItem.FormattingEnabled = true;
-            this.cbProductoItem.Location = new System.Drawing.Point(29, 44);
+            this.cbProductoItem.Location = new System.Drawing.Point(39, 54);
+            this.cbProductoItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbProductoItem.Name = "cbProductoItem";
-            this.cbProductoItem.Size = new System.Drawing.Size(257, 21);
+            this.cbProductoItem.Size = new System.Drawing.Size(341, 24);
             this.cbProductoItem.TabIndex = 0;
             this.cbProductoItem.SelectedIndexChanged += new System.EventHandler(this.cbProductoItem_SelectedIndexChanged);
             // 
@@ -141,9 +151,11 @@
             this.gbOrden.Controls.Add(this.txtCodigoVenta);
             this.gbOrden.Controls.Add(this.btnCancelar);
             this.gbOrden.Controls.Add(this.btnCrearRegistro);
-            this.gbOrden.Location = new System.Drawing.Point(752, 244);
+            this.gbOrden.Location = new System.Drawing.Point(1003, 300);
+            this.gbOrden.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbOrden.Name = "gbOrden";
-            this.gbOrden.Size = new System.Drawing.Size(308, 263);
+            this.gbOrden.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbOrden.Size = new System.Drawing.Size(411, 324);
             this.gbOrden.TabIndex = 2;
             this.gbOrden.TabStop = false;
             this.gbOrden.Text = "Venta";
@@ -151,35 +163,39 @@
             // ventaDateTimePicker
             // 
             this.ventaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ventaDateTimePicker.Location = new System.Drawing.Point(32, 144);
+            this.ventaDateTimePicker.Location = new System.Drawing.Point(43, 177);
+            this.ventaDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ventaDateTimePicker.Name = "ventaDateTimePicker";
-            this.ventaDateTimePicker.Size = new System.Drawing.Size(254, 20);
+            this.ventaDateTimePicker.Size = new System.Drawing.Size(337, 22);
             this.ventaDateTimePicker.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 128);
+            this.label3.Location = new System.Drawing.Point(35, 158);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.Size = new System.Drawing.Size(83, 16);
             this.label3.TabIndex = 10;
             this.label3.Text = "Fecha Venta";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 78);
+            this.label5.Location = new System.Drawing.Point(35, 96);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.Size = new System.Drawing.Size(48, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "Cliente";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 33);
+            this.label4.Location = new System.Drawing.Point(39, 41);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.Size = new System.Drawing.Size(108, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Código de Venta";
             // 
@@ -187,25 +203,28 @@
             // 
             this.cbClienteVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClienteVenta.FormattingEnabled = true;
-            this.cbClienteVenta.Location = new System.Drawing.Point(29, 94);
+            this.cbClienteVenta.Location = new System.Drawing.Point(39, 116);
+            this.cbClienteVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbClienteVenta.Name = "cbClienteVenta";
-            this.cbClienteVenta.Size = new System.Drawing.Size(257, 21);
+            this.cbClienteVenta.Size = new System.Drawing.Size(341, 24);
             this.cbClienteVenta.TabIndex = 7;
             this.cbClienteVenta.SelectedIndexChanged += new System.EventHandler(this.cbProveedorOrden_SelectedIndexChanged);
             // 
             // txtCodigoVenta
             // 
-            this.txtCodigoVenta.Location = new System.Drawing.Point(29, 49);
+            this.txtCodigoVenta.Location = new System.Drawing.Point(39, 60);
+            this.txtCodigoVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodigoVenta.Name = "txtCodigoVenta";
-            this.txtCodigoVenta.Size = new System.Drawing.Size(257, 20);
+            this.txtCodigoVenta.Size = new System.Drawing.Size(341, 22);
             this.txtCodigoVenta.TabIndex = 2;
             this.txtCodigoVenta.TextChanged += new System.EventHandler(this.txtNroOrden_TextChanged);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(29, 222);
+            this.btnCancelar.Location = new System.Drawing.Point(39, 273);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(257, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(343, 28);
             this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -213,9 +232,10 @@
             // 
             // btnCrearRegistro
             // 
-            this.btnCrearRegistro.Location = new System.Drawing.Point(29, 193);
+            this.btnCrearRegistro.Location = new System.Drawing.Point(39, 238);
+            this.btnCrearRegistro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCrearRegistro.Name = "btnCrearRegistro";
-            this.btnCrearRegistro.Size = new System.Drawing.Size(257, 23);
+            this.btnCrearRegistro.Size = new System.Drawing.Size(343, 28);
             this.btnCrearRegistro.TabIndex = 0;
             this.btnCrearRegistro.Text = "Confirmar Registro de Venta";
             this.btnCrearRegistro.UseVisualStyleBackColor = true;
@@ -223,14 +243,16 @@
             // 
             // FormCreacionVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1072, 519);
+            this.ClientSize = new System.Drawing.Size(1429, 639);
             this.Controls.Add(this.gbOrden);
             this.Controls.Add(this.gbItems);
             this.Controls.Add(this.gridItems);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormCreacionVenta";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.FormCreacionVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
             this.gbItems.ResumeLayout(false);
             this.gbItems.PerformLayout();
