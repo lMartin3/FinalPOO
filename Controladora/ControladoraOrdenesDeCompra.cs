@@ -2,6 +2,7 @@
 using NuevoModelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,11 @@ namespace Controladora
 {
     public class ControladoraOrdenesDeCompra
     {
-        
+
+        public IReadOnlyCollection<OrdenCompra> ListarVentas()
+        {
+            return ContextoPapeleria.Instancia.OrdenesDeCompra.ToImmutableList();
+        }
         public ResultadoOperacion CrearOrdenDeCompra(OrdenCompra orden)
         {
             if(ContextoPapeleria.Instancia.OrdenesDeCompra.Where(c=>c.NroOrden == orden.NroOrden).FirstOrDefault()!=null)

@@ -2,6 +2,7 @@
 using NuevoModelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,11 @@ namespace Controladora
 {
     public class ControladoraProductos
     {
+
+        public IReadOnlyCollection<Producto> ListarProductos()
+        {
+            return ContextoPapeleria.Instancia.Productos.ToImmutableList();
+        }
 
         public ResultadoOperacion CrearProducto(Producto producto)
         {

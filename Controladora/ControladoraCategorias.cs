@@ -2,6 +2,7 @@
 using NuevoModelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,12 @@ namespace Controladora
 {
     public class ControladoraCategorias
     {
-        
+
+        public IReadOnlyCollection<CategoriaProducto> ListarVentas()
+        {
+            return ContextoPapeleria.Instancia.Categorias.ToImmutableList();
+        }
+
         public ResultadoOperacion CrearCategoria(CategoriaProducto categoria)
         {
             if(ContextoPapeleria.Instancia.Categorias.Where(c=>c.Codigo == categoria.Codigo).FirstOrDefault()!=null)

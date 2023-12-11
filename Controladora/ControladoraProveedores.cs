@@ -3,6 +3,7 @@ using NuevoModelo;
 using NuevoModelo.Util;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,12 @@ namespace Controladora
 {
     public class ControladoraProveedores
     {
-        
+
+        public IReadOnlyCollection<Proveedor> ListarProveedores()
+        {
+            return ContextoPapeleria.Instancia.Proveedores.ToImmutableList();
+        }
+
         public ResultadoOperacion CrearProveedor(Proveedor proveedor)
         {
             if (!ValidacionUtil.EsCuitValido(proveedor.Cuit))

@@ -2,6 +2,7 @@
 using NuevoModelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,11 @@ namespace Controladora
 {
     public class ControladoraVentas
     {
+
+        public IReadOnlyCollection<Venta> ListarVentas()
+        {
+            return ContextoPapeleria.Instancia.Ventas.ToImmutableList();
+        }
         
         public ResultadoOperacion CrearVenta(Venta venta)
         {
