@@ -22,24 +22,24 @@ namespace Controladora
         {
             if (!ValidacionUtil.EsCuitValido(proveedor.Cuit))
             {
-                return ResultadoOperacion.fallo("CUIT inválido");
+                return ResultadoOperacion.Fallo("CUIT inválido");
             }
             if (proveedor.RazonSocial == "" || proveedor.Direccion == "")
-                return ResultadoOperacion.fallo("Campos inválidos");
+                return ResultadoOperacion.Fallo("Campos inválidos");
 
             if (ContextoPapeleria.Instancia.Proveedores.Where(c => c.Cuit.Equals(proveedor.Cuit)).FirstOrDefault() != null)
             {
-                return ResultadoOperacion.fallo("Ya existe un Cliente con ese DNI / CUIT");
+                return ResultadoOperacion.Fallo("Ya existe un Cliente con ese DNI / CUIT");
             }
 
             if(proveedor.CondicionFiscal==CondicionFiscal.CONSUMIDOR_FINAL)
             {
-                return ResultadoOperacion.fallo("Un proveedor no puede estar registrado como consumidor final!");
+                return ResultadoOperacion.Fallo("Un proveedor no puede estar registrado como consumidor final!");
             }
 
             ContextoPapeleria.Instancia.Proveedores.Add(proveedor);
             ContextoPapeleria.Instancia.SaveChanges();
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
         public Producto? BuscarPorNombre(string NombreProducto)

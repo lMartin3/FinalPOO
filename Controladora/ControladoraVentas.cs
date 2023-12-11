@@ -21,7 +21,7 @@ namespace Controladora
         {
             if(ContextoPapeleria.Instancia.Ventas.Where(v=>v.NroVenta == venta.NroVenta).FirstOrDefault()!=null)
             {
-                return ResultadoOperacion.fallo("Ya existe una venta con ese número!");
+                return ResultadoOperacion.Fallo("Ya existe una venta con ese número!");
             }
 
             ResultadoOperacion checkProductos = EvaluarItems(venta.Items.ToList());
@@ -33,7 +33,7 @@ namespace Controladora
             ContextoPapeleria.Instancia.Ventas.Add(venta);
             ContextoPapeleria.Instancia.SaveChanges();
             
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
         public ResultadoOperacion ActualizarVenta(Venta venta)
@@ -47,7 +47,7 @@ namespace Controladora
             ContextoPapeleria.Instancia.Ventas.Update(venta);
             ContextoPapeleria.Instancia.SaveChanges();
 
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
 
@@ -62,27 +62,27 @@ namespace Controladora
                 }
             }
 
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
         private ResultadoOperacion EvaluarItem(ItemProducto item)
         {
             if (item.PrecioUnitario < 0)
             {
-                return ResultadoOperacion.fallo($"El precio unitario de {item.Producto.Nombre} es negativo");
+                return ResultadoOperacion.Fallo($"El precio unitario de {item.Producto.Nombre} es negativo");
             }
             if (item.Cantidad <= 0)
             {
-                return ResultadoOperacion.fallo($"La cantidad de {item.Producto.Nombre} debe ser mayor a 0!");
+                return ResultadoOperacion.Fallo($"La cantidad de {item.Producto.Nombre} debe ser mayor a 0!");
             }
 
             //TODO fijarse esto
             int stockDisponible = Papeleria.Instancia.Productos.BuscarStockPorCodigo(item.Producto.Stock);
             if (stockDisponible < item.Cantidad)
             {
-                return ResultadoOperacion.fallo($"No hay suficiente stock de {item.Producto.Nombre}");
+                return ResultadoOperacion.Fallo($"No hay suficiente stock de {item.Producto.Nombre}");
             }
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
     }

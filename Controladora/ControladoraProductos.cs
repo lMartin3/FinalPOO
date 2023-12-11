@@ -21,12 +21,12 @@ namespace Controladora
         {
             if (ContextoPapeleria.Instancia.Productos.Where(p => p.Codigo == producto.Codigo).FirstOrDefault() != null)
             {
-                return ResultadoOperacion.fallo("Ya existe un producto con ese código!");
+                return ResultadoOperacion.Fallo("Ya existe un producto con ese código!");
             }
 
             ContextoPapeleria.Instancia.Productos.Add(producto);
             ContextoPapeleria.Instancia.SaveChanges();
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
         public Producto? BuscarPorCodigo(int codigoProducto)
@@ -51,22 +51,22 @@ namespace Controladora
             Producto datosViejosProducto = ContextoPapeleria.Instancia.Productos.Where(p => p.Codigo == producto.Codigo).FirstOrDefault();
             if (datosViejosProducto == null)
             {
-                return ResultadoOperacion.fallo("No se pudo encontrar el producto");
+                return ResultadoOperacion.Fallo("No se pudo encontrar el producto");
             }
             if(producto.Stock<0)
             {
-                return ResultadoOperacion.fallo("El stock no puede ser negativo");
+                return ResultadoOperacion.Fallo("El stock no puede ser negativo");
             }
 
             ContextoPapeleria.Instancia.Productos.Update(producto);
             ContextoPapeleria.Instancia.SaveChanges();
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
         public ResultadoOperacion AumentarStockProducto(int codigoProducto, int diferenciaStock)
         {
             Producto? producto = BuscarPorCodigo(codigoProducto);
-            if (producto == null) return ResultadoOperacion.fallo("No se pudo encontrar el producto");
+            if (producto == null) return ResultadoOperacion.Fallo("No se pudo encontrar el producto");
             producto.Stock += diferenciaStock;
             return ActualizarProducto(producto);
         }

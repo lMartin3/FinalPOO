@@ -21,12 +21,12 @@ namespace Controladora
             this.Exito = exito;
         }
 
-        public static ResultadoOperacion exitosa()
+        public static ResultadoOperacion Exitosa()
         {
             return new ResultadoOperacion(true);
         }
 
-        public static ResultadoOperacion fallo(string mensaje)
+        public static ResultadoOperacion Fallo(string mensaje)
         {
             return new ResultadoOperacion(false, mensaje);
         }

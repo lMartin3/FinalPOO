@@ -20,7 +20,7 @@ namespace Controladora
         {
             if(ContextoPapeleria.Instancia.OrdenesDeCompra.Where(c=>c.NroOrden == orden.NroOrden).FirstOrDefault()!=null)
             {
-                return ResultadoOperacion.fallo("Ya existe una orden de compra con ese número!");
+                return ResultadoOperacion.Fallo("Ya existe una orden de compra con ese número!");
             }
 
             ResultadoOperacion checkItems = EvaluarItems(orden.Items.ToList());
@@ -31,7 +31,7 @@ namespace Controladora
 
             ContextoPapeleria.Instancia.OrdenesDeCompra.Add(orden);
             ContextoPapeleria.Instancia.SaveChanges();
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
 
@@ -46,25 +46,25 @@ namespace Controladora
                 }
             }
 
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
 
         private ResultadoOperacion EvaluarItem(ItemProducto item)
         {
             if (item.PrecioUnitario < 0)
             {
-                return ResultadoOperacion.fallo($"El precio unitario de {item.Producto.Nombre} es negativo");
+                return ResultadoOperacion.Fallo($"El precio unitario de {item.Producto.Nombre} es negativo");
             }
             if (item.Cantidad <= 0)
             {
-                return ResultadoOperacion.fallo($"La cantidad de {item.Producto.Nombre} debe ser mayor a 0!");
+                return ResultadoOperacion.Fallo($"La cantidad de {item.Producto.Nombre} debe ser mayor a 0!");
             }
             Producto? prod = ContextoPapeleria.Instancia.Productos.Where(p => p.Codigo == item.Producto.Codigo).FirstOrDefault();
             if (prod == null)
             {
-                return ResultadoOperacion.fallo($"El producto {item.Producto.Nombre} es inválido!");
+                return ResultadoOperacion.Fallo($"El producto {item.Producto.Nombre} es inválido!");
             }
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
     }
 }

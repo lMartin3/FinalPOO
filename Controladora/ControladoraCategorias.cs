@@ -21,12 +21,12 @@ namespace Controladora
         {
             if(ContextoPapeleria.Instancia.Categorias.Where(c=>c.Codigo == categoria.Codigo).FirstOrDefault()!=null)
             {
-                return ResultadoOperacion.fallo("Ya existe una categoría con ese código!");
+                return ResultadoOperacion.Fallo("Ya existe una categoría con ese código!");
             }
 
             ContextoPapeleria.Instancia.Categorias.Add(categoria);
             ContextoPapeleria.Instancia.SaveChanges();
-            return ResultadoOperacion.exitosa();
+            return ResultadoOperacion.Exitosa();
         }
     }
 }
