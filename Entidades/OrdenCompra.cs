@@ -4,38 +4,31 @@
     {
         public string NroOrden { get; private set; }
         public Proveedor Proveedor { get; private set; }
-        private ListaDeItemsProductoOrden _listaItems; 
+        public List<ItemProducto> Items { get; private set; } = new List<ItemProducto>();
 
 
         public OrdenCompra(string nroOrden,
             Proveedor proveedor,
-            ListaDeItemsProductoOrden listaItems)
+            List<ItemProducto> listaItems)
         {
             NroOrden = nroOrden;
             Proveedor = proveedor;
-            _listaItems = listaItems;
+            Items = listaItems;
         }
 
         public int CantidadItems
         {
-            get => _listaItems.itemsReadonly.Count;
+            get => Items.Count;
         }
 
         public float Total
         {
-            get {
-                float totalItems = 0;
-                foreach(ItemProducto item in _listaItems.itemsReadonly)
-                {
-                    totalItems += item.PrecioUnitario;
-                }
-                return totalItems;
-            }
+            get => Items.Select(i=>i.Subtotal).Sum();
+            
         }
 
-        public IReadOnlyCollection<ItemProducto> Items => _listaItems.itemsReadonly;
-
-        public string ResumenItems => _listaItems.ResumenItems;
+        //TODO Arreglar esto
+        public string ResumenItems => "FIXME";
     } 
     
 }
