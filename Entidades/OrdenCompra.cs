@@ -6,6 +6,8 @@
         public string NroOrden { get; private set; }
         public int ProveedorId { get; set; }
         public Proveedor Proveedor { get; private set; }
+
+        public DateOnly Fecha { get; set; }
         public List<ItemProducto> Items { get; private set; } = new List<ItemProducto>();
 
 
