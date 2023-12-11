@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entidades;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NuevoModelo.Util;
 using System;
@@ -22,6 +23,13 @@ namespace NuevoModelo
                 return instancia;
             } 
         }
+
+        private DbSet<CategoriaProducto> setCategorias;
+        private DbSet<Producto> setProductos;
+        private DbSet<Proveedor> setProveedores;
+        private DbSet<OrdenCompra> setOrdenesDeCompra;
+        private DbSet<Cliente> setClientes;
+        private DbSet<Venta> setVentas;
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
