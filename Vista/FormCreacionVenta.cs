@@ -1,17 +1,14 @@
-﻿using Entidades;
-using NuevoModelo;
-using NuevoModelo.Util;
+﻿using Controladora;
+using Entidades;
 using System.Data;
 
 namespace PapeleriaGUI
 {
     public partial class FormCreacionVenta : Form
     {
-        private Papeleria papeleria;
-        private ListaDeItemsProductoVenta listaItems = new ListaDeItemsProductoVenta();
+        private List<ItemProducto> listaItems = new List<ItemProducto>();
         public FormCreacionVenta(Papeleria papeleria)
         {
-            this.papeleria = papeleria;
             InitializeComponent();
             ActualizarGrid();
             btnAgregarItem.Enabled = false;
@@ -21,9 +18,9 @@ namespace PapeleriaGUI
 
         private void PopularComboBoxes()
         {
-            cbProductoItem.DataSource = papeleria.Productos.ElementosAlmacenados.ToList();
+            cbProductoItem.DataSource = Papeleria.Instancia.Productos.ListarProductos();
             cbProductoItem.DisplayMember = "Nombre";
-            cbClienteVenta.DataSource = papeleria.Clientes.ElementosAlmacenados.ToList();
+            cbClienteVenta.DataSource = Papeleria.Instancia.Clientes.ListarClientes();
             cbClienteVenta.DisplayMember = "Nombre";
         }
 
@@ -38,7 +35,7 @@ namespace PapeleriaGUI
             bool habilitar =
                 ValidacionUtil.EsNumeroPositivo(txtCodigoVenta.Text) &&
                 cbClienteVenta.Text.Length > 0 &&
-                listaItems.itemsReadonly.Count > 0;
+                listaItems.Count > 0;
 
             btnCrearRegistro.Enabled = habilitar;
         }
@@ -52,7 +49,7 @@ namespace PapeleriaGUI
 
         private void ActualizarGrid()
         {
-            var listaDeDatosNotables = listaItems.itemsReadonly
+            var listaDeDatosNotables = listaItems
                 .Select(item => new
                 {
                     Producto = item.Producto.Nombre,
@@ -80,10 +77,7 @@ namespace PapeleriaGUI
                 cantidad,
                 producto.Precio);
 
-            if (!listaItems.AddItem(itemVenta))
-            {
-                MessageBox.Show("No se pudo registrar el item!");
-            }
+            listaItems.Add(itemVenta);
             LimpiarCamposItem();
             ActualizarBotonVenta();
         }
@@ -110,7 +104,7 @@ namespace PapeleriaGUI
             if (gridItems.CurrentRow == null) return;
             int fila = gridItems.CurrentRow.Index;
             if (fila < 0) return;
-            listaItems.RemoverItemEn(fila);
+            listaItems.RemoveAt(fila);
             ActualizarGrid(); 
         }
 
@@ -148,7 +142,7 @@ namespace PapeleriaGUI
             Producto productoSeleccionado = (Producto)cbProductoItem.SelectedItem;
             if(productoSeleccionado != null)
             {
-                int cantidadDelStockDelProductoUsado = listaItems.ObtenerStockUtilizadoDeProducto(productoSeleccionado);
+                int cantidadDelStockDelProductoUsado = Papeleria.Instancia.Productos.BuscarStockPorCodigo(productoSeleccionado.Codigo);
                 nCantidadItem.Maximum = productoSeleccionado.Stock - cantidadDelStockDelProductoUsado;
                 return;
             }

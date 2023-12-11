@@ -7,7 +7,7 @@ namespace PapeleriaGUI
     public partial class FormCreacionOrden : Form
     {
         private Papeleria papeleria;
-        private ListaDeItemsProductoOrden listaItems = new ListaDeItemsProductoOrden();
+        private List<ItemProducto> listaItems = new List<ItemProducto>();
         public FormCreacionOrden(Papeleria papeleria)
         {
             this.papeleria = papeleria;
@@ -39,7 +39,7 @@ namespace PapeleriaGUI
             bool habilitar =
                 ValidacionUtil.EsNumeroPositivo(txtNroOrden.Text) &&
                 cbProveedorOrden.Text.Length > 0 &&
-                listaItems.itemsReadonly.Count > 0;
+                listaItems.Count > 0;
 
             btnCrearOrden.Enabled = habilitar;
         }
@@ -55,7 +55,7 @@ namespace PapeleriaGUI
         private void ActualizarGrid()
         {
             gridItems.DataSource = null;
-            gridItems.DataSource = listaItems.itemsReadonly;
+            gridItems.DataSource = listaItems;
         }
 
 
@@ -78,7 +78,7 @@ namespace PapeleriaGUI
                 precioUnitario
                 );
 
-            listaItems.AddItem(itemCompra);
+            listaItems.Add(itemCompra);
             LimpiarCamposItem();
             ActualizarBotonCompra();
             ActualizarGrid();
@@ -105,7 +105,7 @@ namespace PapeleriaGUI
             if (gridItems.CurrentRow == null) return;
             int fila = gridItems.CurrentRow.Index;
             if (fila < 0) return;
-            listaItems.RemoverItemEn(fila);
+            listaItems.RemoveAt(fila);
             ActualizarGrid(); 
         }
 

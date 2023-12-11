@@ -41,7 +41,7 @@ namespace PapeleriaGUI
 
         private void btnAgregarVenta_Click(object sender, EventArgs e)
         {
-            FormCreacionVenta form1 = new FormCreacionVenta(papeleria);
+            FormCreacionVenta form1 = new FormCreacionVenta();
             form1.ShowDialog();
             ActualizarGrids();
         }

@@ -8,7 +8,7 @@
 
         public int ClienteId { get; set; }
         public Cliente Cliente { get; private set; }
-        private List<ItemProducto> Items;
+        public List<ItemProducto> Items;
 
         public Venta(int id, 
             DateTime fecha, 
