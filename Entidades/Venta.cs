@@ -2,7 +2,7 @@
 {
     public class Venta
     {
-        public int Codigo { get; private set; }
+        public int NroVenta { get; private set; }
         public DateTime Fecha { get; private set; }
         public Cliente Cliente { get; private set; }
         private ListaDeItemsProductoVenta _listaItems;
@@ -12,7 +12,7 @@
             Cliente cliente,
             ListaDeItemsProductoVenta items)
         {
-            Codigo = id;
+            NroVenta = id;
             Fecha = fecha;
             Cliente = cliente;
             _listaItems = items;

@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Controladora\Controladora.csproj" />
+    <ProjectReference Include="..\Entidades\Entidades.csproj" />
     <ProjectReference Include="..\NuevoModelo\NuevoModelo.csproj" />
   </ItemGroup>
 

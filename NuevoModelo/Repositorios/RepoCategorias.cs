@@ -6,7 +6,7 @@ namespace NuevoModelo
     {
         protected override bool PuedeAgregarElemento(CategoriaProducto elementoAVerificar)
         {
-            return elementos.Where(c => c.Id == elementoAVerificar.Id).Count() == 0;
+            return elementos.Where(c => c.Codigo == elementoAVerificar.Codigo).Count() == 0;
         }
     }
 }

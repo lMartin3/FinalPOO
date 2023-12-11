@@ -18,7 +18,7 @@ namespace PapeleriaGUI
             gridVentas.DataSource = papeleria.Ventas.ElementosAlmacenados
                 .Select(venta =>
                 new {
-                    CodigoVenta = venta.Codigo,
+                    CodigoVenta = venta.NroVenta,
                     Cliente = venta.Cliente,
                     Items = venta.ResumenItems,
                     Nroitems = venta.Items.Count,

@@ -2,14 +2,14 @@
 {
     public class CategoriaProducto
     {
-        public CategoriaProducto(int id, string nombre, string descripcion)
+        public CategoriaProducto(int codigo, string nombre, string descripcion)
         {
-            Id = id;
+            Codigo = codigo;
             Nombre = nombre;
             Descripcion = descripcion;
         }
 
-        public int Id { get; set; }
+        public int Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
 

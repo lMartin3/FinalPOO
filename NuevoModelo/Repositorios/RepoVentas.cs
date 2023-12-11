@@ -13,7 +13,7 @@ namespace NuevoModelo
             return elementoAVerificar.Cliente != null
                 && elementoAVerificar.Items.Count > 0
                 && elementoAVerificar.Total >= 0
-                && elementos.Where(c => c.Codigo == elementoAVerificar.Codigo).Count() == 0;
+                && elementos.Where(c => c.NroVenta == elementoAVerificar.NroVenta).Count() == 0;
         }
     }
 }

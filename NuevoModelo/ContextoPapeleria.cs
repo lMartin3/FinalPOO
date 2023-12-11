@@ -24,12 +24,12 @@ namespace NuevoModelo
             } 
         }
 
-        private DbSet<CategoriaProducto> setCategorias;
-        private DbSet<Producto> setProductos;
-        private DbSet<Proveedor> setProveedores;
-        private DbSet<OrdenCompra> setOrdenesDeCompra;
-        private DbSet<Cliente> setClientes;
-        private DbSet<Venta> setVentas;
+        public DbSet<CategoriaProducto> Categorias;
+        public DbSet<Producto> Productos;
+        public DbSet<Proveedor> Proveedores;
+        public DbSet<OrdenCompra> OrdenesDeCompra;
+        public DbSet<Cliente> Clientes;
+        public DbSet<Venta> Ventas;
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -37,6 +37,12 @@ namespace NuevoModelo
             IConfigurationRoot configuration = ConfigurationHelper.GetConfiguration("appSettings.json");
             connectionString = configuration.GetConnectionString("DefaultConnection");
             options.UseSqlServer(connectionString);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Registrar restricción (constraint) de DB de DNI / CUIT único
+            modelBuilder.Entity<Cliente>().HasIndex(c => c.DniOCuit).IsUnique();
         }
     }
 }
