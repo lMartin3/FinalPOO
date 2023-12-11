@@ -3,10 +3,10 @@
     public class Cliente
     {
         public int ClienteId { get; set; }
-        public string DniOCuit { get; private set; } //DNI o CUIT 
-        public CondicionFiscal CondicionFiscal { get; private set; }
-        public string Nombre { get; private set; }
-        public string Direccion { get; private set; }
+        public string DniOCuit { get; set; } //DNI o CUIT 
+        public CondicionFiscal CondicionFiscal { get; set; }
+        public string Nombre { get; set; }
+        public string Direccion { get; set; }
         
         public Cliente() { }
         

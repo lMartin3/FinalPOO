@@ -3,11 +3,11 @@
     public class Venta
     {
         public int VentaId { get; set; }
-        public int NroVenta { get; private set; }
-        public DateTime Fecha { get; private set; }
+        public int NroVenta { get; set; }
+        public DateTime Fecha { get; set; }
 
         public int ClienteId { get; set; }
-        public Cliente Cliente { get; private set; }
+        public Cliente Cliente { get; set; }
         public List<ItemProducto> Items;
 
         public Venta(int id, 
@@ -26,8 +26,7 @@
             get => Items.Select(i => i.Subtotal).Sum();
         }
 
-        //TODO arreglar esto
-        public string ResumenItems => "FIXME";
-
+        //TODO Ver si funca
+        public string ResumenItems => String.Join(", ", Items.Select(item => item.Producto.Nombre).ToList());
     }
 }

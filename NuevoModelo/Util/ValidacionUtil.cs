@@ -24,6 +24,7 @@ namespace NuevoModelo.Util
         {
             return dniRegex.IsMatch(input);
         }
+
         public static bool EsNumero(string input)
         {
             return numeroRegex.IsMatch(input);

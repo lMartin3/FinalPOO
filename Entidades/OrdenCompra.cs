@@ -3,12 +3,12 @@
     public class OrdenCompra
     {
         public int OrdenCompraId { get; set; }
-        public string NroOrden { get; private set; }
+        public string NroOrden { get; set; }
         public int ProveedorId { get; set; }
-        public Proveedor Proveedor { get; private set; }
+        public Proveedor Proveedor { get; set; }
 
         public DateOnly Fecha { get; set; }
-        public List<ItemProducto> Items { get; private set; } = new List<ItemProducto>();
+        public List<ItemProducto> Items { get; set; } = new List<ItemProducto>();
 
 
         public OrdenCompra(string nroOrden,

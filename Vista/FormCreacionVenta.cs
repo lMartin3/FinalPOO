@@ -1,4 +1,4 @@
-﻿using Controladora;
+﻿using Controladoras;
 using Entidades;
 using System.Data;
 

@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controladora
+namespace Controladoras
 {
     public class ControladoraOrdenesDeCompra
     {
-
         public IReadOnlyCollection<OrdenCompra> ListarVentas()
         {
             return ContextoPapeleria.Instancia.OrdenesDeCompra.ToImmutableList();

@@ -2,7 +2,7 @@
 using NuevoModelo;
 using NuevoModelo.Util;
 
-namespace Controladora
+namespace Controladoras
 {
     public class ControladoraClientes
     {
