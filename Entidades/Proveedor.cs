@@ -2,7 +2,7 @@
 {
     public class Proveedor
     {
-
+        public int ProveedorId { get; set; }
         public string Cuit { get; private set; }
         public CondicionFiscal CondicionFiscal { get; private set; }
         public string RazonSocial { get; private set; }

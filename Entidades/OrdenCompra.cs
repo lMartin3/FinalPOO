@@ -2,7 +2,9 @@
 {
     public class OrdenCompra
     {
+        public int OrdenCompraId { get; set; }
         public string NroOrden { get; private set; }
+        public int ProveedorId { get; set; }
         public Proveedor Proveedor { get; private set; }
         public List<ItemProducto> Items { get; private set; } = new List<ItemProducto>();
 

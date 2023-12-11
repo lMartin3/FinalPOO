@@ -2,8 +2,11 @@
 {
     public class Venta
     {
+        public int VentaId { get; set; }
         public int NroVenta { get; private set; }
         public DateTime Fecha { get; private set; }
+
+        public int ClienteId { get; set; }
         public Cliente Cliente { get; private set; }
         private List<ItemProducto> Items;
 

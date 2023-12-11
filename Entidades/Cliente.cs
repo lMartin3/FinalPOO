@@ -2,6 +2,7 @@
 {
     public class Cliente
     {
+        public int ClienteId { get; set; }
         public string DniOCuit { get; private set; } //DNI o CUIT 
         public CondicionFiscal CondicionFiscal { get; private set; }
         public string Nombre { get; private set; }
