@@ -11,7 +11,6 @@ namespace Controladoras
 {
     public class ControladoraVentas
     {
-
         public IReadOnlyCollection<Venta> ListarVentas()
         {
             return ContextoPapeleria.Instancia.Ventas.ToImmutableList();

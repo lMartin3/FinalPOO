@@ -16,7 +16,8 @@ namespace PapeleriaGUI
         {
             gridVentas.DataSource = Papeleria.Instancia.Ventas.ListarVentas()
                 .Select(venta =>
-                new {
+                new
+                {
                     CodigoVenta = venta.NroVenta,
                     Cliente = venta.Cliente,
                     Items = venta.ResumenItems,
