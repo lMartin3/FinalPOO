@@ -11,10 +11,14 @@ namespace NuevoModelo.Util
     {
         public static IConfigurationRoot GetConfiguration(string fileName)
         {
-            var dir = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\");
+
+            var dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @"PapeleriaLUG");
             var builder = new ConfigurationBuilder()
                 .SetBasePath(dir)
                 .AddJsonFile(fileName, optional: true, reloadOnChange: true);
+            System.Diagnostics.Debug.WriteLine($"System IO dirt: {System.IO.Directory.GetCurrentDirectory()}");
+            System.Diagnostics.Debug.WriteLine($"Environment dir: {Environment.CurrentDirectory}");
+            System.Diagnostics.Debug.WriteLine($"Appdata dir: {Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}");
             System.Diagnostics.Debug.WriteLine($"Leyendo configuración desde: {dir}");
             return builder.Build();
         }
