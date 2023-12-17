@@ -11,10 +11,11 @@ namespace NuevoModelo.Util
     {
         public static IConfigurationRoot GetConfiguration(string fileName)
         {
+            var dir = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\");
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory()+@"\..\..\..\..")
+                .SetBasePath(dir)
                 .AddJsonFile(fileName, optional: true, reloadOnChange: true);
-            System.Diagnostics.Debug.WriteLine($"Leyendo configuración desde: {Directory.GetCurrentDirectory()}");
+            System.Diagnostics.Debug.WriteLine($"Leyendo configuración desde: {dir}");
             return builder.Build();
         }
     }
