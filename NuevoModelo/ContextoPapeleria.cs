@@ -38,7 +38,6 @@ namespace NuevoModelo
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            base.OnConfiguring(options);
             string connectionString;
             IConfigurationRoot configuration = ConfigurationHelper.GetConfiguration("appSettings.json");
             connectionString = configuration.GetConnectionString("DefaultConnection");
