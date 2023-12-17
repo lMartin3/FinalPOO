@@ -11,7 +11,7 @@ namespace Controladoras
 {
     public class ControladoraOrdenesDeCompra
     {
-        public IReadOnlyCollection<OrdenCompra> ListarVentas()
+        public IReadOnlyCollection<OrdenCompra> ListarOrdenes()
         {
             return ContextoPapeleria.Instancia.OrdenesDeCompra.ToImmutableList();
         }

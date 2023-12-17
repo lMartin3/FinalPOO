@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using Controladoras;
+using Entidades;
 using NuevoModelo;
 using NuevoModelo.Util;
 
@@ -6,22 +7,20 @@ namespace PapeleriaGUI
 {
     public partial class FormCreacionOrden : Form
     {
-        private Papeleria papeleria;
         private List<ItemProducto> listaItems = new List<ItemProducto>();
-        public FormCreacionOrden(Papeleria papeleria)
+        public FormCreacionOrden()
         {
-            this.papeleria = papeleria;
             InitializeComponent();
             ActualizarGrid();
             btnAgregarItem.Enabled = false;
             btnCrearOrden.Enabled = false;
             nCantidadItem.Maximum = decimal.MaxValue;
-            foreach(Producto producto in papeleria.Productos.ElementosAlmacenados)
+            foreach(Producto producto in Papeleria.Instancia.Productos.ListarProductos())
             {
                 cbProductoItem.Items.Add(producto.Nombre);
             }
 
-            foreach(Proveedor proveedor in papeleria.Proveedores.ElementosAlmacenados)
+            foreach(Proveedor proveedor in Papeleria.Instancia.Proveedores.ListarProveedores())
             {
                 cbProveedorOrden.Items.Add(proveedor);
             }
@@ -66,8 +65,12 @@ namespace PapeleriaGUI
 
         private void btnAgregarItem_Click(object sender, EventArgs e)
         {
-            Producto producto = papeleria.Productos.BuscarPorNombre(cbProductoItem.Text);
-            
+            Producto? producto = Papeleria.Instancia.Productos.BuscarPorNombre(cbProductoItem.Text);
+            if (producto == null)
+            {
+                MessageBox.Show("Error al agregar el item del producto seleccionado.");
+                return;
+            }
             int cantidad = (int) nCantidadItem.Value;
             float precioUnitario;
             float.TryParse(txtPrecioItem.Text,out precioUnitario);
@@ -130,14 +133,16 @@ namespace PapeleriaGUI
                 listaItems
             );
 
-            bool resultado = papeleria.Ordenes.AgregarElemento(ordenCompra);
-            if(!resultado)
+            ResultadoOperacion res = Papeleria.Instancia.Ordenes.CrearOrdenDeCompra(ordenCompra);
+            if (!res.Exito)
             {
-                MessageBox.Show("Error al cargar la orden de compra!");
+                MessageBox.Show(res.Mensaje);
                 return;
             }
 
             Close();
+
         }
+
     }
 }

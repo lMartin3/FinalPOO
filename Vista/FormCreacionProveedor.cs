@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using Controladoras;
+using Entidades;
 using NuevoModelo;
 using NuevoModelo.Util;
 
@@ -6,8 +7,7 @@ namespace PapeleriaGUI
 {
     public partial class FormCreacionProveedor : Form
     {
-        private Papeleria papeleria;
-        public FormCreacionProveedor(Papeleria papeleria)
+        public FormCreacionProveedor()
         {
             InitializeComponent();
             btnAgregar.Enabled = false;
@@ -16,8 +16,6 @@ namespace PapeleriaGUI
             {
                 cbCondicion.Items.Add(cf);
             }
-
-            this.papeleria = papeleria;
         }
 
         private void ActualizarBotonAgregar()
@@ -58,10 +56,10 @@ namespace PapeleriaGUI
                 txtDireccion.Text
             );
 
-            bool resultado = papeleria.Proveedores.AgregarElemento(proveedor);
-            if(!resultado)
+            ResultadoOperacion res = Papeleria.Instancia.Proveedores.CrearProveedor(proveedor);
+            if (!res.Exito)
             {
-                MessageBox.Show("No se pudo registrar el proveedor!");
+                MessageBox.Show(res.Mensaje);
                 return;
             }
             Close();

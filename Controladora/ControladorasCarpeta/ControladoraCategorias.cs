@@ -12,7 +12,7 @@ namespace Controladoras
     public class ControladoraCategorias
     {
 
-        public IReadOnlyCollection<CategoriaProducto> ListarVentas()
+        public IReadOnlyCollection<CategoriaProducto> ListarCategorias()
         {
             return ContextoPapeleria.Instancia.Categorias.ToImmutableList();
         }

@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using Controladoras;
+using Entidades;
 using NuevoModelo;
 using NuevoModelo.Util;
 
@@ -6,11 +7,8 @@ namespace PapeleriaGUI
 {
     public partial class FormCreacionCliente : Form
     {
-
-        private Papeleria papeleria;
-        public FormCreacionCliente(Papeleria papeleria)
+        public FormCreacionCliente()
         {
-            this.papeleria = papeleria; 
             InitializeComponent();
             btnAgregar.Enabled = false;
             cbCondicion.Items.Clear();
@@ -57,10 +55,10 @@ namespace PapeleriaGUI
                     txtNombre.Text,
                     txtDireccion.Text);
 
-            bool exito = papeleria.Clientes.AgregarElemento(cliente);
-            if(!exito)
+            ResultadoOperacion res = Papeleria.Instancia.Clientes.CrearCliente(cliente);
+            if(!res.Exito)
             {
-                MessageBox.Show("Error al registrar el cliente!");
+                MessageBox.Show(res.Mensaje);
                 return;
             }
             Close();

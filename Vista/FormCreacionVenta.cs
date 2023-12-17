@@ -1,13 +1,14 @@
 ﻿using Controladoras;
 using Entidades;
 using System.Data;
+using Util;
 
 namespace PapeleriaGUI
 {
     public partial class FormCreacionVenta : Form
     {
         private List<ItemProducto> listaItems = new List<ItemProducto>();
-        public FormCreacionVenta(Papeleria papeleria)
+        public FormCreacionVenta()
         {
             InitializeComponent();
             ActualizarGrid();
@@ -128,10 +129,11 @@ namespace PapeleriaGUI
                 ventaDateTimePicker.Value,
                 cliente,
                 listaItems);
-            bool resultado = papeleria.Ventas.AgregarElemento(venta);
-            if(!resultado)
+
+            ResultadoOperacion resultado = Papeleria.Instancia.Ventas.CrearVenta(venta);
+            if(!resultado.Exito)
             {
-                MessageBox.Show("Error al registrar la venta!");
+                MessageBox.Show(resultado.Mensaje);
                 return;
             }
 
