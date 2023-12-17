@@ -21,6 +21,11 @@
             Items = items;
         }
 
+        public Venta()
+        {
+            Items = new List<ItemProducto>();
+        }
+
         public float Total
         {
             get => Items.Select(i => i.Subtotal).Sum();

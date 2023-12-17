@@ -19,6 +19,9 @@
             Direccion = direccion;
         }
 
+        public Proveedor() {
+        }
+
 
         public override string ToString()
         {

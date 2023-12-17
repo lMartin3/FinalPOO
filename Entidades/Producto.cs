@@ -21,6 +21,11 @@
             CategoriaProducto = categoriaProducto;
         }
 
+        public Producto()
+        {
+
+        }
+
         public override string ToString() {
             return Nombre;
         }

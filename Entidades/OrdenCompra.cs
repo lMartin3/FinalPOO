@@ -7,9 +7,12 @@
         public int ProveedorId { get; set; }
         public Proveedor Proveedor { get; set; }
 
-        public DateOnly Fecha { get; set; }
+        public DateTime Fecha { get; set; }
         public List<ItemProducto> Items { get; set; } = new List<ItemProducto>();
 
+        public OrdenCompra() {
+            Items = new List<ItemProducto>();
+        }
 
         public OrdenCompra(string nroOrden,
             Proveedor proveedor,

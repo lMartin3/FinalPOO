@@ -51,5 +51,6 @@ namespace NuevoModelo
             // Registrar restricción (constraint) de DB de DNI / CUIT único
             modelBuilder.Entity<Cliente>().HasIndex(c => c.DniOCuit).IsUnique();
         }
+
     }
 }

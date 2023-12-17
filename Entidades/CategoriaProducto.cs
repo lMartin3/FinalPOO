@@ -2,6 +2,8 @@
 {
     public class CategoriaProducto
     {
+        public CategoriaProducto() { }
+
         public CategoriaProducto(int codigo, string nombre, string descripcion)
         {
             Codigo = codigo;
