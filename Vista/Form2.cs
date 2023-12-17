@@ -12,6 +12,7 @@ namespace PapeleriaGUI
             InitializeComponent();
             ActualizarGrids();
         }
+
         private void ActualizarGrids()
         {
             gridVentas.DataSource = Papeleria.Instancia.Ventas.ListarVentas()
