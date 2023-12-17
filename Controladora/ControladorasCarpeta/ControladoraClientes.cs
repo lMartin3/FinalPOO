@@ -1,6 +1,6 @@
 ﻿using Entidades;
+using Vista.Util;
 using NuevoModelo;
-using NuevoModelo.Util;
 
 namespace Controladoras
 {

@@ -1,7 +1,7 @@
 ﻿using Controladoras;
 using Entidades;
-using NuevoModelo;
-using NuevoModelo.Util;
+using Vista.Util;
+
 
 namespace PapeleriaGUI
 {
