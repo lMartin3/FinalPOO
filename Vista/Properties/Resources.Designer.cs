@@ -63,27 +63,31 @@ namespace Vista.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///
         ///&lt;head&gt;
-        ///    &lt;title&gt;Title of the document&lt;/title&gt;
+        ///    &lt;title&gt;Reporte de Ventas&lt;/title&gt;
         ///    &lt;style&gt;
-        ///        table.border {
-        ///            border-collapse: collapse;
+        ///        html,
+        ///        body {
+        ///            margin: 0;
         ///        }
         ///
-        ///            table.border th {
-        ///                padding: 5px;
-        ///                border: 1px solid black;
+        ///        body {
+        ///            margin: 10px;
+        ///            font-family: Calibri, sans-serif;
+        ///            font-weight: 300;
+        ///        }
+        ///
+        ///        table {
+        ///            margin-top: 20px;
+        ///        }
+        ///
+        ///            table.border {
+        ///                border-collapse: collapse;
         ///            }
         ///
-        ///            table.border td {
-        ///                padding: 5px;
-        ///                border: 1px solid black;
-        ///            }
-        ///    &lt;/style&gt;
-        ///&lt;/head&gt;
-        ///&lt;body&gt;
-        ///    &lt;table style=&quot;width:100%&quot;&gt;
-        ///        [rest of string was truncated]&quot;;.
+        ///                table.border th {
+        ///   [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Plantilla {
             get {

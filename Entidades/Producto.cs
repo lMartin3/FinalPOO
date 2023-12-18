@@ -30,11 +30,5 @@
         public override string ToString() {
             return Nombre;
         }
-
-        public void SubstraerStock(int stockASubstraer)
-        {
-            if (Stock < stockASubstraer) return;
-            Stock -= stockASubstraer;
-        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using Microsoft.EntityFrameworkCore;
 using NuevoModelo;
+using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -102,6 +103,15 @@ namespace Controladoras
                 return checkProductos;
             }
 
+            foreach (ItemProducto item in venta.Items.ToList())
+            {
+                Producto producto = item.Producto;
+                producto.Stock -= item.Cantidad;
+                Papeleria.Instancia.Productos.ActualizarProducto(producto);
+            }
+
+            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas();
+
             ContextoPapeleria.Instancia.Ventas.Add(venta);
             ContextoPapeleria.Instancia.SaveChanges();
             
@@ -112,23 +122,16 @@ namespace Controladoras
             // TODO checks de lógica
             ContextoPapeleria.Instancia.Ventas.Remove(venta);
             ContextoPapeleria.Instancia.SaveChanges();
-            return ResultadoOperacion.Exitosa();
-        }
-        public ResultadoOperacion ActualizarVenta(Venta venta)
-        {
-            ResultadoOperacion checkProductos = EvaluarItems(venta.Items.ToList());
-            if (!checkProductos.Exito)
+
+            foreach (ItemProducto item in venta.Items.ToList())
             {
-                return checkProductos;
+                Producto producto = item.Producto;
+                producto.Stock += item.Cantidad;
+                Papeleria.Instancia.Productos.ActualizarProducto(producto);
             }
 
-            ContextoPapeleria.Instancia.Ventas.Update(venta);
-            ContextoPapeleria.Instancia.SaveChanges();
-
             return ResultadoOperacion.Exitosa();
         }
-
-
 
         private ResultadoOperacion EvaluarItems(List<ItemProducto> items)
         {

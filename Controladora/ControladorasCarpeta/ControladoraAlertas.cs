@@ -14,16 +14,30 @@ namespace Controladoras
 {
     public class ControladoraAlertas
     {
-
+        string EmailDestinatario { get; set; }
         public ControladoraAlertas() {
             LogManager.AutoShutdown = true;
             LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration(Path.Join(ConfigurationHelper.DirectorioConfiguracion, "Nlog.config"));
         }
 
-        public ResultadoOperacion EnviarAlerta(Producto producto, string mailGerente)
+        public void CheckearProductosPorAlertas()
+        {
+            var productos = Papeleria.Instancia.Productos.ListarProductos();
+        
+            foreach(Producto producto in productos)
+            {
+                if (producto.Stock < producto.UmbralStockBajo)
+                {
+                    EnviarAlertaStockBajo(producto);
+                }
+            }
+        }
+
+        private ResultadoOperacion EnviarAlertaStockBajo(Producto producto)
         {
             Logger logger = LogManager.GetLogger("");
-            logger.PushScopeProperty("ToEmail", mailGerente);
+            logger.PushScopeProperty("ToEmail", EmailDestinatario);
+            
             System.Diagnostics.Debug.WriteLine("ENVIANDO EMAIL!");
 
             ResultadoOperacion res;

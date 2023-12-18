@@ -62,7 +62,7 @@ namespace PapeleriaGUI
         {
             if (gridVentas.CurrentRow == null) return;
             Venta venta = Papeleria.Instancia.Ventas.ListarVentas().ElementAt(gridVentas.CurrentRow.Index);
-            //Papeleria.Instancia.Ventas.EliminarVenta(venta);
+            Papeleria.Instancia.Ventas.EliminarVenta(venta);
             ActualizarGrids();
         }
 
@@ -132,15 +132,7 @@ namespace PapeleriaGUI
 
         private void btnAlerta_Click(object sender, EventArgs e)
         {
-            Producto producto = new Producto();
-            producto.Nombre = "asdf";
-            producto.Stock = 999;
-            ResultadoOperacion res = Papeleria.Instancia.Alertas.EnviarAlerta(producto, "martinlufr@gmail.com");
-            if (!res.Exito)
-            {
-                MessageBox.Show(res.Mensaje);
-                return;
-            }
+            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas("roy.correo@gmail.com");
         }
 
         private void calSeleccionPeriodoReporte_DateChanged(object sender, DateRangeEventArgs e)

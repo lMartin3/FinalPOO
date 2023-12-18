@@ -17,5 +17,5 @@
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
     <ProjectReference Include="..\NuevoModelo\NuevoModelo.csproj" />
   </ItemGroup>
-
+	
 </Project>
