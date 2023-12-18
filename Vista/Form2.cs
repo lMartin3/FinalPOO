@@ -2,6 +2,15 @@
 using NuevoModelo;
 using System.Data;
 using Controladoras;
+using Vista;
+using iText.Commons.Utils;
+using System.Diagnostics;
+using iText.Layout.Element;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using System.Xml;
+using iText.Html2pdf;
 
 namespace PapeleriaGUI
 {
@@ -28,7 +37,8 @@ namespace PapeleriaGUI
             gridClientes.DataSource = Papeleria.Instancia.Clientes.ListarClientes();
             gridOrdenes.DataSource = Papeleria.Instancia.Ordenes.ListarOrdenes()
                 .Select(orden =>
-                new {
+                new
+                {
                     NroOrden = orden.NroOrden,
                     Proveedor = orden.Proveedor,
                     Items = orden.ResumenItems,
@@ -115,6 +125,29 @@ namespace PapeleriaGUI
             if (venta == null) return;
             FormDetalles formDetalles = new FormDetalles("Detalles de Ventas", venta.Items);
             formDetalles.ShowDialog();
+        }
+
+        private void btnReporte1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialogoGuardar = new SaveFileDialog();
+            dialogoGuardar.FileName = $"{DateTime.Now.ToString("ddMMyyyyHHmmss")}.pdf";
+
+            string paginaTexto = Vista.Properties.Resources.Plantilla;
+            System.Diagnostics.Debug.WriteLine($"Texto plantilla: {paginaTexto}");
+            
+            DialogResult guardarResultado = dialogoGuardar.ShowDialog();
+            if (guardarResultado != DialogResult.OK)
+            {
+                MessageBox.Show("Elija un destino válido!");
+                return;
+            }
+            using (PdfWriter writer = new PdfWriter(dialogoGuardar.FileName))
+            {
+                HtmlConverter.ConvertToPdf(paginaTexto, writer);
+            }
+
+            
+            
         }
     }
 
