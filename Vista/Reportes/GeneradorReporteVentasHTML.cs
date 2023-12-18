@@ -6,29 +6,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vista
+namespace Vista.Reportes
 {
-    public class GeneradorReporteVentasCompras
+    public class GeneradorReporteVentasHTML : GeneradorReportes
     {
+        public override string Extension => "html";
 
-        public static string GenerarReporteVentas(DateTime inicio, DateTime fin)
+        public override void CargarDatos(DateTime inicio, DateTime fin)
         {
-            if (inicio > fin) return "";
+            if (inicio > fin) return;
 
             IReadOnlyCollection<Venta> ventas = Papeleria.Instancia.Ventas.ListarVentasEnPeriodo(inicio, fin); ;
-            if (ventas.Count == 0) return "";
+            if (ventas.Count == 0) return;
 
-            string plantillaHtml = Vista.Properties.Resources.Plantilla;
+            string plantillaHtml = Properties.Resources.Plantilla;
 
             plantillaHtml = plantillaHtml.Replace("@DESDE", inicio.ToString("dd/MM/yyyy"));
             plantillaHtml = plantillaHtml.Replace("@HASTA", fin.ToString("dd/MM/yyyy"));
 
             Dictionary<CategoriaProducto, double> totalPorCategoria = Papeleria.Instancia.Ventas.ListarIngresosPorCategoriaEnPeriodo(inicio, fin);
-            string[] labelsYDataCategorias = MapaAStrings(totalPorCategoria, (c => c.Nombre));
+            string[] labelsYDataCategorias = MapaAStrings(totalPorCategoria, c => c.Nombre);
 
 
             Dictionary<Cliente, double> totalPorCliente = Papeleria.Instancia.Ventas.ListarIngresosPorClienteEnPeriodo(inicio, fin);
-            string[] labelsYDataClientes = MapaAStrings(totalPorCliente, (c => c.Nombre));
+            string[] labelsYDataClientes = MapaAStrings(totalPorCliente, c => c.Nombre);
 
             SortedDictionary<DateTime, double> totalPorFecha = Papeleria.Instancia.Ventas.ListarIngresosAgrupadosPorFechaEnPeriodo(inicio, fin);
             string[] labelsYDataFechas = MapaAStrings(totalPorFecha, d => d.ToString("dd/MM/yyyy"));
@@ -61,12 +62,13 @@ namespace Vista
             plantillaHtml = plantillaHtml.Replace("@NRO_VENTAS", ventas.Count.ToString());
 
 
-            return plantillaHtml;
+            this.datos = plantillaHtml;
         }
-        private static string[] MapaAStrings<T>(IDictionary<T, double> dict, Func<T, string> func) {
+        private static string[] MapaAStrings<T>(IDictionary<T, double> dict, Func<T, string> func)
+        {
             string a = "";
             string b = "";
-            if(dict.Count==0) return new string[]{ a, b };
+            if (dict.Count == 0) return new string[] { a, b };
             foreach (var entry in dict)
             {
                 a += $"'{func.Invoke(entry.Key)}',";

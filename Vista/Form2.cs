@@ -2,7 +2,6 @@
 using NuevoModelo;
 using System.Data;
 using Controladoras;
-using Vista;
 using iText.Commons.Utils;
 using System.Diagnostics;
 using iText.Layout.Element;
@@ -11,6 +10,8 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using System.Xml;
 using iText.Html2pdf;
+using Vista.Reportes;
+using Vista;
 
 namespace PapeleriaGUI
 {
@@ -63,7 +64,7 @@ namespace PapeleriaGUI
             if (gridVentas.CurrentRow == null) return;
             Venta venta = Papeleria.Instancia.Ventas.ListarVentas().ElementAt(gridVentas.CurrentRow.Index);
             ResultadoOperacion res = Papeleria.Instancia.Ventas.EliminarVenta(venta);
-            if(!res.Exito)
+            if (!res.Exito)
             {
                 MessageBox.Show(res.Mensaje);
             }
@@ -147,34 +148,10 @@ namespace PapeleriaGUI
             }
         }
 
-        private void calSeleccionPeriodoReporte_DateChanged(object sender, DateRangeEventArgs e)
+
+        private void btnGenerarReporteVentas_Click_1(object sender, EventArgs e)
         {
-        }
-
-        private void btnGenerarReporteVentas_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog dialogoGuardar = new SaveFileDialog();
-            dialogoGuardar.FileName = $"{DateTime.Now.ToString("ddMMyyyyHHmmss")}.pdf";
-
-            string paginaTexto = GeneradorReporteVentasCompras.GenerarReporteVentas(calSeleccionPeriodoReporte.SelectionStart, calSeleccionPeriodoReporte.SelectionEnd);
-            if (paginaTexto == "")
-            {
-                MessageBox.Show("No hay ventas registradas para el periodo seleccionado! Por favor asegúrese de haber seleccionado el periodo correctamente");
-                return;
-            }
-            System.Diagnostics.Debug.WriteLine($"Texto plantilla: {paginaTexto}");
-
-            DialogResult guardarResultado = dialogoGuardar.ShowDialog();
-            if (guardarResultado != DialogResult.OK)
-            {
-                MessageBox.Show("Elija un destino válido!");
-                return;
-            }
-            using (PdfWriter writer = new PdfWriter(dialogoGuardar.FileName))
-            {
-                ConverterProperties converter = new ConverterProperties();
-                HtmlConverter.ConvertToPdf(paginaTexto, writer);
-            }
+            new FormCreacionReporte().ShowDialog();
         }
     }
 

@@ -52,7 +52,6 @@
             gridVentas = new DataGridView();
             tabControl = new TabControl();
             tabReportes = new TabPage();
-            calSeleccionPeriodoReporte = new MonthCalendar();
             btnAlerta = new Button();
             btnGenerarReporteVentas = new Button();
             tabCategorias.SuspendLayout();
@@ -267,6 +266,7 @@
             // 
             // tabVentas
             // 
+            tabVentas.Controls.Add(btnGenerarReporteVentas);
             tabVentas.Controls.Add(buttonDetallesVenta);
             tabVentas.Controls.Add(btnEliminarVenta);
             tabVentas.Controls.Add(btnAgregarVenta);
@@ -341,8 +341,6 @@
             // 
             // tabReportes
             // 
-            tabReportes.Controls.Add(btnGenerarReporteVentas);
-            tabReportes.Controls.Add(calSeleccionPeriodoReporte);
             tabReportes.Controls.Add(btnAlerta);
             tabReportes.Location = new Point(4, 24);
             tabReportes.Name = "tabReportes";
@@ -351,15 +349,6 @@
             tabReportes.TabIndex = 6;
             tabReportes.Text = "Reportes";
             tabReportes.UseVisualStyleBackColor = true;
-            // 
-            // calSeleccionPeriodoReporte
-            // 
-            calSeleccionPeriodoReporte.FirstDayOfWeek = Day.Monday;
-            calSeleccionPeriodoReporte.Location = new Point(29, 41);
-            calSeleccionPeriodoReporte.MaxSelectionCount = 31;
-            calSeleccionPeriodoReporte.Name = "calSeleccionPeriodoReporte";
-            calSeleccionPeriodoReporte.TabIndex = 1;
-            calSeleccionPeriodoReporte.DateChanged += calSeleccionPeriodoReporte_DateChanged;
             // 
             // btnAlerta
             // 
@@ -373,13 +362,14 @@
             // 
             // btnGenerarReporteVentas
             // 
-            btnGenerarReporteVentas.Location = new Point(268, 41);
+            btnGenerarReporteVentas.Location = new Point(850, 181);
+            btnGenerarReporteVentas.Margin = new Padding(4, 3, 4, 3);
             btnGenerarReporteVentas.Name = "btnGenerarReporteVentas";
-            btnGenerarReporteVentas.Size = new Size(179, 23);
-            btnGenerarReporteVentas.TabIndex = 2;
-            btnGenerarReporteVentas.Text = "Generar reporte de Ventas";
+            btnGenerarReporteVentas.Size = new Size(284, 28);
+            btnGenerarReporteVentas.TabIndex = 8;
+            btnGenerarReporteVentas.Text = "Generar reporte";
             btnGenerarReporteVentas.UseVisualStyleBackColor = true;
-            btnGenerarReporteVentas.Click += btnGenerarReporteVentas_Click;
+            btnGenerarReporteVentas.Click += btnGenerarReporteVentas_Click_1;
             // 
             // Form2
             // 
@@ -434,7 +424,6 @@
         private TabControl tabControl;
         private TabPage tabReportes;
         private Button btnAlerta;
-        private MonthCalendar calSeleccionPeriodoReporte;
         private Button btnGenerarReporteVentas;
     }
 }
