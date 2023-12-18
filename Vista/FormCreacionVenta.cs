@@ -71,8 +71,8 @@ namespace PapeleriaGUI
         private void btnAgregarItem_Click(object sender, EventArgs e)
         {
             Producto producto = (Producto)cbProductoItem.SelectedItem;
-            
-            int cantidad = (int) nCantidadItem.Value;
+
+            int cantidad = (int)nCantidadItem.Value;
 
             ItemProducto itemVenta = new ItemProducto(producto,
                 cantidad,
@@ -106,7 +106,7 @@ namespace PapeleriaGUI
             int fila = gridItems.CurrentRow.Index;
             if (fila < 0) return;
             listaItems.RemoveAt(fila);
-            ActualizarGrid(); 
+            ActualizarGrid();
         }
 
         private void txtNroOrden_TextChanged(object sender, EventArgs e)
@@ -126,12 +126,13 @@ namespace PapeleriaGUI
 
 
             Venta venta = new Venta(codVenta,
-                ventaDateTimePicker.Value,
+                dtpVenta.Value,
                 cliente,
                 listaItems);
+            venta.Fecha = dtpVenta.Value;
 
             ResultadoOperacion resultado = Papeleria.Instancia.Ventas.CrearVenta(venta);
-            if(!resultado.Exito)
+            if (!resultado.Exito)
             {
                 MessageBox.Show(resultado.Mensaje);
                 return;
@@ -143,7 +144,7 @@ namespace PapeleriaGUI
         {
             //Toquetee esto porque no andaba, no se muy bien como funcionaba antes
             Producto productoSeleccionado = (Producto)cbProductoItem.SelectedItem;
-            if(productoSeleccionado != null)
+            if (productoSeleccionado != null)
             {
                 nCantidadItem.Maximum = productoSeleccionado.Stock;
                 return;

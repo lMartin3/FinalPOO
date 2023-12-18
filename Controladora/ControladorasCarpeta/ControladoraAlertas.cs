@@ -1,6 +1,8 @@
 ﻿using Controladoras;
 using Entidades;
+using Microsoft.Extensions.Configuration;
 using NLog;
+using NuevoModelo.Util;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,13 +14,18 @@ namespace Controladoras
 {
     public class ControladoraAlertas
     {
-        private ResultadoOperacion EnviarAlerta(Producto producto, string mailGerente)
+
+        public ControladoraAlertas() {
+            LogManager.AutoShutdown = true;
+            LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration(Path.Join(ConfigurationHelper.DirectorioConfiguracion, "Nlog.config"));
+        }
+
+        public ResultadoOperacion EnviarAlerta(Producto producto, string mailGerente)
         {
             Logger logger = LogManager.GetLogger("");
             logger.PushScopeProperty("ToEmail", mailGerente);
-            LogManager.AutoShutdown = true;
-            //Hay que hacer este path relativo. Por algun motivo NLog no detecta su .config automaticamente ni por joda
-            LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration("D:\\SSD\\Estudio\\UAI\\UAI-2023\\2doCuatrimestre\\LUG2023\\Final\\Controladora\\NLog.config");
+            System.Diagnostics.Debug.WriteLine("ENVIANDO EMAIL!");
+
             ResultadoOperacion res;
             try
             {

@@ -46,7 +46,13 @@ namespace Controladoras
             this.Proveedores = new ControladoraProveedores();
             this.Ventas = new ControladoraVentas();
             this.Alertas = new ControladoraAlertas();
-            //AgregarMockDataConPercistenciaAsiQueOjoCuidado();
+            try
+            {
+                AgregarMockDataConPercistenciaAsiQueOjoCuidado();
+            } catch (Exception)
+            {
+
+            }
         }
 
         private void AgregarMockDataConPercistenciaAsiQueOjoCuidado()

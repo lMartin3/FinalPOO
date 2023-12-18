@@ -32,6 +32,7 @@ namespace PapeleriaGUI
                     Cliente = venta.Cliente,
                     Items = venta.ResumenItems,
                     Nroitems = venta.Items.Count,
+                    Fecha = venta.Fecha.ToString("dd/MM/yyyy"),
                     Total = venta.Total
                 }).ToList();
             gridClientes.DataSource = Papeleria.Instancia.Clientes.ListarClientes();
@@ -127,14 +128,38 @@ namespace PapeleriaGUI
             formDetalles.ShowDialog();
         }
 
-        private void btnReporte1_Click(object sender, EventArgs e)
+
+
+        private void btnAlerta_Click(object sender, EventArgs e)
+        {
+            Producto producto = new Producto();
+            producto.Nombre = "asdf";
+            producto.Stock = 999;
+            ResultadoOperacion res = Papeleria.Instancia.Alertas.EnviarAlerta(producto, "martinlufr@gmail.com");
+            if (!res.Exito)
+            {
+                MessageBox.Show(res.Mensaje);
+                return;
+            }
+        }
+
+        private void calSeleccionPeriodoReporte_DateChanged(object sender, DateRangeEventArgs e)
+        {
+        }
+
+        private void btnGenerarReporteVentas_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialogoGuardar = new SaveFileDialog();
             dialogoGuardar.FileName = $"{DateTime.Now.ToString("ddMMyyyyHHmmss")}.pdf";
 
-            string paginaTexto = Vista.Properties.Resources.Plantilla;
+            string paginaTexto = GeneradorReporteVentasCompras.GenerarReporteVentas(calSeleccionPeriodoReporte.SelectionStart, calSeleccionPeriodoReporte.SelectionEnd);
+            if (paginaTexto == "")
+            {
+                MessageBox.Show("No hay ventas registradas para el periodo seleccionado! Por favor asegúrese de haber seleccionado el periodo correctamente");
+                return;
+            }
             System.Diagnostics.Debug.WriteLine($"Texto plantilla: {paginaTexto}");
-            
+
             DialogResult guardarResultado = dialogoGuardar.ShowDialog();
             if (guardarResultado != DialogResult.OK)
             {
@@ -143,11 +168,9 @@ namespace PapeleriaGUI
             }
             using (PdfWriter writer = new PdfWriter(dialogoGuardar.FileName))
             {
+                ConverterProperties converter = new ConverterProperties();
                 HtmlConverter.ConvertToPdf(paginaTexto, writer);
             }
-
-            
-            
         }
     }
 

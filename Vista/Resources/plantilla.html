@@ -1,96 +1,138 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <title>Title of the document</title>
+    <title>Reporte de Ventas</title>
     <style>
-        table.border {
-            border-collapse: collapse;
+        html,
+        body {
+            margin: 0;
         }
 
-            table.border th {
-                padding: 5px;
-                border: 1px solid black;
+        body {
+            margin: 10px;
+            font-family: Calibri, sans-serif;
+            font-weight: 300;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+            table.border {
+                border-collapse: collapse;
             }
 
-            table.border td {
-                padding: 5px;
-                border: 1px solid black;
+                table.border th {
+                    padding: 5px;
+                    border: 1px solid black;
+                }
+
+                table.border td {
+                    padding: 5px;
+                    border: 1px solid black;
+                }
+
+        .margin-0 {
+            margin: 0;
+        }
+
+        .margin-10px {
+            margin: 10px;
+        }
+
+        .weight-500 {
+            font-weight: 500;
+        }
+
+        #charts {
+            table-layout: fixed;
+        }
+
+            #charts > tbody > tr > td {
+                text-align: center;
             }
+
+                #charts > tbody > tr > td > img {
+                    width: 70%;
+                    max-width: 600px; /* De esta forma no se muestra demasiado grande*/
+                    height: auto;
+                }
+
+        @media print {
+            #charts > tbody > tr > td > img {
+                max-width: unset;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <table style="width:100%">
-        <tr>
-            <td style="width:20%"></td>
-            <td style="width:60%" align="center" valign="top">
-                <table>
-                    <tr><td align="center"><h4 style="margin:0px">CODIGO ESTUDIANTE</h4></td></tr>
-                    <tr><td align="center">Direccion: av. las aguilas 123 </td></tr>
-                    <tr><td align="center">Telefono: 567-546-55</td></tr>
-                </table>
-            </td>
-            <td style="width:20%">
-                <table class="border" style="width:100%">
-                    <tr><td align="center">Ruc: 3434343434</td></tr>
-                    <tr><td align="center" style="background-color:#D8D8D8">BOLETA</td></tr>
-                    <tr><td align="center">Nro: 00000111</td></tr>
-                </table>
-            </td>
-        </tr>
+    <h1 class="margin-0">Reporte de Ventas</h1>
+    <h3 class="weight-500 margin-0">Periodo: @DESDE - @HASTA (inclusive)</h3>
+    <table id="charts" class="chartstable" style="width: 100%;">
+        <tbody>
 
-        <tr><td colspan="3" height="20"></td></tr>
-
-        <tr>
-            <td colspan="2">
-                <table style="width:100%">
-                    <tr>
-                        <td colspan="1" style="width:20%">Cliente:</td>
-                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@CLIENTE</td>
-                    </tr>
-                </table>
-                <table style="width:100%">
-                    <tr>
-                        <td style="width:20%">Documento:</td>
-                        <td style="width:30%;border-bottom:1px solid black">@DOCUMENTO</td>
-                        <td style="width:10%">Fecha:</td>
-                        <td style="width:40%;border-bottom:1px solid black">@FECHA</td>
-                    </tr>
-                </table>
-            </td>
-            <td></td>
-        </tr>
-
-        <tr><td colspan="3" height="30"></td></tr>
-
-        <tr>
-            <td colspan="3">
-                <table class="border" style="width:100%;">
-                    <thead>
-                        <tr style="background-color:#D8D8D8">
-                            <th>Cant.</th>
-                            <th>Descripcion</th>
-                            <th>P. Unitario</th>
-                            <th>Importe</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--<tr>
-                            <td>1</td>
-                            <td>sdafsda</td>
-                            <td>2.4</td>
-                            <td>2.4</td>
-                        </tr>-->
-                        @FILAS
-                        <tr>
-                            <td style="border: 0px !important"></td>
-                            <td style="border: 0px !important"></td>
-                            <td align="right">Total:</td>
-                            <td>@TOTAL</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
+            <tr class="test" style="width: 100%;">
+                <td style="width: 50%;">
+                    <img src="https://quickchart.io/chart?&c={type:'pie',data:{labels:['January','February','March','April','May'],datasets:[{data:[50,60,70,180,190]}]},options:{title:{display:true, text:'Ingresos por producto'}}}">
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">
+                    <img src="https://quickchart.io/chart?&c={type:'pie',data:{labels:[@GRAFICO_CLIENTES_LABELS],datasets:[{data:[@GRAFICO_CLIENTES_DATA]}]}, options:{title:{display:true, text:'Ingresos por cliente'}}}">
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">
+                    <img src="https://quickchart.io/chart?&c={type:'pie',data:{labels:[@GRAFICO_CATEGORIAS_LABELS],datasets:[{data:[@GRAFICO_CATEGORIAS_DATA]}]}, options:{title:{display:true, text:'Ingresos por categoría'}}}">
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%">
+                    <img src="https://quickchart.io/chart?&c={ type: 'line', data: { labels: [@GRAFICO_FECHAS_LABELS], datasets: [ { label: 'Ingresos', data: [@GRAFICO_FECHAS_DATA], fill: false, borderColor: 'blue', } ], }, }">
+                </td>
+            </tr>
+        </tbody>
     </table>
+
+    <table class="border" style="width:100%;">
+        <thead>
+
+
+            <tr style="background-color:#D8D8D8">
+
+                <th style="width: 10%;">Fecha</th>
+                <th style="width: 10%;">Nro. Venta</th>
+                <th style="width: 20%;">Cliente</th>
+                <th style="width: 45%;">Resumen</th>
+                <th style="width: 15%">Importe</th>
+            </tr>
+            -
+        </thead>
+        <tbody>
+            Nro. Ventas: @NRO_VENTAS
+            @FILAS
+            <!--
+
+                <tr>
+                    <td>1</td>
+                    <td>sdafsda</td>
+                    <td>2.4</td>
+                    <td>2.4</td>
+                    <td>2.4</td>
+                </tr>
+            -->
+            <tr>
+                <td style="border: 0px !important"></td>
+                <td style="border: 0px !important"></td>
+                <td style="border: 0px !important"></td>
+                <td align="right" style="border: 0px;">Total:</td>
+                <td><b>@TOTAL</b></td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
+
 </html>
