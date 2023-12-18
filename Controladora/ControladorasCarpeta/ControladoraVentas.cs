@@ -68,16 +68,18 @@ namespace Controladoras
         public SortedDictionary<DateTime, double> ListarIngresosAgrupadosPorFechaEnPeriodo(DateTime inicio, DateTime fin)
         {
             List<Venta> ventas = new List<Venta>(ListarVentasEnPeriodo(inicio, fin));
+           
             SortedDictionary<DateTime, double> montoPorFecha = new SortedDictionary<DateTime, double>();
             int indexVentas = 0;
             for (var dt = inicio; dt.Date <= fin.Date; dt = dt.AddDays(1))
             {
                 double totalVendidoEnFecha = 0;
-                foreach(Venta venta in ventas)
+                while(true&&indexVentas<ventas.Count)
                 {
-                    // Las ventas están ordenadas por fecha, así que no van a haber más ventas con esta fecha
+                    Venta venta = ventas[indexVentas];
                     if (venta.Fecha.Date != dt.Date) break;
                     totalVendidoEnFecha += venta.Total;
+                    indexVentas++;
                 }
                 montoPorFecha.Add(dt, totalVendidoEnFecha);
                 
