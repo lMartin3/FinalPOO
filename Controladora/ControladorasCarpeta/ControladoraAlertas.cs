@@ -14,7 +14,7 @@ namespace Controladoras
 {
     public class ControladoraAlertas
     {
-        string EmailDestinatario { get; set; }
+        public string EmailDestinatario { get; set; }
         public ControladoraAlertas() {
             LogManager.AutoShutdown = true;
             LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration(Path.Join(ConfigurationHelper.DirectorioConfiguracion, "Nlog.config"));

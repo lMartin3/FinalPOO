@@ -137,15 +137,8 @@ namespace PapeleriaGUI
 
         private void btnAlerta_Click(object sender, EventArgs e)
         {
-            Producto producto = new Producto();
-            producto.Nombre = "asdf";
-            producto.Stock = 999;
-            ResultadoOperacion res = Papeleria.Instancia.Alertas.EnviarAlerta(producto, "martinlufr@gmail.com");
-            if (!res.Exito)
-            {
-                MessageBox.Show(res.Mensaje);
-                return;
-            }
+            Papeleria.Instancia.Alertas.EmailDestinatario = "roy.correo@gmail.com";
+            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas();
         }
 
 
