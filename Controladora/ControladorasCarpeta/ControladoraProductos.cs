@@ -70,5 +70,12 @@ namespace Controladoras
             producto.Stock += diferenciaStock;
             return ActualizarProducto(producto);
         }
+        public ResultadoOperacion EliminarProducto(Producto producto)
+        {
+            // TODO checks de lógica
+            ContextoPapeleria.Instancia.Productos.Remove(producto);
+            ContextoPapeleria.Instancia.SaveChanges();
+            return ResultadoOperacion.Exitosa();
+        }
     }
 }

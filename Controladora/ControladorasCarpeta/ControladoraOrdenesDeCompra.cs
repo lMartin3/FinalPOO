@@ -65,5 +65,12 @@ namespace Controladoras
             }
             return ResultadoOperacion.Exitosa();
         }
+        public ResultadoOperacion EliminarOrden(OrdenCompra orden)
+        {
+            // TODO checks de lógica
+            ContextoPapeleria.Instancia.OrdenesDeCompra.Remove(orden);
+            ContextoPapeleria.Instancia.SaveChanges();
+            return ResultadoOperacion.Exitosa();
+        }
     }
 }

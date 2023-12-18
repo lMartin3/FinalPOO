@@ -9,5 +9,10 @@
             this.Text = titutlo;
             grid.DataSource = elementos;
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

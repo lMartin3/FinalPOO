@@ -1,9 +1,8 @@
 ﻿using Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NLog;
+using NLog.Fluent;
+using System.Diagnostics;
+using System.Runtime.Intrinsics.X86;
 
 namespace Controladoras
 {
@@ -35,6 +34,7 @@ namespace Controladoras
         public ControladoraOrdenesDeCompra Ordenes;
         public ControladoraProveedores Proveedores;
         public ControladoraVentas Ventas;
+        public ControladoraAlertas Alertas;
 
 
         private Papeleria()
@@ -45,11 +45,8 @@ namespace Controladoras
             this.Ordenes = new ControladoraOrdenesDeCompra();
             this.Proveedores = new ControladoraProveedores();
             this.Ventas = new ControladoraVentas();
-        }
-        private void Inicio()
-        {
+            this.Alertas = new ControladoraAlertas();
             //AgregarMockDataConPercistenciaAsiQueOjoCuidado();
-            //ventas.ElementoAgregadoEvent += ModificarStocksPorVenta;
         }
 
         private void AgregarMockDataConPercistenciaAsiQueOjoCuidado()
@@ -69,17 +66,17 @@ namespace Controladoras
             Categorias.CrearCategoria(categoria2);
             Categorias.CrearCategoria(categoria3);
             //Productos dummies
-            Producto producto1 = new Producto(0, "Resma A4 500", "Resma de papel A4 500 hojas marca Libertad", 4000, 35, categoria2);
-            Producto producto2 = new Producto(1, "Pack de fibrones Sharpie", "12 fibrones de colores varios", 6000, 15, categoria1);
-            Producto producto3 = new Producto(2, "Pack de 20 lápices", "Lapices BIC B2", 6000, 20, categoria1);
-            Producto producto4 = new Producto(3, "Paquete 20 lapiceras", "10 azules y 10 negras BIC", 3000, 20, categoria1);
-            Producto producto5 = new Producto(4, "Regla metro", "Regla de 1m", 1500, 20, categoria3);
+            Producto producto1 = new Producto(0, "Resma A4 500", "Resma de papel A4 500 hojas marca Libertad", 4000, 35, 5, categoria2);
+            Producto producto2 = new Producto(1, "Pack de fibrones Sharpie", "12 fibrones de colores varios", 6000, 15, 5, categoria1);
+            Producto producto3 = new Producto(2, "Pack de 20 lápices", "Lapices BIC B2", 6000, 20, 5, categoria1);
+            Producto producto4 = new Producto(3, "Paquete 20 lapiceras", "10 azules y 10 negras BIC", 3000, 20, 5, categoria1);
+            Producto producto5 = new Producto(4, "Regla metro", "Regla de 1m", 1500, 20, 5, categoria3);
             Productos.CrearProducto(producto1);
             Productos.CrearProducto(producto2);
             Productos.CrearProducto(producto3);
             Productos.CrearProducto(producto4);
             Productos.CrearProducto(producto5);
-
+            //Proveedores dummies
             Proveedor proveedor1 = new Proveedor("30218686867", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Los Papeles Hermanos S.R.L.", "El Paso 512");
             Proveedor proveedor2 = new Proveedor("30154747476", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Papenberg S.A.", "Nuevo México 602");
             Proveedor proveedor3 = new Proveedor("30298545672", CondicionFiscal.RESPONSABLE_INSCRIPTO, "Piedra de Sísifo S.R.L", "Turquía 1023");

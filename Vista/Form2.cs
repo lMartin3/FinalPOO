@@ -80,7 +80,7 @@ namespace PapeleriaGUI
         {
             if (gridOrdenes.CurrentRow == null) return;
             OrdenCompra orden = Papeleria.Instancia.Ordenes.ListarOrdenes().ElementAt(gridOrdenes.CurrentRow.Index);
-            //Papeleria.Instancia.Ordenes.EliminarOrden(orden);
+            Papeleria.Instancia.Ordenes.EliminarOrden(orden);
             ActualizarGrids();
         }
 
@@ -95,7 +95,7 @@ namespace PapeleriaGUI
         {
             if (gridProveedores.CurrentRow == null) return;
             Proveedor proveedor = Papeleria.Instancia.Proveedores.ListarProveedores().ElementAt(gridProveedores.CurrentRow.Index);
-            //Papeleria.Instancia.Proveedores.EliminarProveedor(proveedor);
+            Papeleria.Instancia.Proveedores.EliminarProveedor(proveedor);
             ActualizarGrids();
         }
 
