@@ -41,7 +41,13 @@ namespace Controladoras
             ContextoPapeleria.Instancia.SaveChanges();
             return ResultadoOperacion.Exitosa();
         }
-
+        public ResultadoOperacion EliminarProveedor(Proveedor proveedor)
+        {
+            // TODO checks de lógica
+            ContextoPapeleria.Instancia.Proveedores.Remove(proveedor);
+            ContextoPapeleria.Instancia.SaveChanges();
+            return ResultadoOperacion.Exitosa();
+        }
         public Producto? BuscarPorNombre(string NombreProducto)
         {
             return ContextoPapeleria.Instancia.Productos.Where(p=>p.Nombre.Equals(NombreProducto)).FirstOrDefault();

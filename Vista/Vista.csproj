@@ -12,9 +12,6 @@
     <PackageReference Include="itext" Version="8.0.2" />
     <PackageReference Include="itext.bouncy-castle-adapter" Version="8.0.2" />
     <PackageReference Include="itext.pdfhtml" Version="5.0.2" />
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
-    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.19" />
-    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.19" />
   </ItemGroup>
 
   <ItemGroup>

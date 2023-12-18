@@ -34,7 +34,13 @@ namespace Controladoras
             
             return ResultadoOperacion.Exitosa();
         }
-
+        public ResultadoOperacion EliminarVenta(Venta venta)
+        {
+            // TODO checks de lógica
+            ContextoPapeleria.Instancia.Ventas.Remove(venta);
+            ContextoPapeleria.Instancia.SaveChanges();
+            return ResultadoOperacion.Exitosa();
+        }
         public ResultadoOperacion ActualizarVenta(Venta venta)
         {
             ResultadoOperacion checkProductos = EvaluarItems(venta.Items.ToList());
@@ -76,7 +82,7 @@ namespace Controladoras
             }
 
             //TODO fijarse esto
-            int stockDisponible = Papeleria.Instancia.Productos.BuscarStockPorCodigo(item.Producto.Stock);
+            int stockDisponible = Papeleria.Instancia.Productos.BuscarStockPorCodigo(item.Producto.Codigo);
             if (stockDisponible < item.Cantidad)
             {
                 return ResultadoOperacion.Fallo($"No hay suficiente stock de {item.Producto.Nombre}");

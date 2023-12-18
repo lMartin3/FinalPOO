@@ -28,5 +28,12 @@ namespace Controladoras
             ContextoPapeleria.Instancia.SaveChanges();
             return ResultadoOperacion.Exitosa();
         }
+        public ResultadoOperacion EliminarCategoria(CategoriaProducto categoria)
+        {
+            // TODO checks de lógica
+            ContextoPapeleria.Instancia.Categorias.Remove(categoria);
+            ContextoPapeleria.Instancia.SaveChanges();
+            return ResultadoOperacion.Exitosa();
+        }
     }
 }

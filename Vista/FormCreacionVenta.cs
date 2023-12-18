@@ -141,11 +141,11 @@ namespace PapeleriaGUI
         }
         private void ActualizarCantidadElegibleDeProducto()
         {
+            //Toquetee esto porque no andaba, no se muy bien como funcionaba antes
             Producto productoSeleccionado = (Producto)cbProductoItem.SelectedItem;
             if(productoSeleccionado != null)
             {
-                int cantidadDelStockDelProductoUsado = Papeleria.Instancia.Productos.BuscarStockPorCodigo(productoSeleccionado.Codigo);
-                nCantidadItem.Maximum = productoSeleccionado.Stock - cantidadDelStockDelProductoUsado;
+                nCantidadItem.Maximum = productoSeleccionado.Stock;
                 return;
             }
             nCantidadItem.Maximum = int.MaxValue;

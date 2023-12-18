@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Vista
 {
-    internal class GeneradorReporteVentasCompras
+    public class GeneradorReporteVentasCompras
     {
+
+        
+
     }
 }
