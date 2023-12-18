@@ -73,11 +73,6 @@
     <table id="charts" class="chartstable" style="width: 100%;">
         <tbody>
 
-            <tr class="test" style="width: 100%;">
-                <td style="width: 50%;">
-                    <img src="https://quickchart.io/chart?&c={type:'pie',data:{labels:['January','February','March','April','May'],datasets:[{data:[50,60,70,180,190]}]},options:{title:{display:true, text:'Ingresos por producto'}}}">
-                </td>
-            </tr>
             <tr>
                 <td style="width: 50%;">
                     <img src="https://quickchart.io/chart?&c={type:'pie',data:{labels:[@GRAFICO_CLIENTES_LABELS],datasets:[{data:[@GRAFICO_CLIENTES_DATA]}]}, options:{title:{display:true, text:'Ingresos por cliente'}}}">
@@ -90,7 +85,7 @@
             </tr>
             <tr>
                 <td style="width: 50%">
-                    <img src="https://quickchart.io/chart?&c={ type: 'line', data: { labels: [@GRAFICO_FECHAS_LABELS], datasets: [ { label: 'Ingresos', data: [@GRAFICO_FECHAS_DATA], fill: false, borderColor: 'blue', } ], }, }">
+                    <img src="https://quickchart.io/chart?&c={ type: 'line', data: { labels: [@GRAFICO_FECHAS_LABELS], datasets: [ { label: 'Ingresos', data: [@GRAFICO_FECHAS_DATA], fill: false, borderColor: 'blue', } ], },  options:{title:{display:true, text:'Ventas en el periodo'}}}">
                 </td>
             </tr>
         </tbody>

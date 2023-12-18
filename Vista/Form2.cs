@@ -62,7 +62,11 @@ namespace PapeleriaGUI
         {
             if (gridVentas.CurrentRow == null) return;
             Venta venta = Papeleria.Instancia.Ventas.ListarVentas().ElementAt(gridVentas.CurrentRow.Index);
-            //Papeleria.Instancia.Ventas.EliminarVenta(venta);
+            ResultadoOperacion res = Papeleria.Instancia.Ventas.EliminarVenta(venta);
+            if(!res.Exito)
+            {
+                MessageBox.Show(res.Mensaje);
+            }
             ActualizarGrids();
         }
 

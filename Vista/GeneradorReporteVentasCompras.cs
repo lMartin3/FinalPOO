@@ -25,37 +25,45 @@ namespace Vista
 
             Dictionary<CategoriaProducto, double> totalPorCategoria = Papeleria.Instancia.Ventas.ListarIngresosPorCategoriaEnPeriodo(inicio, fin);
             string[] labelsYDataCategorias = MapaAStrings(totalPorCategoria, (c => c.Nombre));
-            
+
 
             Dictionary<Cliente, double> totalPorCliente = Papeleria.Instancia.Ventas.ListarIngresosPorClienteEnPeriodo(inicio, fin);
             string[] labelsYDataClientes = MapaAStrings(totalPorCliente, (c => c.Nombre));
 
             SortedDictionary<DateTime, double> totalPorFecha = Papeleria.Instancia.Ventas.ListarIngresosAgrupadosPorFechaEnPeriodo(inicio, fin);
-            string dataFechas = "";
-            foreach (var entry in totalPorFecha)
+            string[] labelsYDataFechas = MapaAStrings(totalPorFecha, d => d.ToString("dd/MM/yyyy"));
+
+            string filasTabla = "";
+
+            double totalVentas = 0;
+
+            foreach (Venta venta in ventas)
             {
-                dataFechas += $"{entry.Value},";
-            }
-            dataFechas = dataFechas.Substring(0, dataFechas.Length - 1);
-            string labelsFechas = "";
-            for(int  i = 0; i+5<totalPorFecha.Count; i+=5)
-            {
-                    labelsFechas += $"'{totalPorFecha.ElementAt(i).Key.ToString("dd/MM/yyyy")}',";
+                totalVentas += venta.Total;
+                filasTabla += "<tr>";
+                filasTabla += $"<td>{venta.Fecha.ToString("dd/MM/yyyy")}</td>";
+                filasTabla += $"<td>{venta.NroVenta}</td>";
+                filasTabla += $"<td>{venta.Cliente.Nombre}</td>";
+                filasTabla += $"<td>{venta.ResumenItems}</td>";
+                filasTabla += $"<td>${venta.Total.ToString("N")}</td>";
+                filasTabla += "</tr>";
             }
 
             plantillaHtml = plantillaHtml.Replace("@GRAFICO_CATEGORIAS_LABELS", labelsYDataCategorias[0]);
             plantillaHtml = plantillaHtml.Replace("@GRAFICO_CATEGORIAS_DATA", labelsYDataCategorias[1]);
             plantillaHtml = plantillaHtml.Replace("@GRAFICO_CLIENTES_LABELS", labelsYDataClientes[0]);
             plantillaHtml = plantillaHtml.Replace("@GRAFICO_CLIENTES_DATA", labelsYDataClientes[1]);
-            plantillaHtml = plantillaHtml.Replace("@GRAFICO_FECHAS_LABELS", labelsFechas);
-            plantillaHtml = plantillaHtml.Replace("@GRAFICO_FECHAS_DATA", dataFechas);
+            plantillaHtml = plantillaHtml.Replace("@GRAFICO_FECHAS_LABELS", labelsYDataFechas[0]);
+            plantillaHtml = plantillaHtml.Replace("@GRAFICO_FECHAS_DATA", labelsYDataFechas[1]);
+            plantillaHtml = plantillaHtml.Replace("@FILAS", filasTabla);
+            plantillaHtml = plantillaHtml.Replace("@TOTAL", $"${totalVentas.ToString("N")}");
 
             plantillaHtml = plantillaHtml.Replace("@NRO_VENTAS", ventas.Count.ToString());
 
 
             return plantillaHtml;
         }
-        private static string[] MapaAStrings<T>(Dictionary<T, double> dict, Func<T, string> func) {
+        private static string[] MapaAStrings<T>(IDictionary<T, double> dict, Func<T, string> func) {
             string a = "";
             string b = "";
             if(dict.Count==0) return new string[]{ a, b };
