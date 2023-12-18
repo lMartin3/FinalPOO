@@ -138,7 +138,7 @@ namespace PapeleriaGUI
         private void btnAlerta_Click(object sender, EventArgs e)
         {
             Papeleria.Instancia.Alertas.EmailDestinatario = "roy.correo@gmail.com";
-            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas();
+            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas("roy.correo@gmail.com");
         }
 
 

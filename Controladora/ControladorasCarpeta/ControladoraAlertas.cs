@@ -20,7 +20,7 @@ namespace Controladoras
             LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration(Path.Join(ConfigurationHelper.DirectorioConfiguracion, "Nlog.config"));
         }
 
-        public void CheckearProductosPorAlertas()
+        public void CheckearProductosPorAlertas(string emailDestino)
         {
             var productos = Papeleria.Instancia.Productos.ListarProductos();
         
@@ -38,7 +38,7 @@ namespace Controladoras
             Logger logger = LogManager.GetLogger("");
             logger.PushScopeProperty("ToEmail", EmailDestinatario);
             
-            System.Diagnostics.Debug.WriteLine("ENVIANDO EMAIL!");
+            System.Diagnostics.Debug.WriteLine("ENVIANDO EMAIL! a "+ EmailDestinatario);
 
             ResultadoOperacion res;
             try

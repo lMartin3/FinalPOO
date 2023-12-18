@@ -112,7 +112,7 @@ namespace Controladoras
                 Papeleria.Instancia.Productos.ActualizarProducto(producto);
             }
 
-            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas();
+            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas("roy.correo@gmail.com");
 
             ContextoPapeleria.Instancia.Ventas.Add(venta);
             ContextoPapeleria.Instancia.SaveChanges();
