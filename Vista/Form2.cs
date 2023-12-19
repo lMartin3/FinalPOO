@@ -147,11 +147,6 @@ namespace PapeleriaGUI
         }
 
 
-        private void btnGenerarReporteVentas_Click_1(object sender, EventArgs e)
-        {
-            new FormCreacionReporte().ShowDialog();
-        }
-
         private void btnGuardarEmail_Click(object sender, EventArgs e)
         {
             string nuevoEmail = tboxEmail.Text;
@@ -164,6 +159,11 @@ namespace PapeleriaGUI
             {
                 MessageBox.Show("Email Inválido.");
             }
+        }
+
+        private void btnGenerarReporteVentas_Click(object sender, EventArgs e)
+        {
+            new FormCreacionReporte().ShowDialog();
         }
     }
 

@@ -297,6 +297,7 @@
             btnGenerarReporteVentas.TabIndex = 8;
             btnGenerarReporteVentas.Text = "Generar reporte";
             btnGenerarReporteVentas.UseVisualStyleBackColor = true;
+            btnGenerarReporteVentas.Click += btnGenerarReporteVentas_Click;
             // 
             // buttonDetallesVenta
             // 
