@@ -100,13 +100,30 @@ namespace Controladoras
                 return checkProductos;
             }
 
+            List<Producto> productosAActualizar = new List<Producto>();
+            List<int> codigosProductos = new List<int>();
             foreach (ItemProducto item in venta.Items.ToList())
             {
                 Producto producto = item.Producto;
+                if(producto.Stock < item.Cantidad)
+                {
+                    return ResultadoOperacion.Fallo($"Stock insuficiente para el producto {producto.Nombre}");
+                }
+                if(codigosProductos.Contains(producto.Codigo))
+                {
+                    return ResultadoOperacion.Fallo($"Producto duplicado: {producto.Nombre}");
+                }
+                codigosProductos.Add(producto.Codigo);
                 producto.Stock -= item.Cantidad;
-                Papeleria.Instancia.Productos.ActualizarProducto(producto);
+                codigosProductos.Add(producto.Codigo);
+                productosAActualizar.Add(producto);
             }
 
+            foreach (Producto p in productosAActualizar)
+            {
+                Papeleria.Instancia.Productos.ActualizarProducto(p);
+
+            }
             ContextoPapeleria.Instancia.Ventas.Add(venta);
             ContextoPapeleria.Instancia.SaveChanges();
 
