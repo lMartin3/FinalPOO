@@ -146,6 +146,11 @@ namespace PapeleriaGUI
         {
             new FormCreacionReporte().ShowDialog();
         }
+
+        private void btnGuardarEmail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

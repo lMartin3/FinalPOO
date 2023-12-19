@@ -54,6 +54,9 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAlertas = new System.Windows.Forms.TabPage();
             this.btnAlerta = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboxEmail = new System.Windows.Forms.ComboBox();
+            this.btnGuardarEmail = new System.Windows.Forms.Button();
             this.tabCategorias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCategorias)).BeginInit();
             this.tabProductos.SuspendLayout();
@@ -351,6 +354,9 @@
             // 
             // tabAlertas
             // 
+            this.tabAlertas.Controls.Add(this.btnGuardarEmail);
+            this.tabAlertas.Controls.Add(this.cboxEmail);
+            this.tabAlertas.Controls.Add(this.label1);
             this.tabAlertas.Controls.Add(this.btnAlerta);
             this.tabAlertas.Location = new System.Drawing.Point(4, 28);
             this.tabAlertas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -370,6 +376,32 @@
             this.btnAlerta.TabIndex = 0;
             this.btnAlerta.Text = "Test alerat";
             btnAlerta.Click += btnAlerta_Click;
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            // 
+            // cboxEmail
+            // 
+            this.cboxEmail.FormattingEnabled = true;
+            this.cboxEmail.Location = new System.Drawing.Point(98, 34);
+            this.cboxEmail.Name = "cboxEmail";
+            this.cboxEmail.Size = new System.Drawing.Size(121, 27);
+            this.cboxEmail.TabIndex = 2;
+            // 
+            // btnGuardarEmail
+            // 
+            this.btnGuardarEmail.Location = new System.Drawing.Point(248, 35);
+            this.btnGuardarEmail.Name = "btnGuardarEmail";
+            this.btnGuardarEmail.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardarEmail.TabIndex = 3;
+            this.btnGuardarEmail.Text = "Guardar";
+            this.btnGuardarEmail.UseVisualStyleBackColor = true;
+            this.btnGuardarEmail.Click += new System.EventHandler(this.btnGuardarEmail_Click);
             // 
             // Form2
             // 
@@ -394,6 +426,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridVentas)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.tabAlertas.ResumeLayout(false);
+            this.tabAlertas.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +459,8 @@
         private TabPage tabAlertas;
         private Button btnAlerta;
         private Button btnGenerarReporteVentas;
+        private Button btnGuardarEmail;
+        private ComboBox cboxEmail;
+        private Label label1;
     }
 }
