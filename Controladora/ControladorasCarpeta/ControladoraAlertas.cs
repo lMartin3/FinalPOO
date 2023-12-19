@@ -20,7 +20,7 @@ namespace Controladoras
             LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration(Path.Join(ConfigurationHelper.DirectorioConfiguracion, "Nlog.config"));
         }
 
-        public void CheckearProductosPorAlertas(string emailDestino)
+        public void CheckearProductosPorAlertas()
         {
             var productos = Papeleria.Instancia.Productos.ListarProductos();
         

@@ -85,12 +85,7 @@ namespace Controladoras
                 
             }
             return montoPorFecha;
-
-
-
         }
-
-
         
         public ResultadoOperacion CrearVenta(Venta venta)
         {
@@ -112,11 +107,11 @@ namespace Controladoras
                 Papeleria.Instancia.Productos.ActualizarProducto(producto);
             }
 
-            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas("roy.correo@gmail.com");
-
             ContextoPapeleria.Instancia.Ventas.Add(venta);
             ContextoPapeleria.Instancia.SaveChanges();
-            
+
+            Papeleria.Instancia.Alertas.CheckearProductosPorAlertas();
+
             return ResultadoOperacion.Exitosa();
         }
         public ResultadoOperacion EliminarVenta(Venta venta)
