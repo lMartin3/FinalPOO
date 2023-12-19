@@ -12,6 +12,8 @@ using System.Xml;
 using iText.Html2pdf;
 using Vista.Reportes;
 using Vista;
+using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
 
 namespace PapeleriaGUI
 {
@@ -21,6 +23,12 @@ namespace PapeleriaGUI
         {
             InitializeComponent();
             ActualizarGrids();
+            RellenarCampos();
+        }
+
+        private void RellenarCampos()
+        {
+            cboxEmail.Text = Papeleria.Instancia.Alertas.EmailDestinatario;
         }
 
         private void ActualizarGrids()
@@ -137,7 +145,6 @@ namespace PapeleriaGUI
 
         private void btnAlerta_Click(object sender, EventArgs e)
         {
-            Papeleria.Instancia.Alertas.EmailDestinatario = "roy.correo@gmail.com";
             Papeleria.Instancia.Alertas.CheckearProductosPorAlertas();
         }
 
@@ -145,6 +152,20 @@ namespace PapeleriaGUI
         private void btnGenerarReporteVentas_Click_1(object sender, EventArgs e)
         {
             new FormCreacionReporte().ShowDialog();
+        }
+
+        private void btnGuardarEmail_Click(object sender, EventArgs e)
+        {
+            string nuevoEmail = cboxEmail.Text;
+            var emailValidation = new EmailAddressAttribute();
+            if (emailValidation.IsValid(nuevoEmail))
+            {
+                Papeleria.Instancia.Alertas.EmailDestinatario = nuevoEmail;
+            }
+            else
+            {
+                MessageBox.Show("Email Inválido.");
+            }
         }
     }
 
