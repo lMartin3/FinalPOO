@@ -115,7 +115,6 @@ namespace Controladoras
                 }
                 codigosProductos.Add(producto.Codigo);
                 producto.Stock -= item.Cantidad;
-                codigosProductos.Add(producto.Codigo);
                 productosAActualizar.Add(producto);
             }
 
@@ -133,7 +132,6 @@ namespace Controladoras
         }
         public ResultadoOperacion EliminarVenta(Venta venta)
         {
-            // TODO checks de lógica
             ContextoPapeleria.Instancia.Ventas.Remove(venta);
             ContextoPapeleria.Instancia.SaveChanges();
 

@@ -76,7 +76,7 @@ namespace Controladoras
             Producto producto2 = new Producto(1, "Pack de fibrones Sharpie", "12 fibrones de colores varios", 6000, 15, 5, categoria1);
             Producto producto3 = new Producto(2, "Pack de 20 lápices", "Lapices BIC B2", 6000, 20, 5, categoria1);
             Producto producto4 = new Producto(3, "Paquete 20 lapiceras", "10 azules y 10 negras BIC", 3000, 20, 5, categoria1);
-            Producto producto5 = new Producto(4, "Regla metro", "Regla de 1m", 1500, 20, 5, categoria3);
+            Producto producto5 = new Producto(4, "Regla metro", "Regla de 1m", 1500, 20, 5, categoria3);             
             Productos.CrearProducto(producto1);
             Productos.CrearProducto(producto2);
             Productos.CrearProducto(producto3);

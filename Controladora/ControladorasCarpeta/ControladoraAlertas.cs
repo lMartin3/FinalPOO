@@ -63,7 +63,7 @@ namespace Controladoras
             Logger logger = LogManager.GetLogger("");
             logger.PushScopeProperty("ToEmail", EmailDestinatario);
             
-            System.Diagnostics.Debug.WriteLine("ENVIANDO EMAIL! a "+ EmailDestinatario);
+            Debug.WriteLine("ENVIANDO EMAIL! a " + EmailDestinatario);
 
             ResultadoOperacion res;
             try
@@ -71,7 +71,7 @@ namespace Controladoras
                 string mensaje = "ATENCIÓN: \n";
                 foreach (var producto in productosStockBajo)
                 {
-                    mensaje += $" -El producto \"{producto.Nombre}\" se encuentra con un stock muy bajo de \"{producto.UmbralStockBajo}\" unidades.\n";
+                    mensaje += $" -El producto \"{producto.Nombre}\" se encuentra con un stock muy bajo de \"{producto.Stock}\" unidades.\n";
                 }
 
                 logger.Info(mensaje);
@@ -81,10 +81,7 @@ namespace Controladoras
             {
                 res = new ResultadoOperacion(true, e.Message);
             }
-            finally
-            {
-                LogManager.Shutdown();
-            }
+
             return res;
         }
     }
