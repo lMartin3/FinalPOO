@@ -73,6 +73,7 @@ namespace Controladoras
                 {
                     mensaje += $" -El producto \"{producto.Nombre}\" se encuentra con un stock muy bajo de \"{producto.UmbralStockBajo}\" unidades.\n";
                 }
+
                 logger.Info(mensaje);
                 res = new ResultadoOperacion(true);
             }
@@ -84,7 +85,6 @@ namespace Controladoras
             {
                 LogManager.Shutdown();
             }
-
             return res;
         }
     }

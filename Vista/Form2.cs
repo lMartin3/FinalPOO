@@ -141,8 +141,6 @@ namespace PapeleriaGUI
             formDetalles.ShowDialog();
         }
 
-
-
         private void btnAlerta_Click(object sender, EventArgs e)
         {
             Papeleria.Instancia.Alertas.CheckearProductosPorAlertas();
