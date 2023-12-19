@@ -27,9 +27,7 @@ namespace Controladoras
 
             string filePath = Path.Combine(appDataRoamingPath, "email.txt");
 
-            File.WriteAllText(filePath, "Hello, World!");
-
-            // Read the variable from the file
+            File.WriteAllText(filePath, newMail);
         }
         private string ObtenerEmailDestinatario()
         {
@@ -55,17 +53,12 @@ namespace Controladoras
         public void CheckearProductosPorAlertas()
         {
             var productos = Papeleria.Instancia.Productos.ListarProductos();
-        
-            foreach(Producto producto in productos)
-            {
-                if (producto.Stock < producto.UmbralStockBajo)
-                {
-                    EnviarAlertaStockBajo(producto);
-                }
-            }
+
+            List<Producto> productosDeStockBajo = productos.Where(p => p.Stock < p.UmbralStockBajo).ToList();
+            EnviarAlertaStockBajo(productosDeStockBajo);
         }
 
-        private ResultadoOperacion EnviarAlertaStockBajo(Producto producto)
+        private ResultadoOperacion EnviarAlertaStockBajo(List<Producto> productosStockBajo)
         {
             Logger logger = LogManager.GetLogger("");
             logger.PushScopeProperty("ToEmail", EmailDestinatario);
@@ -75,7 +68,12 @@ namespace Controladoras
             ResultadoOperacion res;
             try
             {
-                logger.Info("ATENCIÓN: El producto \"{nombreProducto}\" se encuentra con un stock muy bajo de \"{stockProducto}\" unidades.", producto.Nombre, producto.Stock);
+                string mensaje = "ATENCIÓN: \n";
+                foreach (var producto in productosStockBajo)
+                {
+                    mensaje += $" -El producto \"{producto.Nombre}\" se encuentra con un stock muy bajo de \"{producto.UmbralStockBajo}\" unidades.\n";
+                }
+                logger.Info(mensaje);
                 res = new ResultadoOperacion(true);
             }
             catch (Exception e)
