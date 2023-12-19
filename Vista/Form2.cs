@@ -23,6 +23,12 @@ namespace PapeleriaGUI
         {
             InitializeComponent();
             ActualizarGrids();
+            RellenarCampos();
+        }
+
+        private void RellenarCampos()
+        {
+            cboxEmail.Text = Papeleria.Instancia.Alertas.EmailDestinatario;
         }
 
         private void ActualizarGrids()
