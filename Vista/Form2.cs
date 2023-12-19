@@ -28,7 +28,7 @@ namespace PapeleriaGUI
 
         private void RellenarCampos()
         {
-            cboxEmail.Text = Papeleria.Instancia.Alertas.EmailDestinatario;
+            tboxEmail.Text = Papeleria.Instancia.Alertas.EmailDestinatario;
         }
 
         private void ActualizarGrids()
@@ -156,7 +156,7 @@ namespace PapeleriaGUI
 
         private void btnGuardarEmail_Click(object sender, EventArgs e)
         {
-            string nuevoEmail = cboxEmail.Text;
+            string nuevoEmail = tboxEmail.Text;
             var emailValidation = new EmailAddressAttribute();
             if (emailValidation.IsValid(nuevoEmail))
             {

@@ -53,10 +53,10 @@
             this.gridVentas = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAlertas = new System.Windows.Forms.TabPage();
-            this.btnAlerta = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboxEmail = new System.Windows.Forms.ComboBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.tboxEmail = new System.Windows.Forms.TextBox();
             this.btnGuardarEmail = new System.Windows.Forms.Button();
+            this.btnAlerta = new System.Windows.Forms.Button();
             this.tabCategorias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCategorias)).BeginInit();
             this.tabProductos.SuspendLayout();
@@ -354,9 +354,9 @@
             // 
             // tabAlertas
             // 
+            this.tabAlertas.Controls.Add(this.lblEmail);
+            this.tabAlertas.Controls.Add(this.tboxEmail);
             this.tabAlertas.Controls.Add(this.btnGuardarEmail);
-            this.tabAlertas.Controls.Add(this.cboxEmail);
-            this.tabAlertas.Controls.Add(this.label1);
             this.tabAlertas.Controls.Add(this.btnAlerta);
             this.tabAlertas.Location = new System.Drawing.Point(4, 28);
             this.tabAlertas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -367,6 +367,32 @@
             this.tabAlertas.Text = "Alertas";
             this.tabAlertas.UseVisualStyleBackColor = true;
             // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(22, 32);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(119, 19);
+            this.lblEmail.TabIndex = 5;
+            this.lblEmail.Text = "Email Destinatario";
+            // 
+            // tboxEmail
+            // 
+            this.tboxEmail.Location = new System.Drawing.Point(147, 29);
+            this.tboxEmail.Name = "tboxEmail";
+            this.tboxEmail.Size = new System.Drawing.Size(199, 26);
+            this.tboxEmail.TabIndex = 4;
+            // 
+            // btnGuardarEmail
+            // 
+            this.btnGuardarEmail.Location = new System.Drawing.Point(352, 30);
+            this.btnGuardarEmail.Name = "btnGuardarEmail";
+            this.btnGuardarEmail.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardarEmail.TabIndex = 3;
+            this.btnGuardarEmail.Text = "Guardar";
+            this.btnGuardarEmail.UseVisualStyleBackColor = true;
+            this.btnGuardarEmail.Click += new System.EventHandler(this.btnGuardarEmail_Click);
+            // 
             // btnAlerta
             // 
             this.btnAlerta.Location = new System.Drawing.Point(1198, 52);
@@ -375,33 +401,7 @@
             this.btnAlerta.Size = new System.Drawing.Size(86, 29);
             this.btnAlerta.TabIndex = 0;
             this.btnAlerta.Text = "Test alerat";
-            btnAlerta.Click += btnAlerta_Click;
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            // 
-            // cboxEmail
-            // 
-            this.cboxEmail.FormattingEnabled = true;
-            this.cboxEmail.Location = new System.Drawing.Point(98, 34);
-            this.cboxEmail.Name = "cboxEmail";
-            this.cboxEmail.Size = new System.Drawing.Size(121, 27);
-            this.cboxEmail.TabIndex = 2;
-            // 
-            // btnGuardarEmail
-            // 
-            this.btnGuardarEmail.Location = new System.Drawing.Point(248, 35);
-            this.btnGuardarEmail.Name = "btnGuardarEmail";
-            this.btnGuardarEmail.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardarEmail.TabIndex = 3;
-            this.btnGuardarEmail.Text = "Guardar";
-            this.btnGuardarEmail.UseVisualStyleBackColor = true;
-            this.btnGuardarEmail.Click += new System.EventHandler(this.btnGuardarEmail_Click);
+            this.btnAlerta.Click += new System.EventHandler(this.btnAlerta_Click);
             // 
             // Form2
             // 
@@ -460,7 +460,7 @@
         private Button btnAlerta;
         private Button btnGenerarReporteVentas;
         private Button btnGuardarEmail;
-        private ComboBox cboxEmail;
-        private Label label1;
+        private Label lblEmail;
+        private TextBox tboxEmail;
     }
 }
