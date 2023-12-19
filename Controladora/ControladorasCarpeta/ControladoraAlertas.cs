@@ -9,6 +9,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NuevoModelo.Util;
+
 
 namespace Controladoras
 {
@@ -18,26 +20,26 @@ namespace Controladoras
 
         private void CambiarEmailDestinatario(string newMail)
         {
-            string appDataRoamingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PapeleriaLUG");
+            string directorioConfiguracion = ConfigurationHelper.DirectorioConfiguracion;
 
-            if (!Directory.Exists(appDataRoamingPath))
+            if (!Directory.Exists(directorioConfiguracion))
             {
-                Directory.CreateDirectory(appDataRoamingPath);
+                Directory.CreateDirectory(directorioConfiguracion);
             }
 
-            string filePath = Path.Combine(appDataRoamingPath, "email.txt");
+            string filePath = Path.Combine(directorioConfiguracion, "email.txt");
 
             File.WriteAllText(filePath, newMail);
         }
         private string ObtenerEmailDestinatario()
         {
-            string appDataRoamingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PapeleriaLUG");
+            string directorioConfiguracion = ConfigurationHelper.DirectorioConfiguracion;
 
-            if (!Directory.Exists(appDataRoamingPath))
+            if (!Directory.Exists(directorioConfiguracion))
             {
                 return "";
             }
-            string filePath = Path.Combine(appDataRoamingPath, "email.txt");
+            string filePath = Path.Combine(directorioConfiguracion, "email.txt");
             if (!File.Exists(filePath))
             {
                 return "";
