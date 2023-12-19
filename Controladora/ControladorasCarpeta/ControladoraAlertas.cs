@@ -14,7 +14,39 @@ namespace Controladoras
 {
     public class ControladoraAlertas
     {
-        public string EmailDestinatario { get; set; }
+        public string EmailDestinatario { get { return ObtenerEmailDestinatario(); } set { CambiarEmailDestinatario(value); } }
+
+        private void CambiarEmailDestinatario(string newMail)
+        {
+            string appDataRoamingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PapeleriaLUG");
+
+            if (!Directory.Exists(appDataRoamingPath))
+            {
+                Directory.CreateDirectory(appDataRoamingPath);
+            }
+
+            string filePath = Path.Combine(appDataRoamingPath, "email.txt");
+
+            File.WriteAllText(filePath, "Hello, World!");
+
+            // Read the variable from the file
+        }
+        private string ObtenerEmailDestinatario()
+        {
+            string appDataRoamingPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PapeleriaLUG");
+
+            if (!Directory.Exists(appDataRoamingPath))
+            {
+                return "";
+            }
+            string filePath = Path.Combine(appDataRoamingPath, "email.txt");
+            if (!File.Exists(filePath))
+            {
+                return "";
+            }
+            return File.ReadAllText(filePath);
+
+        }
         public ControladoraAlertas() {
             LogManager.AutoShutdown = true;
             LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration(Path.Join(ConfigurationHelper.DirectorioConfiguracion, "Nlog.config"));
